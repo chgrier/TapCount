@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "ReportDetailViewController.h"
+
+NSInteger total;
+NSInteger totalTwo;
 
 @interface ViewController : UIViewController <UIAlertViewDelegate>
 {
-    NSInteger total;
-    NSInteger totalTwo;
+    
     IBOutlet UILabel *screen;
     IBOutlet UILabel *screenTwo;
 }

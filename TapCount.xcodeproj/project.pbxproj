@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE08A56E19C4A1FB00162606 /* ReportDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE08A56D19C4A1FB00162606 /* ReportDetailViewController.m */; };
+		BE1B5CC719CA02A00053A5D3 /* minusCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1B5CC619CA02A00053A5D3 /* minusCircle.png */; };
+		BE1B5CC919CA0B9D0053A5D3 /* saveButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1B5CC819CA0B9D0053A5D3 /* saveButton.png */; };
+		BE1B5CCB19CA0E2C0053A5D3 /* cellsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1B5CCA19CA0E2C0053A5D3 /* cellsBackground.png */; };
+		BE1B5CCD19CA0FF00053A5D3 /* bigRectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1B5CCC19CA0FF00053A5D3 /* bigRectangle.png */; };
+		BE1B5CCF19CA12470053A5D3 /* clearButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1B5CCE19CA12470053A5D3 /* clearButton.png */; };
+		BE1B5CD519CA17480053A5D3 /* roundedRectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1B5CD419CA17480053A5D3 /* roundedRectangle.png */; };
+		BE1B5CD719CA18F40053A5D3 /* longRectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1B5CD619CA18F40053A5D3 /* longRectangle.png */; };
 		BE22DCDB19C0C00400EE6264 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE22DCDA19C0C00400EE6264 /* AudioToolbox.framework */; };
 		BE50F5AB19C2BD44003AF7C9 /* Sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE50F5AA19C2BD44003AF7C9 /* Sound.caf */; };
 		BE526DA119C2B19A0054564F /* pathGuy.png in Resources */ = {isa = PBXBuildFile; fileRef = BE526DA019C2B19A0054564F /* pathGuy.png */; };
@@ -24,8 +32,8 @@
 		BE70F1B319C0B5F70053E36A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE70F19519C0B5F70053E36A /* UIKit.framework */; };
 		BE70F1BB19C0B5F70053E36A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE70F1B919C0B5F70053E36A /* InfoPlist.strings */; };
 		BE70F1BD19C0B5F70053E36A /* TapCountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE70F1BC19C0B5F70053E36A /* TapCountTests.m */; };
+		BE78AB6B19C75F7000BD9E0D /* decrementTwo.wav in Resources */ = {isa = PBXBuildFile; fileRef = BE78AB6A19C75F7000BD9E0D /* decrementTwo.wav */; };
 		BEAB0E7419C359BB00AA7623 /* cell.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB0E7319C359BB00AA7623 /* cell.png */; };
-		BEAB0E7619C35C2D00AA7623 /* minusCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB0E7519C35C2D00AA7623 /* minusCircle.png */; };
 		BEAB0E7A19C360FC00AA7623 /* iconDraft.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB0E7919C360FC00AA7623 /* iconDraft.png */; };
 		BEAB0E7E19C3619600AA7623 /* icon_58.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB0E7B19C3619600AA7623 /* icon_58.png */; };
 		BEAB0E7F19C3619600AA7623 /* icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB0E7C19C3619600AA7623 /* icon_80.png */; };
@@ -46,6 +54,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE08A56C19C4A1FB00162606 /* ReportDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportDetailViewController.h; sourceTree = "<group>"; };
+		BE08A56D19C4A1FB00162606 /* ReportDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportDetailViewController.m; sourceTree = "<group>"; };
+		BE1B5CC619CA02A00053A5D3 /* minusCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minusCircle.png; sourceTree = "<group>"; };
+		BE1B5CC819CA0B9D0053A5D3 /* saveButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saveButton.png; sourceTree = "<group>"; };
+		BE1B5CCA19CA0E2C0053A5D3 /* cellsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellsBackground.png; sourceTree = "<group>"; };
+		BE1B5CCC19CA0FF00053A5D3 /* bigRectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigRectangle.png; sourceTree = "<group>"; };
+		BE1B5CCE19CA12470053A5D3 /* clearButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clearButton.png; sourceTree = "<group>"; };
+		BE1B5CD419CA17480053A5D3 /* roundedRectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundedRectangle.png; sourceTree = "<group>"; };
+		BE1B5CD619CA18F40053A5D3 /* longRectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = longRectangle.png; sourceTree = "<group>"; };
 		BE22DCDA19C0C00400EE6264 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		BE50F5AA19C2BD44003AF7C9 /* Sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sound.caf; sourceTree = "<group>"; };
 		BE526DA019C2B19A0054564F /* pathGuy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pathGuy.png; sourceTree = "<group>"; };
@@ -68,8 +85,8 @@
 		BE70F1B819C0B5F70053E36A /* TapCountTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TapCountTests-Info.plist"; sourceTree = "<group>"; };
 		BE70F1BA19C0B5F70053E36A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE70F1BC19C0B5F70053E36A /* TapCountTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TapCountTests.m; sourceTree = "<group>"; };
+		BE78AB6A19C75F7000BD9E0D /* decrementTwo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = decrementTwo.wav; sourceTree = "<group>"; };
 		BEAB0E7319C359BB00AA7623 /* cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell.png; sourceTree = "<group>"; };
-		BEAB0E7519C35C2D00AA7623 /* minusCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minusCircle.png; sourceTree = "<group>"; };
 		BEAB0E7919C360FC00AA7623 /* iconDraft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconDraft.png; sourceTree = "<group>"; };
 		BEAB0E7B19C3619600AA7623 /* icon_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_58.png; sourceTree = "<group>"; };
 		BEAB0E7C19C3619600AA7623 /* icon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_80.png; sourceTree = "<group>"; };
@@ -141,6 +158,8 @@
 				BE70F1A019C0B5F70053E36A /* AppDelegate.h */,
 				BE70F1A119C0B5F70053E36A /* AppDelegate.m */,
 				BE70F1A319C0B5F70053E36A /* Main.storyboard */,
+				BE08A56C19C4A1FB00162606 /* ReportDetailViewController.h */,
+				BE08A56D19C4A1FB00162606 /* ReportDetailViewController.m */,
 				BE70F1A619C0B5F70053E36A /* ViewController.h */,
 				BE70F1A719C0B5F70053E36A /* ViewController.m */,
 				BE70F1A919C0B5F70053E36A /* Images.xcassets */,
@@ -152,15 +171,22 @@
 		BE70F19819C0B5F70053E36A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BE1B5CD619CA18F40053A5D3 /* longRectangle.png */,
+				BE1B5CD419CA17480053A5D3 /* roundedRectangle.png */,
+				BE1B5CCE19CA12470053A5D3 /* clearButton.png */,
+				BE1B5CCC19CA0FF00053A5D3 /* bigRectangle.png */,
+				BE1B5CCA19CA0E2C0053A5D3 /* cellsBackground.png */,
+				BE78AB6A19C75F7000BD9E0D /* decrementTwo.wav */,
 				BEAB0E8519C37DDF00AA7623 /* rectangle.png */,
+				BE1B5CC819CA0B9D0053A5D3 /* saveButton.png */,
 				BEAB0E8319C37B0400AA7623 /* unhappyCell.png */,
 				BEAB0E7B19C3619600AA7623 /* icon_58.png */,
 				BEAB0E7C19C3619600AA7623 /* icon_80.png */,
 				BEAB0E7D19C3619600AA7623 /* icon_120.png */,
 				BEAB0E7919C360FC00AA7623 /* iconDraft.png */,
-				BEAB0E7519C35C2D00AA7623 /* minusCircle.png */,
 				BEAB0E7319C359BB00AA7623 /* cell.png */,
 				BE50F5AA19C2BD44003AF7C9 /* Sound.caf */,
+				BE1B5CC619CA02A00053A5D3 /* minusCircle.png */,
 				BE526DA019C2B19A0054564F /* pathGuy.png */,
 				BEFE4D8219C2A64D009CBB29 /* heartCell.jpg */,
 				BE70F19919C0B5F70053E36A /* TapCount-Info.plist */,
@@ -265,18 +291,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEAB0E7619C35C2D00AA7623 /* minusCircle.png in Resources */,
+				BE78AB6B19C75F7000BD9E0D /* decrementTwo.wav in Resources */,
 				BEFE4D8319C2A64D009CBB29 /* heartCell.jpg in Resources */,
 				BE70F1AA19C0B5F70053E36A /* Images.xcassets in Resources */,
+				BE1B5CD719CA18F40053A5D3 /* longRectangle.png in Resources */,
+				BE1B5CC719CA02A00053A5D3 /* minusCircle.png in Resources */,
+				BE1B5CCF19CA12470053A5D3 /* clearButton.png in Resources */,
 				BE70F19C19C0B5F70053E36A /* InfoPlist.strings in Resources */,
 				BEAB0E7419C359BB00AA7623 /* cell.png in Resources */,
+				BE1B5CCB19CA0E2C0053A5D3 /* cellsBackground.png in Resources */,
 				BEAB0E8619C37DDF00AA7623 /* rectangle.png in Resources */,
 				BE526DA119C2B19A0054564F /* pathGuy.png in Resources */,
 				BE70F1A519C0B5F70053E36A /* Main.storyboard in Resources */,
+				BE1B5CCD19CA0FF00053A5D3 /* bigRectangle.png in Resources */,
 				BEAB0E7E19C3619600AA7623 /* icon_58.png in Resources */,
 				BEAB0E8419C37B0400AA7623 /* unhappyCell.png in Resources */,
 				BEAB0E7A19C360FC00AA7623 /* iconDraft.png in Resources */,
+				BE1B5CC919CA0B9D0053A5D3 /* saveButton.png in Resources */,
 				BEAB0E8019C3619600AA7623 /* icon_120.png in Resources */,
+				BE1B5CD519CA17480053A5D3 /* roundedRectangle.png in Resources */,
 				BEAB0E7F19C3619600AA7623 /* icon_80.png in Resources */,
 				BE50F5AB19C2BD44003AF7C9 /* Sound.caf in Resources */,
 			);
@@ -298,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE70F1A819C0B5F70053E36A /* ViewController.m in Sources */,
+				BE08A56E19C4A1FB00162606 /* ReportDetailViewController.m in Sources */,
 				BE70F1A219C0B5F70053E36A /* AppDelegate.m in Sources */,
 				BE70F19E19C0B5F70053E36A /* main.m in Sources */,
 			);
@@ -428,6 +462,7 @@
 				GCC_PREFIX_HEADER = "TapCount/TapCount-Prefix.pch";
 				INFOPLIST_FILE = "TapCount/TapCount-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -441,6 +476,7 @@
 				GCC_PREFIX_HEADER = "TapCount/TapCount-Prefix.pch";
 				INFOPLIST_FILE = "TapCount/TapCount-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

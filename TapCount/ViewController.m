@@ -8,12 +8,10 @@
 
 #import "ViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
-
+//#import <AVFoundation/AVFoundation.h>
 @import AVFoundation;
 
 @interface ViewController ()
-
-
 
 @end
 
@@ -27,6 +25,7 @@
     SystemSoundID _soundID;
     
     AVSpeechSynthesizer *_speechSynthesizer;
+    AVSpeechSynthesizer *_speechSynthesizerTwo;
     
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -42,14 +41,17 @@
    // _vibrate = YES;
     
      _speechSynthesizer = [[AVSpeechSynthesizer alloc]init];
+    _speechSynthesizerTwo = [[AVSpeechSynthesizer alloc]init];
     
     _vibrate = YES;
     _speechOn = YES;
     _soundOn = YES;
     
     
-    AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:@"Ready"];
-     [_speechSynthesizer speakUtterance:utterance];
+   // AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:@"Ready"];
+    AVSpeechUtterance *utteranceTwo = [[AVSpeechUtterance alloc]initWithString:@"OK"];
+    // [_speechSynthesizer speakUtterance:utterance];
+    [_speechSynthesizerTwo speakUtterance:utteranceTwo];
     
     [self loadSoundEffect];
     
@@ -59,10 +61,9 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    total = 0;
+    [self unloadSoundEffect];
+    _speechOn = NO;
 }
-
-
 
 
 - (BOOL)stopSpeakingAtBoundary:(AVSpeechBoundary)boundary{
@@ -73,29 +74,54 @@
 
 -(IBAction)increment:(id)sender
 {
+   
     total++;
     [screen setText:[NSString stringWithFormat:@"%ld", (long)total]];
     
     [self updateTextWithAnimation];
-    
+   
     NSString *count = [NSString stringWithFormat:@"%ld",(long)total];
     
-    AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:count];
+    static AVSpeechUtterance *utterance;
+    utterance = [[AVSpeechUtterance alloc]initWithString:count];
+    
+    
+    
     
     // *** class method alternative ***
     //[_speechSynthesizer speakUtterance:[AVSpeechUtterance speechUtteranceWithString:count]];
     
     if (_speechOn == YES) {
+       
+        int a;
+        a = total;
+        int b;
+        b = 10;
         
+        
+        if ( a % b == 0){
+            AudioServicesPlayAlertSound (kSystemSoundID_Vibrate);
+            
+            NSString *count = [NSString stringWithFormat:@"%ld Blasts",(long)total];
+            //NSString *count = [NSString stringWithFormat:@"Blasts"];
+            
+            
+            AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:count];
+            
+            [_speechSynthesizer speakUtterance:utterance];
+        } else {
+
     utterance.rate = AVSpeechUtteranceMinimumSpeechRate + ((AVSpeechUtteranceMaximumSpeechRate - AVSpeechUtteranceMinimumSpeechRate) * 0.5f);
     utterance.volume = 1.0f;
     utterance.pitchMultiplier = 1.2f;
-    utterance.postUtteranceDelay = 0.0;
+    //utterance.postUtteranceDelay = 0.0;
     utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-us"];
     
     [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
     
     [_speechSynthesizer speakUtterance:utterance];
+    
+    }
     }
     
     if (_vibrate == YES) {
@@ -103,25 +129,7 @@
     }
     
     if (_soundOn == YES) {
-        
-        int a;
-        a = total;
-        int b;
-        b = 10;
-       
-        
-        if ( a % b == 0){
-        AudioServicesPlayAlertSound (kSystemSoundID_Vibrate);
-        
-        NSString *count = [NSString stringWithFormat:@"%ld Blasts",(long)total];
-        //NSString *count = [NSString stringWithFormat:@"Blasts"];
-
-        
-        AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:count];
-        
-        [_speechSynthesizer speakUtterance:utterance];
-    }
-    }
+           }
     
    
 }
@@ -131,54 +139,61 @@
     totalTwo++;
     [screenTwo setText:[NSString stringWithFormat:@"%ld", (long)totalTwo]];
     
+    NSString *countTwo = [NSString stringWithFormat:@"%ld",(long)totalTwo];
+    
+    static AVSpeechUtterance *utteranceTwo;
+    utteranceTwo = [[AVSpeechUtterance alloc]initWithString:countTwo];
+    
     [self updateTextWithAnimation];
-    
-    NSString *count = [NSString stringWithFormat:@"%ld",(long)totalTwo];
-    
-    AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:count];
     
     // *** class method alternative ***
     //[_speechSynthesizer speakUtterance:[AVSpeechUtterance speechUtteranceWithString:count]];
     
     if (_speechOn == YES) {
         
-        utterance.rate = AVSpeechUtteranceMinimumSpeechRate + ((AVSpeechUtteranceMaximumSpeechRate - AVSpeechUtteranceMinimumSpeechRate) * 0.5f);
-        utterance.volume = 1.0f;
-        utterance.pitchMultiplier = 1.2f;
-        utterance.postUtteranceDelay = 0.0;
-        utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
+        if (_soundOn == YES) {
+            // alert when reach 10s
+            int a;
+            a = totalTwo;
+            int b;
+            b = 10;
+            if ( a % b == 0) {
+                AudioServicesPlayAlertSound (kSystemSoundID_Vibrate);
+                
+                NSString *count = [NSString stringWithFormat:@"%ld Other",(long)totalTwo];
+                //NSString *count = [NSString stringWithFormat:@"Other"];
+                
+                AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:count];
+                utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
+                [_speechSynthesizerTwo speakUtterance:utterance];
+            } else {
+
+        utteranceTwo.rate = AVSpeechUtteranceMinimumSpeechRate + ((AVSpeechUtteranceMaximumSpeechRate - AVSpeechUtteranceMinimumSpeechRate) * 0.5f);
+        utteranceTwo.volume = 1.0f;
+        utteranceTwo.pitchMultiplier = 1.2f;
+        //utterance.postUtteranceDelay = 0.0;
+        utteranceTwo.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
         
-        [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
+        //[_speechSynthesizerTwo stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
         
-        [_speechSynthesizer speakUtterance:utterance];
+        [_speechSynthesizerTwo speakUtterance:utteranceTwo];
         
+                
     
-        if (total == 52 && totalTwo == 20) {
-            [_speechSynthesizer speakUtterance:[AVSpeechUtterance speechUtteranceWithString:@"Go GATORS!"]];
-        }
+//        if (total == 52 && totalTwo == 20) {
+//            [_speechSynthesizer speakUtterance:[AVSpeechUtterance speechUtteranceWithString:@"Go GATORS!"]];
+//        }
+    }
     }
     
     if (_vibrate == YES) {
         AudioServicesPlayAlertSound (kSystemSoundID_Vibrate);
     }
-    
-    if (_soundOn == YES) {
-        // alert when reach 10s
-        int a;
-        a = totalTwo;
-        int b;
-        b = 10;
-        if ( a % b == 0) {
-            AudioServicesPlayAlertSound (kSystemSoundID_Vibrate);
-            
-            NSString *count = [NSString stringWithFormat:@"%ld Other",(long)totalTwo];
-            //NSString *count = [NSString stringWithFormat:@"Other"];
-            
-            AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:count];
-            
-            [_speechSynthesizer speakUtterance:utterance];
+        
+        if (_soundOn == YES) {
         }
-    }
+    
+        }
     
 }
 
@@ -199,6 +214,11 @@
 {
     totalTwo--;
     [screenTwo setText:[NSString stringWithFormat:@"%ld", (long)totalTwo]];
+   
+    if (_soundOn == YES) {
+        [self playSoundEffect];
+    }
+
 }
 
 // alert when tap clear button. If Yes, then go to didDismissWithButtonIndex method
@@ -348,6 +368,7 @@
 
 - (void)loadSoundEffect
 {
+   
     NSString *path = [[NSBundle mainBundle]pathForResource:@"Sound.caf" ofType:nil];
     
     NSURL *fileURL = [NSURL fileURLWithPath:path isDirectory:NO];
@@ -374,6 +395,24 @@
 {
     AudioServicesPlaySystemSound(_soundID);
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"SaveReport"]) {
+       
+        UINavigationController *navigationController = segue.destinationViewController;
+        
+        ReportDetailViewController *controller = (ReportDetailViewController *)navigationController.topViewController;
+        
+        controller.countTotalOne = total;
+        controller.countTotalTwo = totalTwo;
+        
+        
+    }
+}
+
+
+
 
 
 
