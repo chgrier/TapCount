@@ -7,14 +7,19 @@
 //
 
 #import "ReportDetailViewController.h"
+#import "Report.h"
+#import "ReportViewController.h"
 
-@interface ReportDetailViewController () <UITextViewDelegate>
+@interface ReportDetailViewController () <UITextViewDelegate, UITextFieldDelegate>
 
 @end
 
 @implementation ReportDetailViewController
 {
     NSString *_reportTitle;
+    NSString *_notes;
+    
+    NSDate *_date;
 }
 
 // give instance variable _reportTitle an initial value
@@ -22,6 +27,7 @@
 {
     if ((self = [super initWithCoder:aDecoder])) {
         _reportTitle = @"";
+        _date = [NSDate date];
     }
     
     return self;
@@ -31,19 +37,37 @@
 {
     [super viewDidLoad];
     
+    [_reportNameField setDelegate:self];
+    
+    
     [self.reportNameField becomeFirstResponder];
     self.reportNameField.text = _reportTitle;
-    self.dateLabel.text = [self formatDate:[NSDate date]];
+    self.dateLabel.text = [self formatDate:_date];
     self.countOneLabel.text = [NSString stringWithFormat:@"Blast Count: %ld", (long) _countTotalOne];
     self.countTwoLabel.text = [NSString stringWithFormat:@"Other Count: %ld", (long) _countTotalTwo];
     
     
     // dismiss keyboard when click outside of cell
-    UIGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
-    //
+    UIGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard:)];
+    
     gestureRecognizer.cancelsTouchesInView = NO;
+    
+    [self.tableView addGestureRecognizer:gestureRecognizer];
 
 }
+
+- (void)hideKeyboard:(UIGestureRecognizer *)gestureRecognizer
+{
+    CGPoint point = [gestureRecognizer locationInView:self.tableView];
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:point];
+    
+    if (indexPath != nil && indexPath.section == 0 && indexPath.row == 0) {
+        return;
+    }
+    [self.reportNameField resignFirstResponder];
+}
+
 
 // example of lazy loading  -- static variable keeps instance after method stops
 - (NSString *)formatDate:(NSDate *)theDate
@@ -59,10 +83,30 @@
    
     
     
+    
 }
 -(IBAction)done:(id)sender
 {
-    [self closeScreen];
+    //[self closeScreen];
+    HudView *hudView = [HudView hudInView:self.navigationController.view animated:YES];
+    
+    hudView.text = @"Report Saved!";
+    
+    
+    Report *report = [NSEntityDescription insertNewObjectForEntityForName:@"Report" inManagedObjectContext:self.managedObjectContext];
+    
+    report.reportName = _reportTitle;
+    report.date = _date;
+    report.blastCount = self.countOneLabel.text;
+    report.otherCount = self.countTwoLabel.text;
+
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        //NSLog(@"ERROR: )
+        abort();
+    }
+    
+    [self performSelector:@selector(closeScreen) withObject:nil afterDelay:0.8f];
 }
 
 
@@ -99,7 +143,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
+    if (indexPath.section == 2 || (indexPath.section == 0 && indexPath.row == 0)) {
         [self.reportNameField becomeFirstResponder];
     }
 }
@@ -115,22 +159,35 @@
 // add characters to _reportTitle instance variable when typing in textfield
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    _reportTitle = [textView.text stringByReplacingCharactersInRange:range withString:text];
+    //_reportTitle = [textView.text stringByReplacingCharactersInRange:range withString:text];
     
     return YES;
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
-    _reportTitle = textView.text;
+    //_reportTitle = textView.text;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
+    [self.reportNameField resignFirstResponder];
     
     return YES;
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"SaveToTable"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        
+        ReportViewController *controller = (ReportViewController *) navigationController.topViewController;
+        
+        controller.managedObjectContext = self.managedObjectContext;
+        
+    }
+}
+
 
 
 

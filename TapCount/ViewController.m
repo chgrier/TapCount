@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import <AudioToolbox/AudioToolbox.h>
+//#import <AudioToolbox/AudioToolbox.h>
 //#import <AVFoundation/AVFoundation.h>
 @import AVFoundation;
 
@@ -49,11 +49,13 @@
     
     
    // AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:@"Ready"];
-    AVSpeechUtterance *utteranceTwo = [[AVSpeechUtterance alloc]initWithString:@"OK"];
+    AVSpeechUtterance *utteranceTwo = [[AVSpeechUtterance alloc]initWithString:@"Ready"];
     // [_speechSynthesizer speakUtterance:utterance];
     [_speechSynthesizerTwo speakUtterance:utteranceTwo];
     
     [self loadSoundEffect];
+    
+    _britishVoice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
     
 }
 
@@ -115,7 +117,7 @@
     utterance.volume = 1.0f;
     utterance.pitchMultiplier = 1.2f;
     //utterance.postUtteranceDelay = 0.0;
-    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-us"];
+    //utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-us"];
     
     [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
     
@@ -139,65 +141,62 @@
     totalTwo++;
     [screenTwo setText:[NSString stringWithFormat:@"%ld", (long)totalTwo]];
     
-    NSString *countTwo = [NSString stringWithFormat:@"%ld",(long)totalTwo];
-    
-    static AVSpeechUtterance *utteranceTwo;
-    utteranceTwo = [[AVSpeechUtterance alloc]initWithString:countTwo];
-    
     [self updateTextWithAnimation];
+    
+    NSString *count = [NSString stringWithFormat:@"%ld",(long)totalTwo];
+    
+    static AVSpeechUtterance *utterance;
+    utterance = [[AVSpeechUtterance alloc]initWithString:count];
+    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-us"];
+    
+    
+    
     
     // *** class method alternative ***
     //[_speechSynthesizer speakUtterance:[AVSpeechUtterance speechUtteranceWithString:count]];
     
     if (_speechOn == YES) {
         
-        if (_soundOn == YES) {
-            // alert when reach 10s
-            int a;
-            a = totalTwo;
-            int b;
-            b = 10;
-            if ( a % b == 0) {
-                AudioServicesPlayAlertSound (kSystemSoundID_Vibrate);
-                
-                NSString *count = [NSString stringWithFormat:@"%ld Other",(long)totalTwo];
-                //NSString *count = [NSString stringWithFormat:@"Other"];
-                
-                AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:count];
-                utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
-                [_speechSynthesizerTwo speakUtterance:utterance];
-            } else {
-
-        utteranceTwo.rate = AVSpeechUtteranceMinimumSpeechRate + ((AVSpeechUtteranceMaximumSpeechRate - AVSpeechUtteranceMinimumSpeechRate) * 0.5f);
-        utteranceTwo.volume = 1.0f;
-        utteranceTwo.pitchMultiplier = 1.2f;
-        //utterance.postUtteranceDelay = 0.0;
-        utteranceTwo.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
+        int a;
+        a = totalTwo;
+        int b;
+        b = 10;
         
-        //[_speechSynthesizerTwo stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
         
-        [_speechSynthesizerTwo speakUtterance:utteranceTwo];
-        
-                
-    
-//        if (total == 52 && totalTwo == 20) {
-//            [_speechSynthesizer speakUtterance:[AVSpeechUtterance speechUtteranceWithString:@"Go GATORS!"]];
-//        }
-    }
+        if ( a % b == 0){
+            AudioServicesPlayAlertSound (kSystemSoundID_Vibrate);
+            
+            NSString *count = [NSString stringWithFormat:@"%ld Blasts",(long)totalTwo];
+            //NSString *count = [NSString stringWithFormat:@"Blasts"];
+            
+            
+            AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:count];
+            
+            [_speechSynthesizer speakUtterance:utterance];
+        } else {
+            
+            utterance.rate = AVSpeechUtteranceMinimumSpeechRate + ((AVSpeechUtteranceMaximumSpeechRate - AVSpeechUtteranceMinimumSpeechRate) * 0.5f);
+            utterance.volume = 1.0f;
+            utterance.pitchMultiplier = 0.5f;
+            //utterance.postUtteranceDelay = 0.0;
+            utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-us"];
+            
+            [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
+            
+            [_speechSynthesizer speakUtterance:utterance];
+            
+        }
     }
     
     if (_vibrate == YES) {
         AudioServicesPlayAlertSound (kSystemSoundID_Vibrate);
     }
-        
-        if (_soundOn == YES) {
-        }
     
-        }
+    if (_soundOn == YES) {
+    }
+    
     
 }
-
-
 
 -(IBAction)decrement:(id)sender
 {
@@ -379,7 +378,7 @@
     OSStatus error = AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &_soundID);
     
     if (error != kAudioServicesNoError) {
-        NSLog(@"Error code %ld loading sound at path: %@", error, path);
+       // NSLog(@"Error code %ld loading sound at path: %@", error, path);
         
         return;
     }
@@ -406,6 +405,7 @@
         
         controller.countTotalOne = total;
         controller.countTotalTwo = totalTwo;
+        controller.managedObjectContext = self.managedObjectContext;
         
         
     }

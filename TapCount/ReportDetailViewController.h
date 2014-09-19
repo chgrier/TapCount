@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HudView.h"
+#import <CoreData/CoreData.h>
 
 @interface ReportDetailViewController : UITableViewController
 
@@ -14,8 +16,12 @@
 @property (nonatomic, weak) IBOutlet UILabel *dateLabel;
 @property (nonatomic, weak) IBOutlet UILabel *countOneLabel;
 @property (nonatomic, weak) IBOutlet UILabel *countTwoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *notesLabel;
 
 @property (nonatomic, assign) NSInteger countTotalOne;
 @property (nonatomic, assign) NSInteger countTotalTwo;
+
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
 
 @end

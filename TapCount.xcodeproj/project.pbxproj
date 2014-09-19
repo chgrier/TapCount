@@ -40,6 +40,16 @@
 		BEAB0E8019C3619600AA7623 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB0E7D19C3619600AA7623 /* icon_120.png */; };
 		BEAB0E8419C37B0400AA7623 /* unhappyCell.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB0E8319C37B0400AA7623 /* unhappyCell.png */; };
 		BEAB0E8619C37DDF00AA7623 /* rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB0E8519C37DDF00AA7623 /* rectangle.png */; };
+		BEDC13B819CBA0E0009AC3C2 /* HudView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDC13B719CBA0E0009AC3C2 /* HudView.m */; };
+		BEDC13BA19CC807C009AC3C2 /* microscope-50.png in Resources */ = {isa = PBXBuildFile; fileRef = BEDC13B919CC807C009AC3C2 /* microscope-50.png */; };
+		BEDC13BC19CC8318009AC3C2 /* microscope-50-white.png in Resources */ = {isa = PBXBuildFile; fileRef = BEDC13BB19CC8318009AC3C2 /* microscope-50-white.png */; };
+		BEDC13C019CC837A009AC3C2 /* microscope-75.png in Resources */ = {isa = PBXBuildFile; fileRef = BEDC13BF19CC837A009AC3C2 /* microscope-75.png */; };
+		BEDC13C219CC83DF009AC3C2 /* microscope-75-white.png in Resources */ = {isa = PBXBuildFile; fileRef = BEDC13C119CC83DF009AC3C2 /* microscope-75-white.png */; };
+		BEDC13C419CC8454009AC3C2 /* microscope-75-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = BEDC13C319CC8454009AC3C2 /* microscope-75-grey.png */; };
+		BEDC13C619CC8D29009AC3C2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDC13C519CC8D29009AC3C2 /* CoreData.framework */; };
+		BEDC13FE19CC903D009AC3C2 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BEDC13FC19CC903D009AC3C2 /* DataModel.xcdatamodeld */; };
+		BEDC140119CC9532009AC3C2 /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDC140019CC9531009AC3C2 /* Report.m */; };
+		BEDC140419CCBAAC009AC3C2 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEDC140319CCBAAC009AC3C2 /* ReportViewController.m */; };
 		BEFE4D8319C2A64D009CBB29 /* heartCell.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEFE4D8219C2A64D009CBB29 /* heartCell.jpg */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +103,19 @@
 		BEAB0E7D19C3619600AA7623 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
 		BEAB0E8319C37B0400AA7623 /* unhappyCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unhappyCell.png; sourceTree = "<group>"; };
 		BEAB0E8519C37DDF00AA7623 /* rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rectangle.png; sourceTree = "<group>"; };
+		BEDC13B619CBA0E0009AC3C2 /* HudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HudView.h; sourceTree = "<group>"; };
+		BEDC13B719CBA0E0009AC3C2 /* HudView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HudView.m; sourceTree = "<group>"; };
+		BEDC13B919CC807C009AC3C2 /* microscope-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microscope-50.png"; sourceTree = "<group>"; };
+		BEDC13BB19CC8318009AC3C2 /* microscope-50-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microscope-50-white.png"; sourceTree = "<group>"; };
+		BEDC13BF19CC837A009AC3C2 /* microscope-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microscope-75.png"; sourceTree = "<group>"; };
+		BEDC13C119CC83DF009AC3C2 /* microscope-75-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microscope-75-white.png"; sourceTree = "<group>"; };
+		BEDC13C319CC8454009AC3C2 /* microscope-75-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microscope-75-grey.png"; sourceTree = "<group>"; };
+		BEDC13C519CC8D29009AC3C2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		BEDC13FD19CC903D009AC3C2 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		BEDC13FF19CC9531009AC3C2 /* Report.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Report.h; path = ../Report.h; sourceTree = "<group>"; };
+		BEDC140019CC9531009AC3C2 /* Report.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Report.m; path = ../Report.m; sourceTree = "<group>"; };
+		BEDC140219CCBAAC009AC3C2 /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
+		BEDC140319CCBAAC009AC3C2 /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
 		BEFE4D8219C2A64D009CBB29 /* heartCell.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = heartCell.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEDC13C619CC8D29009AC3C2 /* CoreData.framework in Frameworks */,
 				BE22DCDB19C0C00400EE6264 /* AudioToolbox.framework in Frameworks */,
 				BE70F19419C0B5F70053E36A /* CoreGraphics.framework in Frameworks */,
 				BE70F19619C0B5F70053E36A /* UIKit.framework in Frameworks */,
@@ -143,6 +167,7 @@
 		BE70F19019C0B5F70053E36A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BEDC13C519CC8D29009AC3C2 /* CoreData.framework */,
 				BE22DCDA19C0C00400EE6264 /* AudioToolbox.framework */,
 				BE70F19119C0B5F70053E36A /* Foundation.framework */,
 				BE70F19319C0B5F70053E36A /* CoreGraphics.framework */,
@@ -155,9 +180,16 @@
 		BE70F19719C0B5F70053E36A /* TapCount */ = {
 			isa = PBXGroup;
 			children = (
+				BEDC13FF19CC9531009AC3C2 /* Report.h */,
+				BEDC140019CC9531009AC3C2 /* Report.m */,
+				BEDC13FC19CC903D009AC3C2 /* DataModel.xcdatamodeld */,
 				BE70F1A019C0B5F70053E36A /* AppDelegate.h */,
 				BE70F1A119C0B5F70053E36A /* AppDelegate.m */,
 				BE70F1A319C0B5F70053E36A /* Main.storyboard */,
+				BEDC140219CCBAAC009AC3C2 /* ReportViewController.h */,
+				BEDC140319CCBAAC009AC3C2 /* ReportViewController.m */,
+				BEDC13B619CBA0E0009AC3C2 /* HudView.h */,
+				BEDC13B719CBA0E0009AC3C2 /* HudView.m */,
 				BE08A56C19C4A1FB00162606 /* ReportDetailViewController.h */,
 				BE08A56D19C4A1FB00162606 /* ReportDetailViewController.m */,
 				BE70F1A619C0B5F70053E36A /* ViewController.h */,
@@ -171,6 +203,11 @@
 		BE70F19819C0B5F70053E36A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BEDC13C319CC8454009AC3C2 /* microscope-75-grey.png */,
+				BEDC13C119CC83DF009AC3C2 /* microscope-75-white.png */,
+				BEDC13BF19CC837A009AC3C2 /* microscope-75.png */,
+				BEDC13BB19CC8318009AC3C2 /* microscope-50-white.png */,
+				BEDC13B919CC807C009AC3C2 /* microscope-50.png */,
 				BE1B5CD619CA18F40053A5D3 /* longRectangle.png */,
 				BE1B5CD419CA17480053A5D3 /* roundedRectangle.png */,
 				BE1B5CCE19CA12470053A5D3 /* clearButton.png */,
@@ -291,10 +328,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEDC13C219CC83DF009AC3C2 /* microscope-75-white.png in Resources */,
 				BE78AB6B19C75F7000BD9E0D /* decrementTwo.wav in Resources */,
 				BEFE4D8319C2A64D009CBB29 /* heartCell.jpg in Resources */,
+				BEDC13BA19CC807C009AC3C2 /* microscope-50.png in Resources */,
 				BE70F1AA19C0B5F70053E36A /* Images.xcassets in Resources */,
 				BE1B5CD719CA18F40053A5D3 /* longRectangle.png in Resources */,
+				BEDC13BC19CC8318009AC3C2 /* microscope-50-white.png in Resources */,
 				BE1B5CC719CA02A00053A5D3 /* minusCircle.png in Resources */,
 				BE1B5CCF19CA12470053A5D3 /* clearButton.png in Resources */,
 				BE70F19C19C0B5F70053E36A /* InfoPlist.strings in Resources */,
@@ -304,8 +344,10 @@
 				BE526DA119C2B19A0054564F /* pathGuy.png in Resources */,
 				BE70F1A519C0B5F70053E36A /* Main.storyboard in Resources */,
 				BE1B5CCD19CA0FF00053A5D3 /* bigRectangle.png in Resources */,
+				BEDC13C419CC8454009AC3C2 /* microscope-75-grey.png in Resources */,
 				BEAB0E7E19C3619600AA7623 /* icon_58.png in Resources */,
 				BEAB0E8419C37B0400AA7623 /* unhappyCell.png in Resources */,
+				BEDC13C019CC837A009AC3C2 /* microscope-75.png in Resources */,
 				BEAB0E7A19C360FC00AA7623 /* iconDraft.png in Resources */,
 				BE1B5CC919CA0B9D0053A5D3 /* saveButton.png in Resources */,
 				BEAB0E8019C3619600AA7623 /* icon_120.png in Resources */,
@@ -331,9 +373,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE70F1A819C0B5F70053E36A /* ViewController.m in Sources */,
+				BEDC140119CC9532009AC3C2 /* Report.m in Sources */,
 				BE08A56E19C4A1FB00162606 /* ReportDetailViewController.m in Sources */,
 				BE70F1A219C0B5F70053E36A /* AppDelegate.m in Sources */,
+				BEDC140419CCBAAC009AC3C2 /* ReportViewController.m in Sources */,
+				BEDC13FE19CC903D009AC3C2 /* DataModel.xcdatamodeld in Sources */,
 				BE70F19E19C0B5F70053E36A /* main.m in Sources */,
+				BEDC13B819CBA0E0009AC3C2 /* HudView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +598,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BEDC13FC19CC903D009AC3C2 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BEDC13FD19CC903D009AC3C2 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = BEDC13FD19CC903D009AC3C2 /* DataModel.xcdatamodel */;
+			name = DataModel.xcdatamodeld;
+			path = ../DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BE70F18619C0B5F70053E36A /* Project object */;
 }
