@@ -92,7 +92,6 @@
     
     hudView.text = @"Report Saved!";
     
-    
     Report *report = [NSEntityDescription insertNewObjectForEntityForName:@"Report" inManagedObjectContext:self.managedObjectContext];
     
     report.reportName = _reportTitle;
@@ -102,7 +101,7 @@
 
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
-        //NSLog(@"ERROR: )
+        NSLog(@"ERROR: %@", error);
         abort();
     }
     
@@ -176,6 +175,7 @@
     return YES;
 }
 
+/*
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"SaveToTable"]) {
@@ -187,7 +187,7 @@
         
     }
 }
-
+*/
 
 
 
