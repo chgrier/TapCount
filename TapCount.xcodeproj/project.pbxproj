@@ -32,6 +32,7 @@
 		BE70F1BB19C0B5F70053E36A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE70F1B919C0B5F70053E36A /* InfoPlist.strings */; };
 		BE70F1BD19C0B5F70053E36A /* TapCountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE70F1BC19C0B5F70053E36A /* TapCountTests.m */; };
 		BE78AB6B19C75F7000BD9E0D /* decrementTwo.wav in Resources */ = {isa = PBXBuildFile; fileRef = BE78AB6A19C75F7000BD9E0D /* decrementTwo.wav */; };
+		BEA41B7F19D23FC0007F8060 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEA41B7E19D23FC0007F8060 /* Main.storyboard */; };
 		BEAB0E7419C359BB00AA7623 /* cell.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB0E7319C359BB00AA7623 /* cell.png */; };
 		BEAB0E7A19C360FC00AA7623 /* iconDraft.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB0E7919C360FC00AA7623 /* iconDraft.png */; };
 		BEAB0E7E19C3619600AA7623 /* icon_58.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB0E7B19C3619600AA7623 /* icon_58.png */; };
@@ -94,6 +95,7 @@
 		BE70F1BA19C0B5F70053E36A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE70F1BC19C0B5F70053E36A /* TapCountTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TapCountTests.m; sourceTree = "<group>"; };
 		BE78AB6A19C75F7000BD9E0D /* decrementTwo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = decrementTwo.wav; sourceTree = "<group>"; };
+		BEA41B7E19D23FC0007F8060 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BEAB0E7319C359BB00AA7623 /* cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell.png; sourceTree = "<group>"; };
 		BEAB0E7919C360FC00AA7623 /* iconDraft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconDraft.png; sourceTree = "<group>"; };
 		BEAB0E7B19C3619600AA7623 /* icon_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_58.png; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		BE70F19719C0B5F70053E36A /* TapCount */ = {
 			isa = PBXGroup;
 			children = (
+				BEA41B7E19D23FC0007F8060 /* Main.storyboard */,
 				BEDC13FF19CC9531009AC3C2 /* Report.h */,
 				BEDC140019CC9531009AC3C2 /* Report.m */,
 				BEDC13FC19CC903D009AC3C2 /* DataModel.xcdatamodeld */,
@@ -332,6 +335,7 @@
 				BE70F1AA19C0B5F70053E36A /* Images.xcassets in Resources */,
 				BE1B5CD719CA18F40053A5D3 /* longRectangle.png in Resources */,
 				BEDC13BC19CC8318009AC3C2 /* microscope-50-white.png in Resources */,
+				BEA41B7F19D23FC0007F8060 /* Main.storyboard in Resources */,
 				BE1B5CC719CA02A00053A5D3 /* minusCircle.png in Resources */,
 				BE1B5CCF19CA12470053A5D3 /* clearButton.png in Resources */,
 				BE70F19C19C0B5F70053E36A /* InfoPlist.strings in Resources */,
