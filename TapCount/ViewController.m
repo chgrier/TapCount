@@ -147,8 +147,7 @@
     
     static AVSpeechUtterance *utterance;
     utterance = [[AVSpeechUtterance alloc]initWithString:count];
-    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-us"];
-    
+    utterance.voice = nil;
     
     
     
@@ -171,19 +170,28 @@
             
             
             AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:count];
+
             
             [_speechSynthesizer speakUtterance:utterance];
+            
         } else {
+            
             
             utterance.rate = AVSpeechUtteranceMinimumSpeechRate + ((AVSpeechUtteranceMaximumSpeechRate - AVSpeechUtteranceMinimumSpeechRate) * 0.5f);
             utterance.volume = 1.0f;
-            utterance.pitchMultiplier = 0.5f;
+            utterance.pitchMultiplier = 0.9f;
             //utterance.postUtteranceDelay = 0.0;
             utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-us"];
             
             [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
             
             [_speechSynthesizer speakUtterance:utterance];
+            
+            
+            
+            
+            
+            
             
         }
     }
@@ -409,7 +417,22 @@
         
         
     }
+    
+    if ([segue.identifier isEqualToString:@"EmailReport"]) {
+        
+        UINavigationController *navigationController = segue.destinationViewController;
+        
+        ReportViewController *controller = (ReportViewController *)navigationController.topViewController;
+        
+        controller.managedObjectContext = self.managedObjectContext;
+        
+        
+    }
+
+    
+    
 }
+
 
 
 

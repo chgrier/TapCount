@@ -24,7 +24,6 @@
 		BE70F19C19C0B5F70053E36A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE70F19A19C0B5F70053E36A /* InfoPlist.strings */; };
 		BE70F19E19C0B5F70053E36A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE70F19D19C0B5F70053E36A /* main.m */; };
 		BE70F1A219C0B5F70053E36A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE70F1A119C0B5F70053E36A /* AppDelegate.m */; };
-		BE70F1A519C0B5F70053E36A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE70F1A319C0B5F70053E36A /* Main.storyboard */; };
 		BE70F1A819C0B5F70053E36A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE70F1A719C0B5F70053E36A /* ViewController.m */; };
 		BE70F1AA19C0B5F70053E36A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE70F1A919C0B5F70053E36A /* Images.xcassets */; };
 		BE70F1B119C0B5F70053E36A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE70F1B019C0B5F70053E36A /* XCTest.framework */; };
@@ -86,7 +85,6 @@
 		BE70F19F19C0B5F70053E36A /* TapCount-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TapCount-Prefix.pch"; sourceTree = "<group>"; };
 		BE70F1A019C0B5F70053E36A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BE70F1A119C0B5F70053E36A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BE70F1A419C0B5F70053E36A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE70F1A619C0B5F70053E36A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		BE70F1A719C0B5F70053E36A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BE70F1A919C0B5F70053E36A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 				BEDC13FC19CC903D009AC3C2 /* DataModel.xcdatamodeld */,
 				BE70F1A019C0B5F70053E36A /* AppDelegate.h */,
 				BE70F1A119C0B5F70053E36A /* AppDelegate.m */,
-				BE70F1A319C0B5F70053E36A /* Main.storyboard */,
 				BEDC140219CCBAAC009AC3C2 /* ReportViewController.h */,
 				BEDC140319CCBAAC009AC3C2 /* ReportViewController.m */,
 				BEDC13B619CBA0E0009AC3C2 /* HudView.h */,
@@ -342,7 +339,6 @@
 				BE1B5CCB19CA0E2C0053A5D3 /* cellsBackground.png in Resources */,
 				BEAB0E8619C37DDF00AA7623 /* rectangle.png in Resources */,
 				BE526DA119C2B19A0054564F /* pathGuy.png in Resources */,
-				BE70F1A519C0B5F70053E36A /* Main.storyboard in Resources */,
 				BE1B5CCD19CA0FF00053A5D3 /* bigRectangle.png in Resources */,
 				BEDC13C419CC8454009AC3C2 /* microscope-75-grey.png in Resources */,
 				BEAB0E7E19C3619600AA7623 /* icon_58.png in Resources */,
@@ -408,14 +404,6 @@
 				BE70F19B19C0B5F70053E36A /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		BE70F1A319C0B5F70053E36A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BE70F1A419C0B5F70053E36A /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		BE70F1B919C0B5F70053E36A /* InfoPlist.strings */ = {

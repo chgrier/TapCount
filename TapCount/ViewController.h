@@ -11,6 +11,7 @@
 #import "ReportDetailViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <CoreData/CoreData.h>
+#import "ReportViewController.h"
 NSInteger total;
 NSInteger totalTwo;
 
@@ -46,5 +47,9 @@ NSInteger totalTwo;
 @property (assign) SystemSoundID pewPewSound;
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
+@property (nonatomic, strong) AVSpeechUtterance *utterancePropertyTwo;
+@property (nonatomic, strong) AVSpeechUtterance *utterancePropertyOne;
+
 
 @end

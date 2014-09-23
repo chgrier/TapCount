@@ -23,11 +23,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Reports" inManagedObjectContext:self.managedObjectContext];
+    
+    //+ (NSFetchRequest*)fetchRequestWithEntityName:(NSString*)entityName
+    [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+    
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    
+    NSError *error;
+    NSArray *foundObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (foundObjects == nil);{
+        //FATAL_CORE_DATA_ERROR
+        return;
+    }
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,7 +62,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return 1;
+    return [_reports count];
 }
 
 
@@ -54,16 +70,34 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Report" forIndexPath:indexPath];
     
+    Report *report = _reports[indexPath.row];
+    
     // Configure the cell...
     UILabel *reportNameLabel = (UILabel *)[cell viewWithTag:100 ];
-    reportNameLabel.text = @"If you can read this";
+    reportNameLabel.text = report.reportName;
     
     UILabel *dateLabel = (UILabel *)[cell viewWithTag:101];
-    dateLabel.text = @"it is working!";
+    dateLabel.text = [self formatDate:report.date];
     
     return cell;
 }
 
+
+- (NSString *)formatDate:(NSDate *)theDate
+{
+    static NSDateFormatter *formatter = nil;
+    if (formatter == nil) {
+        formatter = [[NSDateFormatter alloc]init];
+        [formatter setDateStyle:NSDateFormatterShortStyle];
+        [formatter setTimeStyle:NSDateFormatterShortStyle];
+    }
+    
+    return [formatter stringFromDate:theDate];
+    
+    
+    
+    
+}
 
 /*
 // Override to support conditional editing of the table view.
