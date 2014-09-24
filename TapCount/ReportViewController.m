@@ -22,28 +22,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSLog(@"test");
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Reports" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Report" inManagedObjectContext:self.managedObjectContext];
     
     //+ (NSFetchRequest*)fetchRequestWithEntityName:(NSString*)entityName
     [fetchRequest setEntity:entity];
     
+    /*
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
     
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
-    
+    */
     NSError *error;
     NSArray *foundObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    if (foundObjects == nil);{
+    //if (foundObjects == nil);{
         //FATAL_CORE_DATA_ERROR
         return;
-    }
+    //}
     
-
+    _reports = foundObjects;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,11 +55,11 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
     // Return the number of sections.
-    return 1;
-}
+    //return 2;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
@@ -68,17 +70,23 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Report" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Report"];
     
     Report *report = _reports[indexPath.row];
     
     // Configure the cell...
     UILabel *reportNameLabel = (UILabel *)[cell viewWithTag:100 ];
-    reportNameLabel.text = report.reportName;
+    //reportNameLabel.text = report.reportName;
+    
+    reportNameLabel.text = @"Report working!";
+
+    
+    
+    //UILabel *dateLabel = (UILabel *)[cell viewWithTag:101];
+    //dateLabel.text = [self formatDate:report.date];
     
     UILabel *dateLabel = (UILabel *)[cell viewWithTag:101];
-    dateLabel.text = [self formatDate:report.date];
-    
+    dateLabel.text = @"Test label";
     return cell;
 }
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Jrv-om-akH">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -163,7 +162,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="2Ev-or-0n7" kind="push" identifier="EmailReport" id="RbS-RL-PgH"/>
+                                    <segue destination="sMa-yq-asa" kind="modal" identifier="EmailReport" id="3ki-FJ-EzU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -323,10 +322,10 @@
             </objects>
             <point key="canvasLocation" x="1557" y="-4"/>
         </scene>
-        <!--Reports-->
+        <!--Select Report to Email-->
         <scene sceneID="GAu-sM-E6Z">
             <objects>
-                <tableViewController title="Reports" id="kzL-OL-YsW" customClass="ReportViewController" sceneMemberID="viewController">
+                <tableViewController id="kzL-OL-YsW" customClass="ReportViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="83" sectionHeaderHeight="22" sectionFooterHeight="22" id="g2N-cr-t0g">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -354,8 +353,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="kzL-OL-YsW" id="dRe-1P-BeA"/>
-                            <outlet property="delegate" destination="kzL-OL-YsW" id="7dQ-Th-jVm"/>
+                            <outlet property="dataSource" destination="kzL-OL-YsW" id="EAe-gB-JZx"/>
+                            <outlet property="delegate" destination="kzL-OL-YsW" id="xUN-Jy-a5Z"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Select Report to Email" id="6nc-cQ-m7z"/>
@@ -363,7 +362,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L94-l3-vOh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1636" y="649"/>
+            <point key="canvasLocation" x="1748" y="666"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rwW-3B-yWZ">
@@ -406,23 +405,22 @@
             <point key="canvasLocation" x="1099" y="-3"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="aWM-13-zkn">
+        <scene sceneID="rT3-Id-DWj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Ev-or-0n7" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sMa-yq-asa" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Aow-Vp-BQ9"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yst-hY-ccX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lGP-cd-Osw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="kzL-OL-YsW" kind="relationship" relationship="rootViewController" id="4dp-Kv-wPu"/>
+                        <segue destination="kzL-OL-YsW" kind="relationship" relationship="rootViewController" id="u3Y-bN-Fdq"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4y1-dE-g6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wqe-U9-dVo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1104" y="649"/>
+            <point key="canvasLocation" x="1216" y="666"/>
         </scene>
     </scenes>
     <resources>

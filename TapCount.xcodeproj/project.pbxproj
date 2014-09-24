@@ -180,9 +180,9 @@
 		BE70F19719C0B5F70053E36A /* TapCount */ = {
 			isa = PBXGroup;
 			children = (
-				BEA41B7E19D23FC0007F8060 /* Main.storyboard */,
 				BEDC13FF19CC9531009AC3C2 /* Report.h */,
 				BEDC140019CC9531009AC3C2 /* Report.m */,
+				BEA41B7E19D23FC0007F8060 /* Main.storyboard */,
 				BEDC13FC19CC903D009AC3C2 /* DataModel.xcdatamodeld */,
 				BE70F1A019C0B5F70053E36A /* AppDelegate.h */,
 				BE70F1A119C0B5F70053E36A /* AppDelegate.m */,
