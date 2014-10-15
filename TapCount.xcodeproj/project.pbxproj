@@ -16,6 +16,7 @@
 		BE1B5CD519CA17480053A5D3 /* roundedRectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1B5CD419CA17480053A5D3 /* roundedRectangle.png */; };
 		BE1B5CD719CA18F40053A5D3 /* longRectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1B5CD619CA18F40053A5D3 /* longRectangle.png */; };
 		BE22DCDB19C0C00400EE6264 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE22DCDA19C0C00400EE6264 /* AudioToolbox.framework */; };
+		BE38973219D38C7D00E1D84E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE38973119D38C7D00E1D84E /* MessageUI.framework */; };
 		BE50F5AB19C2BD44003AF7C9 /* Sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE50F5AA19C2BD44003AF7C9 /* Sound.caf */; };
 		BE526DA119C2B19A0054564F /* pathGuy.png in Resources */ = {isa = PBXBuildFile; fileRef = BE526DA019C2B19A0054564F /* pathGuy.png */; };
 		BE70F19219C0B5F70053E36A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE70F19119C0B5F70053E36A /* Foundation.framework */; };
@@ -31,6 +32,7 @@
 		BE70F1B319C0B5F70053E36A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE70F19519C0B5F70053E36A /* UIKit.framework */; };
 		BE70F1BB19C0B5F70053E36A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE70F1B919C0B5F70053E36A /* InfoPlist.strings */; };
 		BE70F1BD19C0B5F70053E36A /* TapCountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE70F1BC19C0B5F70053E36A /* TapCountTests.m */; };
+		BE77F1F819D3A482002E8A90 /* emailIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = BE77F1F719D3A482002E8A90 /* emailIcon.png */; };
 		BE78AB6B19C75F7000BD9E0D /* decrementTwo.wav in Resources */ = {isa = PBXBuildFile; fileRef = BE78AB6A19C75F7000BD9E0D /* decrementTwo.wav */; };
 		BEA41B7F19D23FC0007F8060 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEA41B7E19D23FC0007F8060 /* Main.storyboard */; };
 		BEAB0E7419C359BB00AA7623 /* cell.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB0E7319C359BB00AA7623 /* cell.png */; };
@@ -74,6 +76,7 @@
 		BE1B5CD419CA17480053A5D3 /* roundedRectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundedRectangle.png; sourceTree = "<group>"; };
 		BE1B5CD619CA18F40053A5D3 /* longRectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = longRectangle.png; sourceTree = "<group>"; };
 		BE22DCDA19C0C00400EE6264 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		BE38973119D38C7D00E1D84E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BE50F5AA19C2BD44003AF7C9 /* Sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sound.caf; sourceTree = "<group>"; };
 		BE526DA019C2B19A0054564F /* pathGuy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pathGuy.png; sourceTree = "<group>"; };
 		BE70F18E19C0B5F70053E36A /* TapCount.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapCount.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +97,7 @@
 		BE70F1B819C0B5F70053E36A /* TapCountTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TapCountTests-Info.plist"; sourceTree = "<group>"; };
 		BE70F1BA19C0B5F70053E36A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE70F1BC19C0B5F70053E36A /* TapCountTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TapCountTests.m; sourceTree = "<group>"; };
+		BE77F1F719D3A482002E8A90 /* emailIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emailIcon.png; sourceTree = "<group>"; };
 		BE78AB6A19C75F7000BD9E0D /* decrementTwo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = decrementTwo.wav; sourceTree = "<group>"; };
 		BEA41B7E19D23FC0007F8060 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BEAB0E7319C359BB00AA7623 /* cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell.png; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE38973219D38C7D00E1D84E /* MessageUI.framework in Frameworks */,
 				BEDC13C619CC8D29009AC3C2 /* CoreData.framework in Frameworks */,
 				BE22DCDB19C0C00400EE6264 /* AudioToolbox.framework in Frameworks */,
 				BE70F19419C0B5F70053E36A /* CoreGraphics.framework in Frameworks */,
@@ -167,6 +172,7 @@
 		BE70F19019C0B5F70053E36A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE38973119D38C7D00E1D84E /* MessageUI.framework */,
 				BEDC13C519CC8D29009AC3C2 /* CoreData.framework */,
 				BE22DCDA19C0C00400EE6264 /* AudioToolbox.framework */,
 				BE70F19119C0B5F70053E36A /* Foundation.framework */,
@@ -206,6 +212,7 @@
 				BEDC13C319CC8454009AC3C2 /* microscope-75-grey.png */,
 				BEDC13C119CC83DF009AC3C2 /* microscope-75-white.png */,
 				BEDC13BF19CC837A009AC3C2 /* microscope-75.png */,
+				BE77F1F719D3A482002E8A90 /* emailIcon.png */,
 				BEDC13BB19CC8318009AC3C2 /* microscope-50-white.png */,
 				BEDC13B919CC807C009AC3C2 /* microscope-50.png */,
 				BE1B5CD619CA18F40053A5D3 /* longRectangle.png */,
@@ -299,6 +306,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Grier Mobile Development";
 				TargetAttributes = {
+					BE70F18D19C0B5F70053E36A = {
+						DevelopmentTeam = L2866N5XVV;
+					};
 					BE70F1AE19C0B5F70053E36A = {
 						TestTargetID = BE70F18D19C0B5F70053E36A;
 					};
@@ -339,6 +349,7 @@
 				BE1B5CC719CA02A00053A5D3 /* minusCircle.png in Resources */,
 				BE1B5CCF19CA12470053A5D3 /* clearButton.png in Resources */,
 				BE70F19C19C0B5F70053E36A /* InfoPlist.strings in Resources */,
+				BE77F1F819D3A482002E8A90 /* emailIcon.png in Resources */,
 				BEAB0E7419C359BB00AA7623 /* cell.png in Resources */,
 				BE1B5CCB19CA0E2C0053A5D3 /* cellsBackground.png in Resources */,
 				BEAB0E8619C37DDF00AA7623 /* rectangle.png in Resources */,
@@ -496,10 +507,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TapCount/TapCount-Prefix.pch";
 				INFOPLIST_FILE = "TapCount/TapCount-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -510,10 +524,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TapCount/TapCount-Prefix.pch";
 				INFOPLIST_FILE = "TapCount/TapCount-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

@@ -8,8 +8,9 @@
 
 #import "ReportViewController.h"
 #import "Report.h"
+#import <MessageUI/MessageUI.h>
 
-@interface ReportViewController ()
+@interface ReportViewController () <MFMailComposeViewControllerDelegate>
 
 
 @end
@@ -32,20 +33,22 @@
     //+ (NSFetchRequest*)fetchRequestWithEntityName:(NSString*)entityName
     [fetchRequest setEntity:entity];
     
-    /*
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+    
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
     
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
-    */
+    
     NSError *error;
     NSArray *foundObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     //if (foundObjects == nil);{
-        //FATAL_CORE_DATA_ERROR
-        return;
+        //FATAL_CORE_DATA_ERROR(error);
+    //    return;
     //}
     
     _reports = foundObjects;
     
+    [self.tableView reloadData];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,15 +58,17 @@
 
 #pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
     // Return the number of sections.
-    //return 2;
-//}
+    return 1;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
+        //return 1;
+    
     return [_reports count];
 }
 
@@ -76,17 +81,26 @@
     
     // Configure the cell...
     UILabel *reportNameLabel = (UILabel *)[cell viewWithTag:100 ];
-    //reportNameLabel.text = report.reportName;
     
-    reportNameLabel.text = @"Report working!";
+    if ([report.reportName length] > 0) {
+        reportNameLabel.text = report.reportName;
 
+    } else {
+        reportNameLabel.text = @"(Untitled Report)";
+    }
     
-    
-    //UILabel *dateLabel = (UILabel *)[cell viewWithTag:101];
-    //dateLabel.text = [self formatDate:report.date];
-    
+    //reportNameLabel.text = @"Report working!";
+
     UILabel *dateLabel = (UILabel *)[cell viewWithTag:101];
-    dateLabel.text = @"Test label";
+    dateLabel.text = [self formatDate:report.date] ;
+    
+    UILabel *blastCountLabel = (UILabel *)[cell viewWithTag:102];
+    blastCountLabel.text = report.blastCount;
+    
+    UILabel *otherCountLabel = (UILabel *)[cell viewWithTag:103];
+    otherCountLabel.text = report.otherCount;
+    
+   
     return cell;
 }
 
@@ -102,10 +116,46 @@
     
     return [formatter stringFromDate:theDate];
     
-    
-    
-    
+
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MFMailComposeViewController *controller = [[MFMailComposeViewController alloc]init];
+    controller.modalPresentationStyle = UIModalPresentationPopover;
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    //UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    Report *report = _reports[indexPath.row];
+    
+    
+    controller.mailComposeDelegate = self;
+    
+        if (controller != nil) {
+            //[controller setSubject:@"Email test from PathCounter"];
+            [controller setToRecipients:@[@"chgrier@mac.com"]];
+            
+            if ([report.reportName length] > 0) {
+                [controller setSubject:report.reportName];
+                
+            } else {
+                [controller setSubject:@"Untitled Report"];            }
+            
+            NSString *date = [self formatDate:report.date] ;
+            NSString *reportBody = [NSString stringWithFormat:@"%@  \n %@  \n Date: %@", report.blastCount, report.otherCount, date];
+            [controller setMessageBody:reportBody isHTML:NO];
+           
+            
+            [self presentViewController:controller animated:YES completion:nil];
+            
+            
+        }
+    }
+    
+    //[self sendEmail];
+
+
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -113,9 +163,9 @@
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -151,4 +201,16 @@
 }
 */
 
+- (IBAction)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+#pragma mark MFMailComposeViewControllerDelegate
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

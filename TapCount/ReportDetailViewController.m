@@ -94,10 +94,10 @@
     
     Report *report = [NSEntityDescription insertNewObjectForEntityForName:@"Report" inManagedObjectContext:self.managedObjectContext];
     
-    report.reportName = _reportTitle;
+    report.reportName = _reportNameField.text;
     report.date = _date;
-    report.blastCount = self.countOneLabel.text;
-    report.otherCount = self.countTwoLabel.text;
+    report.blastCount = _countOneLabel.text;
+    report.otherCount = _countTwoLabel.text;
 
     NSError *error;
     if (![self.managedObjectContext save:&error]) {

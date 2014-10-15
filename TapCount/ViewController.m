@@ -63,8 +63,8 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    [self unloadSoundEffect];
-    _speechOn = NO;
+    //[self unloadSoundEffect];
+    //_speechOn = NO;
 }
 
 
@@ -165,7 +165,7 @@
         if ( a % b == 0){
             AudioServicesPlayAlertSound (kSystemSoundID_Vibrate);
             
-            NSString *count = [NSString stringWithFormat:@"%ld Blasts",(long)totalTwo];
+            NSString *count = [NSString stringWithFormat:@"%ld Other",(long)totalTwo];
             //NSString *count = [NSString stringWithFormat:@"Blasts"];
             
             
@@ -179,7 +179,7 @@
             
             utterance.rate = AVSpeechUtteranceMinimumSpeechRate + ((AVSpeechUtteranceMaximumSpeechRate - AVSpeechUtteranceMinimumSpeechRate) * 0.5f);
             utterance.volume = 1.0f;
-            utterance.pitchMultiplier = 0.9f;
+            utterance.pitchMultiplier = 0.6f;
             //utterance.postUtteranceDelay = 0.0;
             utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-us"];
             
@@ -320,6 +320,7 @@
     if (sender.on){
         _vibrate = YES;
         _speechOn = YES;
+        _soundOn = YES;
         
         [_speechSwitchToggle setOn:YES];
         [_vibrateSwithToggle setOn:YES];
@@ -328,6 +329,7 @@
     
     _vibrate = NO;
     _speechOn = NO;
+    _soundOn = NO;
     
     [_speechSwitchToggle setOn:NO];
     [_vibrateSwithToggle setOn:NO];
@@ -349,7 +351,7 @@
         if (totalButton.tag == 101) {
                 NSString *count = [NSString stringWithFormat:@"Other TOTAL IS %ld",(long)totalTwo];
                 AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:count];
-                utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
+                utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-us"];
                 [_speechSynthesizer speakUtterance:utterance];
             }
 
@@ -421,6 +423,9 @@
     
     if ([segue.identifier isEqualToString:@"EmailReport"]) {
         
+        //ReportViewController *reportViewController = segue.destinationViewController;
+        //[reportViewController setManagedObjectContext:self.managedObjectContext];
+        
         UINavigationController *navigationController = segue.destinationViewController;
         
         ReportViewController *controller = (ReportViewController *)navigationController.topViewController;
@@ -428,8 +433,11 @@
         controller.managedObjectContext = self.managedObjectContext;
         
         
+        
     }
-
+    
+    
+   
     
 
     
