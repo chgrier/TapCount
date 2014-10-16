@@ -10,7 +10,7 @@
 #import "Report.h"
 #import <MessageUI/MessageUI.h>
 
-@interface ReportViewController () <MFMailComposeViewControllerDelegate>
+@interface ReportViewController () <MFMailComposeViewControllerDelegate, NSFetchedResultsControllerDelegate>
 
 
 @end
@@ -18,14 +18,39 @@
 @implementation ReportViewController
 
 {
-    NSArray *_reports;
+    //NSArray *_reports;
+    NSFetchedResultsController *_fetchedResultsController;
+}
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if (_fetchedResultsController == nil) {
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
+        
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Report" inManagedObjectContext:self.managedObjectContext];
+        
+        [fetchRequest setEntity:entity];
+        
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+        [fetchRequest setSortDescriptors:@[sortDescriptor]];
+        
+        [fetchRequest setFetchBatchSize:20];
+        
+        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Report"];
+        
+        _fetchedResultsController.delegate = self;
+    }
+    return _fetchedResultsController;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"test");
-    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self performFetch];
     
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    /*
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Report" inManagedObjectContext:self.managedObjectContext];
@@ -48,7 +73,20 @@
     _reports = foundObjects;
     
     [self.tableView reloadData];
+     */
+}
 
+-(void)performFetch
+{
+    NSError *error;
+    if (![self.fetchedResultsController performFetch:&error]) {
+        return;
+    }
+}
+
+-(void)dealloc
+{
+    _fetchedResultsController.delegate = nil;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,7 +107,9 @@
     // Return the number of rows in the section.
         //return 1;
     
-    return [_reports count];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    
+    return [sectionInfo numberOfObjects];
 }
 
 
@@ -77,7 +117,9 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Report"];
     
-    Report *report = _reports[indexPath.row];
+    //Report *report = _reports[indexPath.row];
+    
+    Report *report = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     // Configure the cell...
     UILabel *reportNameLabel = (UILabel *)[cell viewWithTag:100 ];
@@ -104,6 +146,20 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Report *report = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        [self.managedObjectContext deleteObject:report];
+        
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+            return;
+        }
+    }
+}
+
 
 - (NSString *)formatDate:(NSDate *)theDate
 {
@@ -126,7 +182,8 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     //UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    Report *report = _reports[indexPath.row];
+    //Report *report = _reports[indexPath.row];
+     Report *report = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     
     controller.mailComposeDelegate = self;
@@ -212,5 +269,54 @@
 
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - NSFetchedResultsController Delegate
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.tableView beginUpdates];
+}
+
+-(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
+{
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    
+        case NSFetchedResultsChangeUpdate:
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+            break;
+    }
+}
+
+-(void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
+{
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+        
+            break;
+    }
+}
+
+-(void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.tableView endUpdates];
 }
 @end

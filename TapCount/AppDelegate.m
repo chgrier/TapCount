@@ -23,7 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    
+    /* -- for single view controller
     UINavigationController *navigationController = (UINavigationController *) self.window.rootViewController;
     
     ViewController *controller = (ViewController *)navigationController.topViewController;
@@ -32,8 +32,23 @@
     
 
     return YES;
+    */
     
-
+    // for TabViewController - Main counter ViewController
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    
+    ViewController *viewController = (ViewController *)tabBarController.viewControllers[0];
+    
+    viewController.managedObjectContext = self.managedObjectContext;
+    
+    // for ReportViewController (table list of reports)
+    UINavigationController *navigationController = (UINavigationController *)tabBarController.viewControllers[1];
+    
+    ReportViewController *reportViewController = (ReportViewController *)navigationController.viewControllers[0];
+    
+    reportViewController.managedObjectContext = self.managedObjectContext;
+    
+    return YES;
 
 }
 							
