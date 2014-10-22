@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE02705D19F81F4000C37793 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE02705C19F81F4000C37793 /* Main.storyboard */; };
 		BE08A56E19C4A1FB00162606 /* ReportDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE08A56D19C4A1FB00162606 /* ReportDetailViewController.m */; };
 		BE1B5CC719CA02A00053A5D3 /* minusCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1B5CC619CA02A00053A5D3 /* minusCircle.png */; };
 		BE1B5CC919CA0B9D0053A5D3 /* saveButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1B5CC819CA0B9D0053A5D3 /* saveButton.png */; };
@@ -34,7 +35,6 @@
 		BE70F1BD19C0B5F70053E36A /* TapCountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE70F1BC19C0B5F70053E36A /* TapCountTests.m */; };
 		BE77F1F819D3A482002E8A90 /* emailIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = BE77F1F719D3A482002E8A90 /* emailIcon.png */; };
 		BE78AB6B19C75F7000BD9E0D /* decrementTwo.wav in Resources */ = {isa = PBXBuildFile; fileRef = BE78AB6A19C75F7000BD9E0D /* decrementTwo.wav */; };
-		BEA41B7F19D23FC0007F8060 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEA41B7E19D23FC0007F8060 /* Main.storyboard */; };
 		BEAB0E7419C359BB00AA7623 /* cell.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB0E7319C359BB00AA7623 /* cell.png */; };
 		BEAB0E7A19C360FC00AA7623 /* iconDraft.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB0E7919C360FC00AA7623 /* iconDraft.png */; };
 		BEAB0E7E19C3619600AA7623 /* icon_58.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB0E7B19C3619600AA7623 /* icon_58.png */; };
@@ -66,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE02705C19F81F4000C37793 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		BE08A56C19C4A1FB00162606 /* ReportDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportDetailViewController.h; sourceTree = "<group>"; };
 		BE08A56D19C4A1FB00162606 /* ReportDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportDetailViewController.m; sourceTree = "<group>"; };
 		BE1B5CC619CA02A00053A5D3 /* minusCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minusCircle.png; sourceTree = "<group>"; };
@@ -99,7 +100,6 @@
 		BE70F1BC19C0B5F70053E36A /* TapCountTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TapCountTests.m; sourceTree = "<group>"; };
 		BE77F1F719D3A482002E8A90 /* emailIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emailIcon.png; sourceTree = "<group>"; };
 		BE78AB6A19C75F7000BD9E0D /* decrementTwo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = decrementTwo.wav; sourceTree = "<group>"; };
-		BEA41B7E19D23FC0007F8060 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BEAB0E7319C359BB00AA7623 /* cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell.png; sourceTree = "<group>"; };
 		BEAB0E7919C360FC00AA7623 /* iconDraft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconDraft.png; sourceTree = "<group>"; };
 		BEAB0E7B19C3619600AA7623 /* icon_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_58.png; sourceTree = "<group>"; };
@@ -188,7 +188,7 @@
 			children = (
 				BEDC13FF19CC9531009AC3C2 /* Report.h */,
 				BEDC140019CC9531009AC3C2 /* Report.m */,
-				BEA41B7E19D23FC0007F8060 /* Main.storyboard */,
+				BE02705C19F81F4000C37793 /* Main.storyboard */,
 				BEDC13FC19CC903D009AC3C2 /* DataModel.xcdatamodeld */,
 				BE70F1A019C0B5F70053E36A /* AppDelegate.h */,
 				BE70F1A119C0B5F70053E36A /* AppDelegate.m */,
@@ -344,8 +344,8 @@
 				BEDC13BA19CC807C009AC3C2 /* microscope-50.png in Resources */,
 				BE70F1AA19C0B5F70053E36A /* Images.xcassets in Resources */,
 				BE1B5CD719CA18F40053A5D3 /* longRectangle.png in Resources */,
+				BE02705D19F81F4000C37793 /* Main.storyboard in Resources */,
 				BEDC13BC19CC8318009AC3C2 /* microscope-50-white.png in Resources */,
-				BEA41B7F19D23FC0007F8060 /* Main.storyboard in Resources */,
 				BE1B5CC719CA02A00053A5D3 /* minusCircle.png in Resources */,
 				BE1B5CCF19CA12470053A5D3 /* clearButton.png in Resources */,
 				BE70F19C19C0B5F70053E36A /* InfoPlist.strings in Resources */,
@@ -506,7 +506,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -523,7 +522,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
