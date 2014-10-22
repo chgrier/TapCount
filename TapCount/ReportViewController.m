@@ -178,6 +178,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MFMailComposeViewController *controller = [[MFMailComposeViewController alloc]init];
+    
     controller.modalPresentationStyle = UIModalPresentationPopover;
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -190,7 +191,7 @@
     
         if (controller != nil) {
             //[controller setSubject:@"Email test from PathCounter"];
-            [controller setToRecipients:@[@"chgrier@mac.com"]];
+            //[controller setToRecipients:@[@"chgrier@mac.com"]];
             
             if ([report.reportName length] > 0) {
                 [controller setSubject:report.reportName];

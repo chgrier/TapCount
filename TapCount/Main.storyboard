@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ctg-lK-cN5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ctg-lK-cN5">
     <dependencies>
         <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
@@ -10,6 +10,8 @@
             <objects>
                 <tabBarController id="ctg-lK-cN5" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="FEF-dX-ucO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -22,23 +24,20 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VoP-5B-j6B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="68" y="18"/>
+            <point key="canvasLocation" x="127.5" y="22.5"/>
         </scene>
         <!--Counter-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                        <viewControllerLayoutGuide type="top" id="cbA-Mc-LNr"/>
+                        <viewControllerLayoutGuide type="bottom" id="iH0-Aq-fDW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.14999999999999969" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cellsBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="bh0-rC-EW2">
-                                <rect key="frame" x="-5" y="-7" width="325" height="487"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bigRectangle.png" translatesAutoresizingMaskIntoConstraints="NO" id="s4h-fG-MWR">
                                 <rect key="frame" x="24" y="138" width="267" height="204"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -88,7 +87,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="2Ny-1H-E7i" kind="modal" identifier="SaveReport" id="anl-8f-oEe"/>
+                                    <segue destination="2Ny-1H-E7i" kind="presentation" identifier="SaveReport" id="anl-8f-oEe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="100" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8X-Zu-ZCb">
@@ -120,8 +119,8 @@
                             </button>
                             <switch contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c8D-hG-iYq">
                                 <rect key="frame" x="31" y="420" width="51" height="31"/>
-                                <color key="onTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="thumbTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="onTintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="0.66000000000000003" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="speechSwitch:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Ox5-dc-AJx"/>
                                 </connections>
@@ -133,7 +132,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2lX-Wf-ZMN">
-                                <rect key="frame" x="98" y="420" width="51" height="31"/>
+                                <rect key="frame" x="128" y="420" width="51" height="31"/>
                                 <color key="onTintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="0.66000000000000003" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -141,7 +140,7 @@
                                 </connections>
                             </switch>
                             <switch contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JDZ-XF-i3H">
-                                <rect key="frame" x="172" y="420" width="51" height="31"/>
+                                <rect key="frame" x="219" y="420" width="51" height="31"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="onTintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="0.66000000000000003" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -159,7 +158,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="All sounds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7g-sn-jj5">
-                                <rect key="frame" x="163" y="453" width="80" height="21"/>
+                                <rect key="frame" x="210" y="453" width="80" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -171,23 +170,17 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vibrate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JH4-S6-j3o">
-                                <rect key="frame" x="98" y="453" width="54" height="21"/>
+                                <rect key="frame" x="128" y="453" width="54" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syk-PK-vnB">
-                                <rect key="frame" x="252" y="414" width="37" height="37"/>
-                                <state key="normal" title="Email" image="emailIcon.png"/>
-                                <connections>
-                                    <segue destination="oNs-Ch-AYa" kind="modal" identifier="EmailReport" id="wzn-ba-DTb"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Counter" id="sMk-fv-Hew"/>
                     <navigationItem key="navigationItem" id="rau-pi-REd"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="screen" destination="iir-aG-lSc" id="q9a-Yt-144"/>
                         <outlet property="screenTwo" destination="khh-x2-fca" id="DQZ-pD-E14"/>
@@ -198,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="630" y="-3"/>
+            <point key="canvasLocation" x="1181.25" y="-3.75"/>
         </scene>
         <!--Save Report-->
         <scene sceneID="G9D-w6-XXc">
@@ -316,12 +309,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Save Report" id="V2j-vE-HNG">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="BVn-sO-7JI">
-                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="cancel:" destination="9sR-eR-h1E" id="LHq-uQ-rQg"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="bll-7U-a6x">
                             <color key="tintColor" red="0.36078432199999999" green="0.59607845540000004" blue="0.89019614459999996" alpha="1" colorSpace="deviceRGB"/>
                             <connections>
@@ -329,6 +316,8 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
                     <connections>
                         <outlet property="countOneLabel" destination="5h9-7N-9wL" id="KXR-xL-6Lf"/>
                         <outlet property="countTwoLabel" destination="eyr-5o-kly" id="hu1-ww-dbZ"/>
@@ -339,14 +328,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nGf-Ps-eGR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1557" y="-4"/>
+            <point key="canvasLocation" x="2919.375" y="-5"/>
         </scene>
-        <!--Select Report to Email-->
+        <!--Tap Report to Email-->
         <scene sceneID="GAu-sM-E6Z">
             <objects>
                 <tableViewController id="kzL-OL-YsW" customClass="ReportViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="22" sectionFooterHeight="22" id="g2N-cr-t0g">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -388,7 +377,7 @@
                             <outlet property="delegate" destination="kzL-OL-YsW" id="xUN-Jy-a5Z"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Select Report to Email" id="6nc-cQ-m7z">
+                    <navigationItem key="navigationItem" title="Tap Report to Email" id="6nc-cQ-m7z">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4GI-FA-owO">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -397,16 +386,19 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L94-l3-vOh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1129" y="668"/>
+            <point key="canvasLocation" x="2116.875" y="835"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3aU-NL-qM5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Ny-1H-E7i" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bBe-eY-jwk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -418,7 +410,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x0A-Qa-20Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1099" y="-3"/>
+            <point key="canvasLocation" x="2060.625" y="-3.75"/>
         </scene>
         <!--Reports-->
         <scene sceneID="ZMX-Js-kZm">
@@ -427,6 +419,8 @@
                     <tabBarItem key="tabBarItem" title="Reports" id="7JL-g8-LbC"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="v0d-1g-1QI"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="J4F-zV-FBP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -438,27 +432,17 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ne-LF-KuT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="630" y="668"/>
+            <point key="canvasLocation" x="1181.25" y="835"/>
         </scene>
     </scenes>
     <resources>
         <image name="bigRectangle.png" width="536" height="410"/>
         <image name="cell.png" width="80" height="80"/>
-        <image name="cellsBackground.png" width="600" height="473"/>
         <image name="clearButton.png" width="260" height="72"/>
-        <image name="emailIcon.png" width="88" height="88"/>
         <image name="minusCircle.png" width="100" height="88"/>
         <image name="rectangle.png" width="100" height="88"/>
         <image name="saveButton.png" width="260" height="72"/>
         <image name="unhappyCell.png" width="88" height="88"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
-    </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="AOS-vE-mL2"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
 </document>
