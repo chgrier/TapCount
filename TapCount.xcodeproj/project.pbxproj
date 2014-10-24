@@ -16,6 +16,7 @@
 		BE1B5CCF19CA12470053A5D3 /* clearButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1B5CCE19CA12470053A5D3 /* clearButton.png */; };
 		BE1B5CD519CA17480053A5D3 /* roundedRectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1B5CD419CA17480053A5D3 /* roundedRectangle.png */; };
 		BE1B5CD719CA18F40053A5D3 /* longRectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1B5CD619CA18F40053A5D3 /* longRectangle.png */; };
+		BE1D963319F9688C0060E7EA /* smallRectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D963219F9688C0060E7EA /* smallRectangle.png */; };
 		BE22DCDB19C0C00400EE6264 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE22DCDA19C0C00400EE6264 /* AudioToolbox.framework */; };
 		BE38973219D38C7D00E1D84E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE38973119D38C7D00E1D84E /* MessageUI.framework */; };
 		BE50F5AB19C2BD44003AF7C9 /* Sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE50F5AA19C2BD44003AF7C9 /* Sound.caf */; };
@@ -76,6 +77,7 @@
 		BE1B5CCE19CA12470053A5D3 /* clearButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clearButton.png; sourceTree = "<group>"; };
 		BE1B5CD419CA17480053A5D3 /* roundedRectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundedRectangle.png; sourceTree = "<group>"; };
 		BE1B5CD619CA18F40053A5D3 /* longRectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = longRectangle.png; sourceTree = "<group>"; };
+		BE1D963219F9688C0060E7EA /* smallRectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smallRectangle.png; sourceTree = "<group>"; };
 		BE22DCDA19C0C00400EE6264 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		BE38973119D38C7D00E1D84E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BE50F5AA19C2BD44003AF7C9 /* Sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sound.caf; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 		BE70F19819C0B5F70053E36A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BE1D963219F9688C0060E7EA /* smallRectangle.png */,
 				BEDC13C319CC8454009AC3C2 /* microscope-75-grey.png */,
 				BEDC13C119CC83DF009AC3C2 /* microscope-75-white.png */,
 				BEDC13BF19CC837A009AC3C2 /* microscope-75.png */,
@@ -345,6 +348,7 @@
 				BE70F1AA19C0B5F70053E36A /* Images.xcassets in Resources */,
 				BE1B5CD719CA18F40053A5D3 /* longRectangle.png in Resources */,
 				BE02705D19F81F4000C37793 /* Main.storyboard in Resources */,
+				BE1D963319F9688C0060E7EA /* smallRectangle.png in Resources */,
 				BEDC13BC19CC8318009AC3C2 /* microscope-50-white.png in Resources */,
 				BE1B5CC719CA02A00053A5D3 /* minusCircle.png in Resources */,
 				BE1B5CCF19CA12470053A5D3 /* clearButton.png in Resources */,
