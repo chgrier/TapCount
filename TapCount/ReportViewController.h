@@ -12,8 +12,8 @@
 @interface ReportViewController : UITableViewController
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (weak, nonatomic) IBOutlet UILabel *reportName;
-- (IBAction)cancel:(id)sender;
+//@property (weak, nonatomic) IBOutlet UILabel *reportName;
+//- (IBAction)cancel:(id)sender;
 
 
 @end
