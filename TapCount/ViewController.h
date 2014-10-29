@@ -12,6 +12,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import <CoreData/CoreData.h>
 #import "ReportViewController.h"
+#import "Speech.h"
+
 NSInteger total;
 NSInteger totalTwo;
 
