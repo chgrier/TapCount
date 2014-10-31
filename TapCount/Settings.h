@@ -1,5 +1,5 @@
 //
-//  Speech.h
+//  Settings.h
 //  TapCount
 //
 //  Created by Charles Grier on 10/29/14.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Speech : NSObject
+@interface Settings : NSObject
 
 @property (nonatomic, assign) BOOL soundOn;
 @property (nonatomic, assign) BOOL speechOn;

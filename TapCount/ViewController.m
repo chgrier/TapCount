@@ -22,6 +22,9 @@
     BOOL _soundOn;
     BOOL _speechOn;
     
+    //Settings *_speechVibrate;
+    
+    
     SystemSoundID _soundID;
     
     AVSpeechSynthesizer *_speechSynthesizer;
@@ -48,6 +51,16 @@
     _soundOn = YES;
     
     
+    
+    
+    
+    //self.allSettings = [[Settings alloc]init];
+    
+    //self.allSettings.vibrateOn = YES;
+   //self.allSettings.speechOn = YES;
+    //self.allSettings.soundOn = YES;
+    
+    
    // AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:@"Ready"];
     AVSpeechUtterance *utteranceTwo = [[AVSpeechUtterance alloc]initWithString:@"Ready"];
     // [_speechSynthesizer speakUtterance:utterance];
@@ -58,6 +71,26 @@
     _britishVoice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
     
 }
+
+-(void) setSettings:(SettingsViewController *)controller didSelectSettings:(Settings *)settings {
+    
+    // set selected code passed from settings controls to code object
+    
+    //self.allSettings = [[Settings alloc]init];
+    self.allSettings.vibrateOn = settings;
+    
+    
+    
+    
+        
+        
+        
+        
+}
+    
+    
+    
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -87,13 +120,10 @@
     static AVSpeechUtterance *utterance;
     utterance = [[AVSpeechUtterance alloc]initWithString:count];
     
-    
-    
-    
     // *** class method alternative ***
     //[_speechSynthesizer speakUtterance:[AVSpeechUtterance speechUtteranceWithString:count]];
     
-    if (_speechOn == YES) {
+    if (self.allSettings.speechOn == YES) {
        
         int a;
         a = total;
@@ -126,11 +156,11 @@
     }
     }
     
-    if (_vibrate == YES) {
+    if (self.allSettings.vibrateOn == YES) {
         AudioServicesPlayAlertSound (kSystemSoundID_Vibrate);
     }
     
-    if (_soundOn == YES) {
+    if (self.allSettings.soundOn == YES) {
            }
     
    
@@ -154,7 +184,7 @@
     // *** class method alternative ***
     //[_speechSynthesizer speakUtterance:[AVSpeechUtterance speechUtteranceWithString:count]];
     
-    if (_speechOn == YES) {
+    if (self.allSettings.speechOn == YES) {
         
         int a;
         a = totalTwo;
@@ -196,11 +226,11 @@
         }
     }
     
-    if (_vibrate == YES) {
+    if (self.allSettings.vibrateOn == YES) {
         AudioServicesPlayAlertSound (kSystemSoundID_Vibrate);
     }
     
-    if (_soundOn == YES) {
+    if (self.allSettings.soundOn == YES) {
     }
     
     
@@ -211,7 +241,7 @@
     total--;
     [screen setText:[NSString stringWithFormat:@"%ld", (long)total]];
     
-    if (_soundOn == YES) {
+    if (self.allSettings.soundOn == YES) {
         [self playSoundEffect];
     }
    
@@ -222,7 +252,7 @@
     totalTwo--;
     [screenTwo setText:[NSString stringWithFormat:@"%ld", (long)totalTwo]];
    
-    if (_soundOn == YES) {
+    if (self.allSettings.soundOn == YES) {
         [self playSoundEffect];
     }
 
@@ -232,7 +262,7 @@
 -(IBAction)clear:(id)sender
 {
     
-    if (_speechOn == YES) {
+    if (self.allSettings.soundOn == YES) {
     [_speechSynthesizer speakUtterance:[AVSpeechUtterance speechUtteranceWithString:@"Hey Path Guy, Do you really want to clear the total?"]];
     }
     
@@ -270,7 +300,7 @@
     [screen setText:[NSString stringWithFormat:@"%ld", (long)total]];
     [screenTwo setText:[NSString stringWithFormat:@"%ld", (long)totalTwo]];
     
-    if (_speechOn == YES) {
+    if (self.allSettings.speechOn == YES) {
         [_speechSynthesizer speakUtterance:[AVSpeechUtterance speechUtteranceWithString:@"Okay, you're the boss.  Just don't say I didn't warn you!"]];
     }
 
@@ -278,68 +308,8 @@
 }
 
 
-// UISWITCH CONTROLES
-
--(IBAction)vibrateSwitch:(id)sender
-{
-    if ([_vibrateSwithToggle isOn]) {
-        _vibrate = YES;
-        
-        
-    } else {
-        _vibrate = NO;
-        
-        if (![_speechSwitchToggle isOn])
-        {
-            [_soundsSwitchToggle setOn:NO];
-            [UIView setAnimationDuration:0.8];
-        }
-        
-    }
-}
-
-- (IBAction)speechSwitch:(id)sender{
-    
-    if ([_speechSwitchToggle isOn]) {
-        _speechOn = YES;
-        [_soundsSwitchToggle setOn:YES];
-    } else {
-        _speechOn = NO;
-        
-        if (![_vibrateSwithToggle isOn])
-        {
-            [_soundsSwitchToggle setOn:NO];
-            
-        }
-    }
-}
-
-// cast sender as UISwitch (rather than generic id) to create condition
-- (IBAction)soundsOff:(UISwitch *)sender
-{
-    if (sender.on){
-        _vibrate = YES;
-        _speechOn = YES;
-        _soundOn = YES;
-        
-        [_speechSwitchToggle setOn:YES];
-        [_vibrateSwithToggle setOn:YES];
-
-    } else {
-    
-    _vibrate = NO;
-    _speechOn = NO;
-    _soundOn = NO;
-    
-    [_speechSwitchToggle setOn:NO];
-    [_vibrateSwithToggle setOn:NO];
-    
-}
-
-}
-
 - (IBAction)sayTotal:(UIButton *)totalButton {
-    if (_speechOn == YES) {
+    if (self.allSettings.speechOn == YES) {
        
         if (totalButton.tag == 100) {
             NSString *count = [NSString stringWithFormat:@"Blasts TOTAL IS %ld",(long)total];
@@ -436,6 +406,21 @@
     }
     
 }
+
+
+#pragma mark Delegate Callback Method
+/*
+-(void)currencyPicker:(CurrencyPickerViewController *)controller didPickCurrency:(Currency *)currencyCode{
+    
+    // set selected code passed from picker to code object
+    self.code = currencyCode;
+    
+    
+    // set field names for 'from currency'
+    self.fromCurrencyCodeField.text = self.code.fromCodeName;
+    self.fromCurrencyCodeFieldTwo.text = self.code.fromCodeName;
+    self.fromCurrencyFullNameField.text = self.code.fromFullName;
+*/
 
 
 

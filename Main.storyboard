@@ -504,21 +504,18 @@
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3TZ-lA-3wd">
                                 <rect key="frame" x="77" y="117" width="51" height="31"/>
+                                <connections>
+                                    <action selector="vibrateSwitch:" destination="8UH-zf-NZM" eventType="valueChanged" id="aWz-Pa-ffa"/>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IA5-2J-DUw">
-                                <rect key="frame" x="189" y="117" width="51" height="31"/>
+                                <rect key="frame" x="80" y="204" width="51" height="31"/>
+                                <connections>
+                                    <action selector="soundsSwitch:" destination="8UH-zf-NZM" eventType="valueChanged" id="bYF-pk-NPJ"/>
+                                </connections>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hbo-ZV-sxw">
-                                <rect key="frame" x="307" y="117" width="51" height="31"/>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Speech" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IpF-pn-Mnv">
-                                <rect key="frame" x="310" y="156" width="59" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sound" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1w-mM-M8g">
-                                <rect key="frame" x="192" y="156" width="51" height="21"/>
+                                <rect key="frame" x="83" y="243" width="51" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -529,10 +526,27 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hbo-ZV-sxw">
+                                <rect key="frame" x="77" y="285" width="51" height="31"/>
+                                <connections>
+                                    <action selector="speechSwitch:" destination="8UH-zf-NZM" eventType="valueChanged" id="yFT-Xe-05G"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Speech" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IpF-pn-Mnv">
+                                <rect key="frame" x="80" y="324" width="59" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="mostViewed" id="4Dw-BW-l0m"/>
+                    <connections>
+                        <outlet property="soundsSwitchToggle" destination="IA5-2J-DUw" id="IVq-bU-Zdp"/>
+                        <outlet property="speechSwitchToggle" destination="hbo-ZV-sxw" id="MIK-10-uJf"/>
+                        <outlet property="vibrateSwitchToggle" destination="3TZ-lA-3wd" id="4me-ar-n0b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0vr-h8-hKQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

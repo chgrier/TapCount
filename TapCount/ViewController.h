@@ -12,14 +12,15 @@
 #import <AVFoundation/AVFoundation.h>
 #import <CoreData/CoreData.h>
 #import "ReportViewController.h"
-#import "Speech.h"
+#import "Settings.h"
+#import "SettingsViewController.h"
 
 NSInteger total;
 NSInteger totalTwo;
 
 
 
-@interface ViewController : UIViewController <UIAlertViewDelegate>
+@interface ViewController : UIViewController <UIAlertViewDelegate, SettingsViewControllerDelegate>
 {
     
     IBOutlet UILabel *screen;
@@ -32,17 +33,13 @@ NSInteger totalTwo;
 - (IBAction)incrementTwo:(id)sender;
 - (IBAction)decrementTwo:(id)sender;
 
-- (IBAction)vibrateSwitch:(id)sender;
-- (IBAction)speechSwitch:(id)sender;
-- (IBAction)soundsOff:(id)sender;
+
 
 - (IBAction)sayTotal:(id)sender;
 
 
 
-@property (weak, nonatomic) IBOutlet UISwitch *speechSwitchToggle;
-@property (weak, nonatomic) IBOutlet UISwitch *vibrateSwithToggle;
-@property (weak, nonatomic) IBOutlet UISwitch *soundsSwitchToggle;
+
 
 @property (weak, nonatomic) AVSpeechSynthesisVoice *britishVoice;
 
@@ -53,5 +50,6 @@ NSInteger totalTwo;
 @property (nonatomic, strong) AVSpeechUtterance *utterancePropertyTwo;
 @property (nonatomic, strong) AVSpeechUtterance *utterancePropertyOne;
 
+@property Settings *allSettings;
 
 @end

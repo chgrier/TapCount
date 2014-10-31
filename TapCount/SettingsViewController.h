@@ -7,7 +7,31 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Settings.h"
+
+@class SettingsViewController;
+
+@protocol SettingsViewControllerDelegate <NSObject>
+
+- (void)setSettings:(SettingsViewController *)controller didSelectSettings: (Settings *)settings;
+
+@end
 
 @interface SettingsViewController : UIViewController
+
+
+
+- (IBAction)vibrateSwitch:(id)sender;
+@property (weak, nonatomic) IBOutlet UISwitch *vibrateSwitchToggle;
+
+- (IBAction)speechSwitch:(id)sender;
+@property (weak, nonatomic) IBOutlet UISwitch *speechSwitchToggle;
+
+- (IBAction)soundsSwitch:(id)sender;
+@property (weak, nonatomic) IBOutlet UISwitch *soundsSwitchToggle;
+
+@property (nonatomic, weak) id<SettingsViewControllerDelegate> delegate;
+
+@property Settings *settings;
 
 @end

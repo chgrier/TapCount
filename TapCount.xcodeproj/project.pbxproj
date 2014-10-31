@@ -21,7 +21,7 @@
 		BE1D963719FAF75F0060E7EA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1D963619FAF75F0060E7EA /* Default-568h@2x.png */; };
 		BE22DCDB19C0C00400EE6264 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE22DCDA19C0C00400EE6264 /* AudioToolbox.framework */; };
 		BE2E2C1F1A018E9500E7F6FC /* reportIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2E2C1E1A018E9500E7F6FC /* reportIcon.png */; };
-		BE2E2C221A01902300E7F6FC /* Speech.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2E2C211A01902300E7F6FC /* Speech.m */; };
+		BE2E2C221A01902300E7F6FC /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2E2C211A01902300E7F6FC /* Settings.m */; };
 		BE2E2C251A01AD4100E7F6FC /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2E2C241A01AD4100E7F6FC /* SettingsViewController.m */; };
 		BE38973219D38C7D00E1D84E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE38973119D38C7D00E1D84E /* MessageUI.framework */; };
 		BE50F5AB19C2BD44003AF7C9 /* Sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE50F5AA19C2BD44003AF7C9 /* Sound.caf */; };
@@ -87,8 +87,8 @@
 		BE1D963619FAF75F0060E7EA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BE22DCDA19C0C00400EE6264 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		BE2E2C1E1A018E9500E7F6FC /* reportIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reportIcon.png; sourceTree = "<group>"; };
-		BE2E2C201A01902300E7F6FC /* Speech.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Speech.h; sourceTree = "<group>"; };
-		BE2E2C211A01902300E7F6FC /* Speech.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Speech.m; sourceTree = "<group>"; };
+		BE2E2C201A01902300E7F6FC /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		BE2E2C211A01902300E7F6FC /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		BE2E2C231A01AD4100E7F6FC /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		BE2E2C241A01AD4100E7F6FC /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		BE38973119D38C7D00E1D84E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -217,8 +217,8 @@
 				BE70F1A719C0B5F70053E36A /* ViewController.m */,
 				BE2E2C231A01AD4100E7F6FC /* SettingsViewController.h */,
 				BE2E2C241A01AD4100E7F6FC /* SettingsViewController.m */,
-				BE2E2C201A01902300E7F6FC /* Speech.h */,
-				BE2E2C211A01902300E7F6FC /* Speech.m */,
+				BE2E2C201A01902300E7F6FC /* Settings.h */,
+				BE2E2C211A01902300E7F6FC /* Settings.m */,
 				BE70F1A919C0B5F70053E36A /* Images.xcassets */,
 				BE70F19819C0B5F70053E36A /* Supporting Files */,
 			);
@@ -409,7 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE2E2C221A01902300E7F6FC /* Speech.m in Sources */,
+				BE2E2C221A01902300E7F6FC /* Settings.m in Sources */,
 				BE70F1A819C0B5F70053E36A /* ViewController.m in Sources */,
 				BEDC140119CC9532009AC3C2 /* Report.m in Sources */,
 				BE08A56E19C4A1FB00162606 /* ReportDetailViewController.m in Sources */,
