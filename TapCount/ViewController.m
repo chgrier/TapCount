@@ -39,27 +39,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     
-   // _vibrate = YES;
+    SettingsViewController *svc = [self.tabBarController.viewControllers objectAtIndex:2];
     
-     _speechSynthesizer = [[AVSpeechSynthesizer alloc]init];
+    svc.delegate = self;
+    
+    self.allSettings = [[Settings alloc]init];
+    
+    self.allSettings.vibrateOn = YES;
+    self.allSettings.speechOn = YES;
+    self.allSettings.soundOn = YES;
+    
+    
+    
+    _speechSynthesizer = [[AVSpeechSynthesizer alloc]init];
     _speechSynthesizerTwo = [[AVSpeechSynthesizer alloc]init];
     
     _vibrate = YES;
     _speechOn = YES;
     _soundOn = YES;
-    
-    
-    
-    
-    
-    //self.allSettings = [[Settings alloc]init];
-    
-    //self.allSettings.vibrateOn = YES;
-   //self.allSettings.speechOn = YES;
-    //self.allSettings.soundOn = YES;
-    
     
    // AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:@"Ready"];
     AVSpeechUtterance *utteranceTwo = [[AVSpeechUtterance alloc]initWithString:@"Ready"];
@@ -68,7 +66,7 @@
     
     [self loadSoundEffect];
     
-    _britishVoice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
+    //_britishVoice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
     
 }
 
@@ -76,20 +74,13 @@
     
     // set selected code passed from settings controls to code object
     
-    //self.allSettings = [[Settings alloc]init];
-    self.allSettings.vibrateOn = settings;
+    self.allSettings = [[Settings alloc]init];
     
-    
-    
-    
-        
-        
-        
+    self.allSettings.vibrateOn = settings.vibrateOn;
+    self.allSettings.speechOn = settings.speechOn;
+    self.allSettings.soundOn = settings.soundOn;
         
 }
-    
-    
-    
 
 
 - (void)didReceiveMemoryWarning
@@ -147,7 +138,7 @@
     utterance.volume = 1.0f;
     utterance.pitchMultiplier = 1.2f;
     //utterance.postUtteranceDelay = 0.0;
-    //utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-us"];
+    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-us"];
     
     [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
     
@@ -177,8 +168,8 @@
     
     static AVSpeechUtterance *utterance;
     utterance = [[AVSpeechUtterance alloc]initWithString:count];
-    utterance.voice = nil;
-    
+    //utterance.voice = nil;
+    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
     
     
     // *** class method alternative ***

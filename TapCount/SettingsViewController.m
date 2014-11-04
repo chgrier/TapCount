@@ -22,6 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.settings = [[Settings alloc]init];
     self.settings.vibrateOn = YES;
     self.settings.speechOn = YES;
     self.settings.soundOn = YES;
@@ -31,36 +32,30 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)viewWillDisappear:(BOOL)animated
+{
+     //[self.delegate setSettings:self didSelectSettings:self.settings];
+}
 
 // UISWITCH CONTROLS
 
 -(IBAction)vibrateSwitch:(id)sender
 {
-    Settings *vibrateSettings;
-    vibrateSettings = [[Settings alloc]init];
     
-    if ([_vibrateSwitchToggle isOn]) {
-        vibrateSettings.vibrateOn = YES;
-        if (vibrateSettings.vibrateOn == YES) {
-        NSLog(@"Virbrate on");
-        } else {
-            NSLog(@"Vibrate off");
-        }
-        [self.delegate setSettings:self didSelectSettings:vibrateSettings];
+        if ([_vibrateSwitchToggle isOn]) {
         
-    } else {
-        self.settings.vibrateOn = NO;
+        self.settings.vibrateOn = YES;
+        NSLog(@"Vibrate on");
+        
+        [self.delegate setSettings:self didSelectSettings:self.settings];
+        
+        } else {
+            
+            self.settings.vibrateOn = NO;
+            NSLog(@"Vibrate off");
        [self.delegate setSettings:self didSelectSettings:self.settings];
         
-        if (![_speechSwitchToggle isOn])
-        {
-            [_soundsSwitchToggle setOn:NO];
-            [UIView setAnimationDuration:0.8];
-             NSLog(@"%hhd", self.settings.vibrateOn);
             
-        }
-        
     }
 }
 
@@ -74,11 +69,11 @@
         
     } else {
         self.settings.speechOn = NO;
-        
+        [self.delegate setSettings:self didSelectSettings:self.settings];
         if (![_vibrateSwitchToggle isOn])
         {
             [_soundsSwitchToggle setOn:NO];
-            [self.delegate setSettings:self didSelectSettings:self.settings];
+            
         }
     }
 }
