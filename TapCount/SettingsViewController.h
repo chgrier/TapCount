@@ -17,8 +17,7 @@
 
 @end
 
-@interface SettingsViewController : UIViewController
-
+@interface SettingsViewController : UITableViewController
 
 
 - (IBAction)vibrateSwitch:(id)sender;
