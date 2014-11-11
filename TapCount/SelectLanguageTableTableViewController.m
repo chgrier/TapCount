@@ -7,6 +7,8 @@
 //
 
 #import "SelectLanguageTableTableViewController.h"
+#import <AVFoundation/AVFoundation.h>
+
 
 @interface SelectLanguageTableTableViewController ()
 
@@ -29,63 +31,75 @@
     // Dispose of any resources that can be recreated.
 }
 
+# pragma mark - Creating Dictionary For Language Codes
+// Language codes used to create custom voices. Array is sorted based
+// on the display names in the language dictionary
+- (NSArray *)languageCodes
+{
+    if (!_languageCodes)
+    {
+        _languageCodes = [self.languageDictionary keysSortedByValueUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    }
+    return _languageCodes;
+}
+
+
+// Map between language codes and locale specific display name
+- (NSDictionary *)languageDictionary;
+
+{
+    if (!_languageDictionary)
+    {
+        NSArray *voices = [AVSpeechSynthesisVoice speechVoices];
+        NSArray *languages = [voices valueForKey:@"language"];
+        
+        NSLocale *currentLocale = [NSLocale autoupdatingCurrentLocale];
+        NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+        for (NSString *code in languages)
+        {
+            dictionary[code] = [currentLocale displayNameForKey:NSLocaleIdentifier value:code];
+        }
+        _languageDictionary = dictionary;
+    }
+    return _languageDictionary;
+}
+
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
+
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
-    return 0;
+    return [self.languageCodes count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Language" forIndexPath:indexPath];
+    // Configure the cell...use tag 1000 for label in cell
+    
+    NSString *languageCode = self.languageCodes[indexPath.row];
+    NSString *languageName = self.languageDictionary[languageCode];
+    //return languageName;
+
+    
+    UILabel *languageNameLabel = (UILabel *) [cell viewWithTag:1000];
+    languageNameLabel.text = languageName;
+    
+    
     
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation
