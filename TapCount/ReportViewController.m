@@ -200,7 +200,7 @@
                 [controller setSubject:@"Untitled Report"];            }
             
             NSString *date = [self formatDate:report.date] ;
-            NSString *reportBody = [NSString stringWithFormat:@"%@  \n %@  \n Date: %@", report.blastCount, report.otherCount, date];
+            NSString *reportBody = [NSString stringWithFormat:@"%@  \n %@  \n Date: %@ \n \n Sent using Path Counter for iOS", report.blastCount, report.otherCount, date];
             [controller setMessageBody:reportBody isHTML:NO];
            
             

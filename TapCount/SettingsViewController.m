@@ -26,6 +26,9 @@
     self.settings.vibrateOn = YES;
     self.settings.speechOn = YES;
     self.settings.soundOn = YES;
+    self.settings.leftSliderValue = 1.0;
+    self.settings.leftLanguageCode = @"en-GB";
+    self.settings.rightLanguageCode = @"en-AU";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,25 +85,25 @@
 - (IBAction)soundsSwitch:(UISwitch *)sender
 {
     if (sender.on){
-        self.settings.vibrateOn = YES;
-        self.settings.speechOn = YES;
+        //self.settings.vibrateOn = YES;
+        //self.settings.speechOn = YES;
         self.settings.soundOn = YES;
         
         //[self.delegate currencyPicker:self didPickCurrency:currency];
         
         [self.delegate setSettings:self didSelectSettings:self.settings];
         
-        [_speechSwitchToggle setOn:YES];
-        [_vibrateSwitchToggle setOn:YES];
+        //[_speechSwitchToggle setOn:YES];
+       // [_vibrateSwitchToggle setOn:YES];
         
     } else {
         
-       self.settings.vibrateOn = NO;
+       //self.settings.vibrateOn = NO;
         self.settings.soundOn = NO;
-        self.settings.speechOn = NO;
+        //self.settings.speechOn = NO;
         
-        [_speechSwitchToggle setOn:NO];
-        [_vibrateSwitchToggle setOn:NO];
+        //[_speechSwitchToggle setOn:NO];
+        //[_vibrateSwitchToggle setOn:NO];
         
         [self.delegate setSettings:self didSelectSettings:self.settings];
         
@@ -135,4 +138,22 @@
 }
 */
 
+
+- (IBAction)rightPitchSlider:(id)sender {
+    
+    
+}
+- (IBAction)leftSliderChange:(id)sender {
+    
+    float min = 0.5;
+    float max = 1.5;
+    
+    self.leftPitchSlider.minimumValue = min;
+    self.leftPitchSlider.maximumValue = max;
+    NSLog(@"%f", self.leftPitchSlider.value);
+    
+    self.settings.LeftSliderValue = self.leftPitchSlider.value;
+    
+    [self.delegate setSettings:self didSelectSettings:self.settings];
+}
 @end

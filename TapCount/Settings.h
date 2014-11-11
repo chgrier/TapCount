@@ -13,5 +13,10 @@
 @property (nonatomic, assign) BOOL soundOn;
 @property (nonatomic, assign) BOOL speechOn;
 @property (nonatomic, assign) BOOL vibrateOn;
+@property (nonatomic, assign) float leftSliderValue;
+@property (nonatomic, assign) float rightSliderValue;
+
+@property (nonatomic, assign) NSString *leftLanguageCode;
+@property (nonatomic, assign) NSString *rightLanguageCode;
 
 @end

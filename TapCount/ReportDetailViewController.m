@@ -43,8 +43,8 @@
     [self.reportNameField becomeFirstResponder];
     self.reportNameField.text = _reportTitle;
     self.dateLabel.text = [self formatDate:_date];
-    self.countOneLabel.text = [NSString stringWithFormat:@"Blast Count: %ld", (long) _countTotalOne];
-    self.countTwoLabel.text = [NSString stringWithFormat:@"Other Count: %ld", (long) _countTotalTwo];
+    self.countOneLabel.text = [NSString stringWithFormat:@"Left Counter: %ld", (long) _countTotalOne];
+    self.countTwoLabel.text = [NSString stringWithFormat:@"Right Counter: %ld", (long) _countTotalTwo];
     
     
     // dismiss keyboard when click outside of cell

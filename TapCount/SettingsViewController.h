@@ -29,6 +29,15 @@
 - (IBAction)soundsSwitch:(id)sender;
 @property (weak, nonatomic) IBOutlet UISwitch *soundsSwitchToggle;
 
+@property (weak, nonatomic) IBOutlet UISlider *leftPitchSlider;
+- (IBAction)leftSliderChange:(id)sender;
+
+
+@property (weak, nonatomic) IBOutlet UISlider *rightPitch;
+- (IBAction)rightPitchSlider:(id)sender;
+
+
+
 @property (nonatomic, weak) id<SettingsViewControllerDelegate> delegate;
 
 @property Settings *settings;
