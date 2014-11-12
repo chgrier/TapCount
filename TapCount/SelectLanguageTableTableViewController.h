@@ -26,7 +26,7 @@
 @property (nonatomic, weak) id<SelectLanguageViewControllerDelegate> delegate;
 
 @property Settings *languageSettings;
-@property Settings *language;
+
 
 
 @end

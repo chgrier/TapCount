@@ -27,13 +27,10 @@
     self.settings.speechOn = YES;
     self.settings.soundOn = YES;
     self.settings.leftSliderValue = 1.0;
-    self.settings.leftLanguageCode = @"en-GB";
-    self.settings.rightLanguageCode = @"en-AU";
+    self.languageName.text = self.settings.leftLanguageCode;
+    //self.settings.rightLanguageCode = @"en-AU";
     
-    self.languageName.text = @"English (United States)";
-    
-    
-}
+   }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -60,15 +57,17 @@
 }
 */
 
-/*
+
 -(void) setLanguage:(SelectLanguageTableTableViewController *)controller didSelectSettings:(Settings *)language {
-    self.languageSettings = [[Settings alloc]init];
     
-    self.languageSettings.leftLanguageCode = language.leftLanguageCode;
+    self.settings = [[Settings alloc]init];
+    self.settings.leftLanguageCode = language.leftLanguageCode;
     
+    
+    [self.delegate setSettings:self didSelectSettings:language];
     
 }
- */
+ 
  
 // UISWITCH CONTROLS
 

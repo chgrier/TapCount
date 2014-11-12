@@ -86,6 +86,7 @@
     self.allSettings.speechOn = settings.speechOn;
     self.allSettings.soundOn = settings.soundOn;
     self.allSettings.leftSliderValue = settings.leftSliderValue;
+    self.allSettings.leftLanguageCode = settings.leftLanguageCode;
         
 }
 

@@ -18,12 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,17 +94,21 @@
     return cell;
 }
 
-/*
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSString *languageCode = self.languageCodes[indexPath.row];
-    self.languageSettings.leftLanguageCode = self.languageDictionary[languageCode];
+    NSString *languageName = self.languageDictionary[languageCode];
+    self.languageSettings.leftLanguageCode = self.languageDictionary[languageName];
     
     [self.delegate setLanguage:self didSelectSettings:self.languageSettings];
     //[self.delegate baseCurrencyPicker:self didPickBaseCurrency:baseCurrency];
     
+    [self.delegate setSettings:self didSelectSettings:self.languageSettings];
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
-*/
+
 
 
 /*

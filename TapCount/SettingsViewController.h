@@ -44,7 +44,7 @@
 
 @property Settings *settings;
 
-@property Settings *languageSettings;
+//@property Settings *languageSettings;
 
 
 @end
