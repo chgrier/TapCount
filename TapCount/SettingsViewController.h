@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Settings.h"
+#import "SelectLanguageTableTableViewController.h"
 
 @class SettingsViewController;
 
@@ -17,7 +18,7 @@
 
 @end
 
-@interface SettingsViewController : UITableViewController
+@interface SettingsViewController : UITableViewController <SelectLanguageViewControllerDelegate>
 
 
 - (IBAction)vibrateSwitch:(id)sender;
@@ -32,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *leftPitchSlider;
 - (IBAction)leftSliderChange:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *languageName;
 
 @property (weak, nonatomic) IBOutlet UISlider *rightPitch;
 - (IBAction)rightPitchSlider:(id)sender;
@@ -41,5 +43,8 @@
 @property (nonatomic, weak) id<SettingsViewControllerDelegate> delegate;
 
 @property Settings *settings;
+
+@property Settings *languageSettings;
+
 
 @end

@@ -190,7 +190,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRd-TL-f2A">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRd-TL-f2A">
                                 <rect key="frame" x="23" y="449" width="260" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="0V0-au-j8V"/>
@@ -639,7 +639,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell tag="100" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="05z-5N-U7p" style="IBUITableViewCellStyleDefault" id="8da-ze-aq3">
+                                    <tableViewCell tag="100" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="05z-5N-U7p" detailTextLabel="5B5-jk-Tg7" style="IBUITableViewCellStyleValue1" id="8da-ze-aq3">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8da-ze-aq3" id="mqa-8N-2RR">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -648,6 +648,12 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" tag="1001" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" id="5B5-jk-Tg7">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -742,6 +748,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Settings" image="rectangle.png" id="wZy-Vl-w0A"/>
                     <connections>
+                        <outlet property="languageName" destination="5B5-jk-Tg7" id="gz0-EC-qG4"/>
                         <outlet property="leftPitchSlider" destination="NRy-p4-On7" id="o8z-N4-g3C"/>
                         <outlet property="rightPitch" destination="iJm-IJ-bgR" id="ymi-4j-vFM"/>
                         <outlet property="soundsSwitchToggle" destination="5sV-h1-e8k" id="OCk-vK-WGo"/>

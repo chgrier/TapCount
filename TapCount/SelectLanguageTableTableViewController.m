@@ -99,6 +99,17 @@
     return cell;
 }
 
+/*
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString *languageCode = self.languageCodes[indexPath.row];
+    self.languageSettings.leftLanguageCode = self.languageDictionary[languageCode];
+    
+    [self.delegate setLanguage:self didSelectSettings:self.languageSettings];
+    //[self.delegate baseCurrencyPicker:self didPickBaseCurrency:baseCurrency];
+    
+}
+*/
 
 
 /*

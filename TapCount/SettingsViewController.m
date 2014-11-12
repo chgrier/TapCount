@@ -29,6 +29,10 @@
     self.settings.leftSliderValue = 1.0;
     self.settings.leftLanguageCode = @"en-GB";
     self.settings.rightLanguageCode = @"en-AU";
+    
+    self.languageName.text = @"English (United States)";
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,6 +44,32 @@
      //[self.delegate setSettings:self didSelectSettings:self.settings];
 }
 
+#pragma mark - Select Language Delegate
+
+/*
+-(void) setSettings:(SettingsViewController *)controller didSelectSettings:(Settings *)settings {
+    
+    // set selected code passed from settings controls to code object
+    self.allSettings = [[Settings alloc]init];
+    
+    self.allSettings.vibrateOn = settings.vibrateOn;
+    self.allSettings.speechOn = settings.speechOn;
+    self.allSettings.soundOn = settings.soundOn;
+    self.allSettings.leftSliderValue = settings.leftSliderValue;
+    
+}
+*/
+
+/*
+-(void) setLanguage:(SelectLanguageTableTableViewController *)controller didSelectSettings:(Settings *)language {
+    self.languageSettings = [[Settings alloc]init];
+    
+    self.languageSettings.leftLanguageCode = language.leftLanguageCode;
+    
+    
+}
+ */
+ 
 // UISWITCH CONTROLS
 
 -(IBAction)vibrateSwitch:(id)sender
@@ -156,4 +186,6 @@
     
     [self.delegate setSettings:self didSelectSettings:self.settings];
 }
+
+
 @end
