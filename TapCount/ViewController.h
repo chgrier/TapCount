@@ -14,6 +14,7 @@
 #import "ReportViewController.h"
 #import "Settings.h"
 #import "SettingsViewController.h"
+#import "SelectLanguageTableTableViewController.h"
 
 NSInteger total;
 NSInteger totalTwo;
@@ -51,5 +52,6 @@ NSInteger totalTwo;
 @property (nonatomic, strong) AVSpeechUtterance *utterancePropertyOne;
 
 @property Settings *allSettings;
+
 
 @end

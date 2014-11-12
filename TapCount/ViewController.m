@@ -43,9 +43,9 @@
     [super viewDidLoad];
     
     SettingsViewController *svc = [self.tabBarController.viewControllers objectAtIndex:2];
-    
     svc.delegate = self;
     
+       
     self.allSettings = [[Settings alloc]init];
     
     self.allSettings.vibrateOn = YES;
@@ -53,8 +53,8 @@
     self.allSettings.soundOn = YES;
     self.allSettings.leftSliderValue = 1.0;
     
-    self.allSettings.leftLanguageCode = @"en-GB";
-    self.allSettings.rightLanguageCode = @"de-DE";
+    //self.allSettings.leftLanguageCode = @"en-GB";
+    //self.allSettings.rightLanguageCode = @"de-DE";
     
     
     _speechSynthesizer = [[AVSpeechSynthesizer alloc]init];
@@ -86,9 +86,10 @@
     self.allSettings.speechOn = settings.speechOn;
     self.allSettings.soundOn = settings.soundOn;
     self.allSettings.leftSliderValue = settings.leftSliderValue;
-    self.allSettings.leftLanguageCode = settings.leftLanguageCode;
+    //self.allSettings.leftLanguageCode = settings.leftLanguageCode;
         
 }
+
 
 
 - (void)didReceiveMemoryWarning
@@ -118,6 +119,7 @@
     
     static AVSpeechUtterance *utterance;
     utterance = [[AVSpeechUtterance alloc]initWithString:count];
+    //utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.leftLanguageCode];
     
     // *** class method alternative ***
     //[_speechSynthesizer speakUtterance:[AVSpeechUtterance speechUtteranceWithString:count]];
@@ -148,7 +150,7 @@
     utterance.pitchMultiplier = self.allSettings.leftSliderValue;
     NSLog(@"Pitch multiplier = %f", self.allSettings.leftSliderValue);
     //utterance.postUtteranceDelay = 0.0;
-    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.leftLanguageCode];
+    //utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.leftLanguageCode];
     
     [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
     
@@ -183,7 +185,7 @@
     static AVSpeechUtterance *utterance;
     utterance = [[AVSpeechUtterance alloc]initWithString:count];
     //utterance.voice = nil;
-    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.rightLanguageCode];
+    //utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.rightLanguageCode];
     
     
     // *** class method alternative ***
@@ -216,7 +218,7 @@
             utterance.volume = 1.0f;
             //utterance.pitchMultiplier = 0.6f;
             //utterance.postUtteranceDelay = 0.0;
-            utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.rightLanguageCode];
+            //utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.rightLanguageCode];
             
             [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
             

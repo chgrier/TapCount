@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "Settings.h"
+#import "Language.h"
 
 
 @class SelectLanguageTableTableViewController;
 
 @protocol SelectLanguageViewControllerDelegate <NSObject>
 
-- (void)setLanguage:(SelectLanguageTableTableViewController *)controller didSelectSettings: (Settings *)language;
+- (void)setLanguage:(SelectLanguageTableTableViewController *)controller didSelectLanguage: (Language *)language;
 
 @end
 
@@ -25,7 +26,7 @@
 
 @property (nonatomic, weak) id<SelectLanguageViewControllerDelegate> delegate;
 
-@property Settings *languageSettings;
+@property Language *languageSettings;
 
 
 

@@ -659,7 +659,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="B6D-bT-bAI" kind="popoverPresentation" popoverAnchorView="8da-ze-aq3" id="8oA-Y4-2Js">
+                                            <segue destination="B6D-bT-bAI" kind="popoverPresentation" identifier="SelectLanguage" popoverAnchorView="8da-ze-aq3" id="8oA-Y4-2Js">
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                             </segue>
                                         </connections>

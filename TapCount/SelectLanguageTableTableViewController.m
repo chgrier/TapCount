@@ -99,14 +99,44 @@
     
     NSString *languageCode = self.languageCodes[indexPath.row];
     NSString *languageName = self.languageDictionary[languageCode];
-    self.languageSettings.leftLanguageCode = self.languageDictionary[languageName];
     
-    [self.delegate setLanguage:self didSelectSettings:self.languageSettings];
+    
+   
+    Language *languageCodeName = [[Language alloc]init];
+    languageCodeName.leftLanguageCode = languageCode;
+    
+    
+    [self.delegate setLanguage:self didSelectLanguage:languageCodeName];
+    
+    NSLog(@"Language selected: %@ and %@", languageCode, languageCodeName.leftLanguageCode);
+    
     //[self.delegate baseCurrencyPicker:self didPickBaseCurrency:baseCurrency];
     
-    [self.delegate setSettings:self didSelectSettings:self.languageSettings];
+    
     
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    
+    
+    /*
+     Currency *currency = _searchResults[indexPath.row];
+     currency = [[Currency alloc]init];
+     currency.fromFullName = [[_searchResults objectAtIndex:indexPath.row]objectForKey:@"currencyName"];
+     currency.fromCodeName = [[_searchResults objectAtIndex:indexPath.row]objectForKey:@"currencyCode"];
+     
+     currency.imageName = [[_searchResults objectAtIndex:indexPath.row]objectForKey:@"imageName"];
+     currency.oldRateToUSD = [[_searchResults objectAtIndex:indexPath.row]objectForKey:@"oldRateToUSD"];
+     
+     currency.toCodeName = @"USD";
+     
+     //[_currencies addObject:currency];
+     //Currency *currency = _currencies[indexPath.row];
+     
+     //NSString *codeName = currency.codeName;
+     
+     [self.delegate currencyPicker:self didPickCurrency:currency];
+     
+     
+     */
 }
 
 

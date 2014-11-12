@@ -43,6 +43,7 @@
 @property (nonatomic, weak) id<SettingsViewControllerDelegate> delegate;
 
 @property Settings *settings;
+@property Language *language;
 
 //@property Settings *languageSettings;
 

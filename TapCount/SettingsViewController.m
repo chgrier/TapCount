@@ -8,6 +8,8 @@
 
 #import "SettingsViewController.h"
 #import "Settings.h"
+#import "Language.h"
+#import "SelectLanguageTableTableViewController.h"
 
 @interface SettingsViewController ()
 {
@@ -27,8 +29,11 @@
     self.settings.speechOn = YES;
     self.settings.soundOn = YES;
     self.settings.leftSliderValue = 1.0;
-    self.languageName.text = self.settings.leftLanguageCode;
+    //self.languageName.text = self.leftLanguageCode;
     //self.settings.rightLanguageCode = @"en-AU";
+    
+    SelectLanguageTableTableViewController *languageViewController = [[SelectLanguageTableTableViewController alloc]init];
+    languageViewController.delegate = self;
     
    }
 
@@ -57,15 +62,19 @@
 }
 */
 
+-(void) setLanguage:(SelectLanguageTableTableViewController *)controller didSelectLanguage:(Language *)language {
+    
+    //self.languageSettings = [[Settings alloc]init];
+    //self.languageSettings.leftLanguageCode = language.leftLanguageCode;
+    
+    self.language = [[Language alloc]init];
+    self.language = language;
+    
+    self.languageName.text = self.language.leftLanguageCode;
+    
+    NSLog(@"**Language code passed: %@", self.language.leftLanguageCode);
+    
 
--(void) setLanguage:(SelectLanguageTableTableViewController *)controller didSelectSettings:(Settings *)language {
-    
-    self.settings = [[Settings alloc]init];
-    self.settings.leftLanguageCode = language.leftLanguageCode;
-    
-    
-    [self.delegate setSettings:self didSelectSettings:language];
-    
 }
  
  
@@ -184,6 +193,17 @@
     self.settings.LeftSliderValue = self.leftPitchSlider.value;
     
     [self.delegate setSettings:self didSelectSettings:self.settings];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"SelectLanguage"]) {
+        
+        UINavigationController *navigationController = segue.destinationViewController;
+        // 2
+        SelectLanguageTableTableViewController *controller = (SelectLanguageTableTableViewController *) navigationController.topViewController;
+        // 3
+        controller.delegate = self;
+}
 }
 
 
