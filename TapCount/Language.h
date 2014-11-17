@@ -13,4 +13,8 @@
 @property (nonatomic, assign) NSString *leftLanguageCode;
 @property (nonatomic, assign) NSString *rightLanguageCode;
 
+@property (nonatomic, assign) NSString *leftFullName;
+@property (nonatomic, assign) NSString *rightFullName;
+
+
 @end

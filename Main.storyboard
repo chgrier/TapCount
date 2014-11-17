@@ -66,7 +66,7 @@
             </objects>
             <point key="canvasLocation" x="2861" y="1650"/>
         </scene>
-        <!--Report Detail View Controller-->
+        <!--Count Report-->
         <scene sceneID="pUz-b3-mk2">
             <objects>
                 <tableViewController id="2nc-Va-0JV" customClass="ReportDetailViewController" sceneMemberID="viewController">
@@ -155,7 +155,7 @@
                             <outlet property="delegate" destination="2nc-Va-0JV" id="LUc-Dh-3cV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="lU1-Fz-Ch0">
+                    <navigationItem key="navigationItem" title="Count Report" id="lU1-Fz-Ch0">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tpe-yv-EYM">
                             <connections>
                                 <action selector="cancel:" destination="2nc-Va-0JV" id="o3a-Ql-wFB"/>
@@ -310,13 +310,13 @@
                                     <action selector="increment:" destination="S7T-SN-O3j" eventType="touchUpInside" id="7JJ-ym-ARH"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tmt-bL-NQF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tmt-bL-NQF">
                                 <rect key="frame" x="30" y="84" width="247" height="115"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="96"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eHt-rM-q03">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eHt-rM-q03">
                                 <rect key="frame" x="420" y="84" width="52.5" height="115"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="96"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -441,7 +441,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Counter" image="microscope-50.png" id="ZZr-3M-krr"/>
+                    <tabBarItem key="tabBarItem" title="Cell Counter" image="MicroscopeIcon" id="ZZr-3M-krr"/>
                     <connections>
                         <outlet property="screen" destination="tmt-bL-NQF" id="zrX-7S-2CB"/>
                         <outlet property="screenTwo" destination="eHt-rM-q03" id="ztw-Rg-fXU"/>
@@ -471,11 +471,11 @@
             </objects>
             <point key="canvasLocation" x="-166" y="196"/>
         </scene>
-        <!--Item-->
+        <!--Email Counts-->
         <scene sceneID="f9F-xd-Izy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rbb-Ao-Dey" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="emailIcon.png" id="8qQ-BQ-5rJ"/>
+                    <tabBarItem key="tabBarItem" title="Email Counts" image="MailIcon" id="8qQ-BQ-5rJ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="keI-BU-JQe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -560,12 +560,9 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5sV-h1-e8k">
                                                     <rect key="frame" x="523" y="6" width="51" height="31"/>
-                                                    <connections>
-                                                        <action selector="soundsSwitch:" destination="RJ1-4N-9SK" eventType="valueChanged" id="wiX-dt-KCM"/>
-                                                    </connections>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sounds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocy-2m-rdM">
-                                                    <rect key="frame" x="16" y="11" width="59" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vibrate on 10s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocy-2m-rdM">
+                                                    <rect key="frame" x="16" y="11" width="111" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -576,6 +573,32 @@
                                                 <constraint firstAttribute="centerY" secondItem="5sV-h1-e8k" secondAttribute="centerY" id="4vU-18-udG"/>
                                                 <constraint firstAttribute="centerY" secondItem="ocy-2m-rdM" secondAttribute="centerY" id="BBB-LC-Dsm"/>
                                                 <constraint firstItem="ocy-2m-rdM" firstAttribute="leading" secondItem="AVH-Lg-EmK" secondAttribute="leadingMargin" constant="8" id="poc-18-ZCy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="apg-Js-md4">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="apg-Js-md4" id="bxR-0X-P82">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e02-P8-L4x">
+                                                    <rect key="frame" x="523" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="soundsSwitch:" destination="RJ1-4N-9SK" eventType="valueChanged" id="oef-cA-vY9"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sounds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hI6-5s-KYW">
+                                                    <rect key="frame" x="16" y="11" width="59" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hI6-5s-KYW" firstAttribute="leading" secondItem="bxR-0X-P82" secondAttribute="leadingMargin" constant="8" id="74h-Oa-bf6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="e02-P8-L4x" secondAttribute="trailing" constant="20" id="Xy3-ig-IV1"/>
+                                                <constraint firstAttribute="centerY" secondItem="e02-P8-L4x" secondAttribute="centerY" id="aQl-Gw-uib"/>
+                                                <constraint firstAttribute="centerY" secondItem="hI6-5s-KYW" secondAttribute="centerY" id="snn-PS-ufS"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -644,7 +667,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8da-ze-aq3" id="mqa-8N-2RR">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Voice / Language" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="05z-5N-U7p">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Voice/Language" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="05z-5N-U7p">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -724,15 +747,21 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell tag="101" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Nwa-Rf-JVD" style="IBUITableViewCellStyleDefault" id="g8G-jI-4X1">
+                                    <tableViewCell tag="101" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Nwa-Rf-JVD" detailTextLabel="9SE-3X-Kfm" style="IBUITableViewCellStyleValue1" id="g8G-jI-4X1">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g8G-jI-4X1" id="yja-dA-fOZ">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Voice / Language" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nwa-Rf-JVD">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Voice/Language" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nwa-Rf-JVD">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" id="9SE-3X-Kfm">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -746,12 +775,12 @@
                             <outlet property="delegate" destination="RJ1-4N-9SK" id="d1L-pW-CvD"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Settings" image="rectangle.png" id="wZy-Vl-w0A"/>
+                    <tabBarItem key="tabBarItem" title="Sound Settings" image="SettingsIcon" id="wZy-Vl-w0A"/>
                     <connections>
-                        <outlet property="languageName" destination="5B5-jk-Tg7" id="gz0-EC-qG4"/>
+                        <outlet property="languageNameLeft" destination="5B5-jk-Tg7" id="wlt-RI-vhG"/>
+                        <outlet property="languageNameRight" destination="9SE-3X-Kfm" id="6kv-dx-hSs"/>
                         <outlet property="leftPitchSlider" destination="NRy-p4-On7" id="o8z-N4-g3C"/>
                         <outlet property="rightPitch" destination="iJm-IJ-bgR" id="ymi-4j-vFM"/>
-                        <outlet property="soundsSwitchToggle" destination="5sV-h1-e8k" id="OCk-vK-WGo"/>
                         <outlet property="speechSwitchToggle" destination="azM-Na-LRd" id="h65-ec-54u"/>
                         <outlet property="vibrateSwitchToggle" destination="G3f-kt-x4u" id="p6d-HN-mP7"/>
                     </connections>
@@ -760,7 +789,7 @@
             </objects>
             <point key="canvasLocation" x="-166" y="968"/>
         </scene>
-        <!--Select Language Table Table View Controller-->
+        <!--Select Voice / Language-->
         <scene sceneID="3Sr-ht-dg1">
             <objects>
                 <tableViewController id="08s-TM-22r" customClass="SelectLanguageTableTableViewController" sceneMemberID="viewController">
@@ -769,13 +798,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Language" rowHeight="49" id="sLP-VE-rZJ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Language" rowHeight="49" id="sLP-VE-rZJ">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sLP-VE-rZJ" id="dAX-D7-XB3">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Language Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1Z-ff-qz7">
-                                            <rect key="frame" x="8" y="14" width="555" height="21"/>
+                                            <rect key="frame" x="18" y="14" width="555" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -789,7 +818,13 @@
                             <outlet property="delegate" destination="08s-TM-22r" id="8E7-yh-Bqf"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ljs-Js-4O6"/>
+                    <navigationItem key="navigationItem" title="Select Voice / Language" id="ljs-Js-4O6">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="qDP-xf-fiI">
+                            <connections>
+                                <action selector="cancel:" destination="08s-TM-22r" id="xMi-OW-hR1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTL-Qn-cRi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -833,10 +868,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="MailIcon" width="50" height="50"/>
+        <image name="MicroscopeIcon" width="50" height="50"/>
+        <image name="SettingsIcon" width="50" height="50"/>
         <image name="addButton.png" width="150" height="150"/>
         <image name="clearButton.png" width="260" height="72"/>
-        <image name="emailIcon.png" width="88" height="88"/>
-        <image name="microscope-50.png" width="50" height="50"/>
         <image name="minusCircle.png" width="100" height="88"/>
         <image name="rectangle.png" width="150" height="150"/>
         <image name="saveButton.png" width="260" height="72"/>

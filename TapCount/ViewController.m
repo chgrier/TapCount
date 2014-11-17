@@ -86,7 +86,7 @@
     self.allSettings.speechOn = settings.speechOn;
     self.allSettings.soundOn = settings.soundOn;
     self.allSettings.leftSliderValue = settings.leftSliderValue;
-    //self.allSettings.leftLanguageCode = settings.leftLanguageCode;
+    self.allSettings.leftLanguageCode = settings.leftLanguageCode;
         
 }
 
@@ -119,7 +119,7 @@
     
     static AVSpeechUtterance *utterance;
     utterance = [[AVSpeechUtterance alloc]initWithString:count];
-    //utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.leftLanguageCode];
+    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.leftLanguageCode];
     
     // *** class method alternative ***
     //[_speechSynthesizer speakUtterance:[AVSpeechUtterance speechUtteranceWithString:count]];
@@ -150,7 +150,7 @@
     utterance.pitchMultiplier = self.allSettings.leftSliderValue;
     NSLog(@"Pitch multiplier = %f", self.allSettings.leftSliderValue);
     //utterance.postUtteranceDelay = 0.0;
-    //utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.leftLanguageCode];
+    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.leftLanguageCode];
     
     [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
     

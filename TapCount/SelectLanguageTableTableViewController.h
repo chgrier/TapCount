@@ -28,6 +28,8 @@
 
 @property Language *languageSettings;
 
+- (IBAction)cancel:(id)sender;
+
 
 
 @end

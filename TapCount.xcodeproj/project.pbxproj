@@ -42,6 +42,7 @@
 		BE77F1F819D3A482002E8A90 /* emailIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = BE77F1F719D3A482002E8A90 /* emailIcon.png */; };
 		BE78AB6B19C75F7000BD9E0D /* decrementTwo.wav in Resources */ = {isa = PBXBuildFile; fileRef = BE78AB6A19C75F7000BD9E0D /* decrementTwo.wav */; };
 		BE855D931A141B0800845DCC /* Language.m in Sources */ = {isa = PBXBuildFile; fileRef = BE855D921A141B0800845DCC /* Language.m */; };
+		BE855D951A15114500845DCC /* MailTabIcon_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE855D941A15114500845DCC /* MailTabIcon_3x.png */; };
 		BE9B58AE1A119095006D1C01 /* SelectLanguageTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9B58AD1A119095006D1C01 /* SelectLanguageTableTableViewController.m */; };
 		BEAB0E7419C359BB00AA7623 /* cell.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB0E7319C359BB00AA7623 /* cell.png */; };
 		BEAB0E7A19C360FC00AA7623 /* iconDraft.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB0E7919C360FC00AA7623 /* iconDraft.png */; };
@@ -120,6 +121,7 @@
 		BE78AB6A19C75F7000BD9E0D /* decrementTwo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = decrementTwo.wav; sourceTree = "<group>"; };
 		BE855D911A141B0800845DCC /* Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Language.h; sourceTree = "<group>"; };
 		BE855D921A141B0800845DCC /* Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Language.m; sourceTree = "<group>"; };
+		BE855D941A15114500845DCC /* MailTabIcon_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MailTabIcon_3x.png; sourceTree = "<group>"; };
 		BE9B58AC1A119095006D1C01 /* SelectLanguageTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectLanguageTableTableViewController.h; sourceTree = "<group>"; };
 		BE9B58AD1A119095006D1C01 /* SelectLanguageTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectLanguageTableTableViewController.m; sourceTree = "<group>"; };
 		BEAB0E7319C359BB00AA7623 /* cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell.png; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 		BE70F19819C0B5F70053E36A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BE855D941A15114500845DCC /* MailTabIcon_3x.png */,
 				BEE387841A0BF4AB005048FF /* crisp.caf */,
 				BE2E2C1E1A018E9500E7F6FC /* reportIcon.png */,
 				BE1D963419FABE160060E7EA /* addButton.png */,
@@ -378,6 +381,7 @@
 			files = (
 				BE1D963519FABE160060E7EA /* addButton.png in Resources */,
 				BEDC13C219CC83DF009AC3C2 /* microscope-75-white.png in Resources */,
+				BE855D951A15114500845DCC /* MailTabIcon_3x.png in Resources */,
 				BEE387851A0BF4AB005048FF /* crisp.caf in Resources */,
 				BE78AB6B19C75F7000BD9E0D /* decrementTwo.wav in Resources */,
 				BEFE4D8319C2A64D009CBB29 /* heartCell.jpg in Resources */,

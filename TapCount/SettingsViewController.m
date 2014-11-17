@@ -29,8 +29,9 @@
     self.settings.speechOn = YES;
     self.settings.soundOn = YES;
     self.settings.leftSliderValue = 1.0;
-    //self.languageName.text = self.leftLanguageCode;
-    //self.settings.rightLanguageCode = @"en-AU";
+    self.languageNameLeft.text = @"English (United States)";
+    self.languageNameRight.text = @"English (United States)";
+    // = @"English (United States)";
     
     SelectLanguageTableTableViewController *languageViewController = [[SelectLanguageTableTableViewController alloc]init];
     languageViewController.delegate = self;
@@ -70,11 +71,13 @@
     self.language = [[Language alloc]init];
     self.language = language;
     
-    self.languageName.text = self.language.leftLanguageCode;
+    self.languageNameLeft.text = self.language.leftFullName;
     
     NSLog(@"**Language code passed: %@", self.language.leftLanguageCode);
     
-
+    self.settings.leftLanguageCode = self.language.leftLanguageCode;
+    [self.delegate setSettings:self didSelectSettings:self.settings];
+    
 }
  
  

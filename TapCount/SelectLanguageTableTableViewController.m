@@ -104,11 +104,12 @@
    
     Language *languageCodeName = [[Language alloc]init];
     languageCodeName.leftLanguageCode = languageCode;
+    languageCodeName.leftFullName = languageName;
     
     
     [self.delegate setLanguage:self didSelectLanguage:languageCodeName];
     
-    NSLog(@"Language selected: %@ and %@", languageCode, languageCodeName.leftLanguageCode);
+    NSLog(@"Language selected: %@ and %@ = %@", languageCode, languageCodeName.leftLanguageCode, languageName);
     
     //[self.delegate baseCurrencyPicker:self didPickBaseCurrency:baseCurrency];
     
@@ -151,4 +152,9 @@
 }
 */
 
+- (IBAction)cancel:(id)sender {
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    
+}
 @end
