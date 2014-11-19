@@ -131,6 +131,7 @@
         reportNameLabel.text = @"(Untitled Report)";
     }
     
+       
     //reportNameLabel.text = @"Report working!";
 
     UILabel *dateLabel = (UILabel *)[cell viewWithTag:101];

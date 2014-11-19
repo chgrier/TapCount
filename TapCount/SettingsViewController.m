@@ -24,14 +24,35 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+   // self.languageNameLeft.text = [defaults objectForKey:@"leftLanguageCode"];
+    //NSString *languageNameLeft = [defaults objectForKey:@"leftLanguageName"];
+    //NSString *languageCodeLeft = [defaults objectForKey:@"leftLanguageCode"];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *leftLanguageCode = [defaults objectForKey:@"leftLanguageCode"];
+    NSString *leftLanguageName = [defaults objectForKey:@"leftLanguageName"];
+    
     self.settings = [[Settings alloc]init];
     self.settings.vibrateOn = YES;
     self.settings.speechOn = YES;
     self.settings.soundOn = YES;
     self.settings.leftSliderValue = 1.0;
-    self.languageNameLeft.text = @"English (United States)";
+    self.settings.leftLanguageCode = [defaults objectForKey:@"leftLanguageCode"];
+    
+    self.language = [[Language alloc]init];
+    self.language.leftLanguageCode = [defaults objectForKey:@"leftLanguageCode"];
+    
     self.languageNameRight.text = @"English (United States)";
-    // = @"English (United States)";
+    
+    if (leftLanguageCode == nil) {
+        self.languageNameLeft.text = @"English (United States)";
+    } else {
+        self.languageNameLeft.text = leftLanguageName;
+        NSLog(@"*** Language after view loads (): %@",leftLanguageName);
+    }
+    
+    
     
     SelectLanguageTableTableViewController *languageViewController = [[SelectLanguageTableTableViewController alloc]init];
     languageViewController.delegate = self;
@@ -71,12 +92,20 @@
     self.language = [[Language alloc]init];
     self.language = language;
     
-    self.languageNameLeft.text = self.language.leftFullName;
+    self.languageNameLeft.text = self.language.leftLanguageName;
     
     NSLog(@"**Language code passed: %@", self.language.leftLanguageCode);
     
     self.settings.leftLanguageCode = self.language.leftLanguageCode;
     [self.delegate setSettings:self didSelectSettings:self.settings];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:language.leftLanguageCode forKey:@"leftLanguageCode"];
+    [defaults setValue:language.leftLanguageName forKey:@"leftLanguageName"];
+    [defaults synchronize];
+
+
+    
     
 }
  
@@ -151,21 +180,6 @@
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

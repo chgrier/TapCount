@@ -53,9 +53,8 @@
     self.allSettings.soundOn = YES;
     self.allSettings.leftSliderValue = 1.0;
     
-    //self.allSettings.leftLanguageCode = @"en-GB";
-    //self.allSettings.rightLanguageCode = @"de-DE";
-    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.allSettings.leftLanguageCode = [defaults objectForKey:@"leftLanguageCode"];
     
     _speechSynthesizer = [[AVSpeechSynthesizer alloc]init];
     _speechSynthesizerTwo = [[AVSpeechSynthesizer alloc]init];
@@ -73,7 +72,7 @@
     [self loadSoundEffect];
     [self loadSoundEffectLeft];
     
-    //_britishVoice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-gb"];
+    
     
 }
 
@@ -87,6 +86,11 @@
     self.allSettings.soundOn = settings.soundOn;
     self.allSettings.leftSliderValue = settings.leftSliderValue;
     self.allSettings.leftLanguageCode = settings.leftLanguageCode;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:settings.leftLanguageCode forKey:@"leftLanguageCode"];
+    [defaults setValue:settings.leftLanguageName forKey:@"leftLanguageName"];
+    [defaults synchronize];
         
 }
 
@@ -144,6 +148,8 @@
             [_speechSynthesizer speakUtterance:utterance];
         } else {
 
+            
+            
     utterance.rate = AVSpeechUtteranceMinimumSpeechRate + ((AVSpeechUtteranceMaximumSpeechRate - AVSpeechUtteranceMinimumSpeechRate) * 0.5f);
     utterance.volume = 1.0f;
     //utterance.pitchMultiplier = 1.2f;
