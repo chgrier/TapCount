@@ -119,40 +119,9 @@
     
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     
-    
-    /*
-     Currency *currency = _searchResults[indexPath.row];
-     currency = [[Currency alloc]init];
-     currency.fromFullName = [[_searchResults objectAtIndex:indexPath.row]objectForKey:@"currencyName"];
-     currency.fromCodeName = [[_searchResults objectAtIndex:indexPath.row]objectForKey:@"currencyCode"];
-     
-     currency.imageName = [[_searchResults objectAtIndex:indexPath.row]objectForKey:@"imageName"];
-     currency.oldRateToUSD = [[_searchResults objectAtIndex:indexPath.row]objectForKey:@"oldRateToUSD"];
-     
-     currency.toCodeName = @"USD";
-     
-     //[_currencies addObject:currency];
-     //Currency *currency = _currencies[indexPath.row];
-     
-     //NSString *codeName = currency.codeName;
-     
-     [self.delegate currencyPicker:self didPickCurrency:currency];
-     
-     
-     */
+
 }
 
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)cancel:(id)sender {
     

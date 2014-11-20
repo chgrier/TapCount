@@ -22,19 +22,77 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+   
     
-    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-   // self.languageNameLeft.text = [defaults objectForKey:@"leftLanguageCode"];
-    //NSString *languageNameLeft = [defaults objectForKey:@"leftLanguageName"];
-    //NSString *languageCodeLeft = [defaults objectForKey:@"leftLanguageCode"];
-    
+    // load defaults for settings
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    
+    BOOL speechOn = [defaults boolForKey:@"speechOn"];
+    BOOL vibrateOn = [defaults boolForKey:@"vibrateOn"];
+    BOOL vibrateTenOn = [defaults boolForKey:@"vibrateTenOn"];
+    BOOL soundsOn = [defaults boolForKey:@"soundsOn"];
+    
     NSString *leftLanguageCode = [defaults objectForKey:@"leftLanguageCode"];
     NSString *leftLanguageName = [defaults objectForKey:@"leftLanguageName"];
     
+    float leftPitch = [defaults floatForKey:@"leftPitch"];
+    float rightPitch = [defaults floatForKey:@"rightPitch"];
+    
     self.settings = [[Settings alloc]init];
-    self.settings.vibrateOn = YES;
+    
+    // -- Speech settings --
+    if ([defaults boolForKey:@"speechOn"] != 1 && [defaults boolForKey:@"speechOn"] != 0) {
+        self.settings.speechOn = YES;
+    } else {
+        self.settings.speechOn = speechOn;
+        if (speechOn == YES) {
+            [_speechSwitchToggle setOn:YES];
+        } else {
+            [_speechSwitchToggle setOn:NO];
+        }
+    }
+    
+    // -- Vibrate settings --
+    if ([defaults boolForKey:@"vibrateOn"] != 1 && [defaults boolForKey:@"vibrateOn"] !=0) {
+        self.settings.vibrateOn = YES;
+        [_vibrateSwitchToggle setOn:YES];
+    } else {
+         self.settings.vibrateOn = vibrateOn;
+        if (vibrateOn == YES) {
+            [_vibrateSwitchToggle setOn:YES];
+        } else {
+            [_vibrateSwitchToggle setOn:NO];
+        }
+    }
+    
+    // -- Vibrate on Ten settings --
+    if ([defaults boolForKey:@"vibrateTenOn"] != 1 && [defaults boolForKey:@"vibrateTenOn"] !=0) {
+        self.settings.vibrateTenOn = YES;
+        [_vibrateTenSwitchToggle setOn:YES];
+    } else {
+        self.settings.vibrateTenOn = vibrateOn;
+        if (vibrateOn == YES) {
+            [_vibrateTenSwitchToggle setOn:YES];
+        } else {
+            [_vibrateTenSwitchToggle setOn:NO];
+        }
+    }
+    
+   // -- Sound settings --
+    if ([defaults boolForKey:@"soundOn"] != 1 && [defaults boolForKey:@"soundOn"] != 0) {
+        self.settings.soundOn = YES;
+    } else {
+        self.settings.soundOn = speechOn;
+        if (speechOn == YES) {
+            [_soundsSwitchToggle setOn:YES];
+        } else {
+            [_soundsSwitchToggle setOn:NO];
+        }
+    }
+
+    
+    
     self.settings.speechOn = YES;
     self.settings.soundOn = YES;
     self.settings.leftSliderValue = 1.0;

@@ -24,6 +24,9 @@
 - (IBAction)vibrateSwitch:(id)sender;
 @property (weak, nonatomic) IBOutlet UISwitch *vibrateSwitchToggle;
 
+- (IBAction)vibrateTenSwitch:(id)sender;
+@property (weak, nonatomic) IBOutlet UISwitch *vibrateTenSwitchToggle;
+
 - (IBAction)speechSwitch:(id)sender;
 @property (weak, nonatomic) IBOutlet UISwitch *speechSwitchToggle;
 

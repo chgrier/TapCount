@@ -18,9 +18,7 @@
 
 @implementation ViewController
 {
-    BOOL _vibrate;
-    BOOL _soundOn;
-    BOOL _speechOn;
+   
     
     //Settings *_speechVibrate;
     
@@ -48,22 +46,28 @@
        
     self.allSettings = [[Settings alloc]init];
     
-    self.allSettings.vibrateOn = YES;
     self.allSettings.speechOn = YES;
     self.allSettings.soundOn = YES;
     self.allSettings.leftSliderValue = 1.0;
     
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.allSettings.leftLanguageCode = [defaults objectForKey:@"leftLanguageCode"];
+    BOOL vibrateOn = [defaults boolForKey:@"vibrateOn"];
     
+    if ([defaults boolForKey:@"vibrateOn"] != 1 && [defaults boolForKey:@"vibrateOn"] !=0) {
+        self.allSettings.vibrateOn = YES;
+    } else {
+        self.allSettings.vibrateOn = vibrateOn;
+    }
+
+   
     _speechSynthesizer = [[AVSpeechSynthesizer alloc]init];
     _speechSynthesizerTwo = [[AVSpeechSynthesizer alloc]init];
     
-    _vibrate = YES;
-    _speechOn = YES;
-    _soundOn = YES;
+
     
-   // AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:@"Ready"];
+  
     
     AVSpeechUtterance *utteranceTwo = [[AVSpeechUtterance alloc]initWithString:@"Ready"];
     // [_speechSynthesizer speakUtterance:utterance];
@@ -90,6 +94,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:settings.leftLanguageCode forKey:@"leftLanguageCode"];
     [defaults setValue:settings.leftLanguageName forKey:@"leftLanguageName"];
+    [defaults setBool:settings.vibrateOn forKey:@"vibrateOn"];
     [defaults synchronize];
         
 }
