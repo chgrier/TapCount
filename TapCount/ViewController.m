@@ -86,15 +86,24 @@
     self.allSettings = [[Settings alloc]init];
     
     self.allSettings.vibrateOn = settings.vibrateOn;
+    self.allSettings.vibrateTenOn = settings.vibrateTenOn;
     self.allSettings.speechOn = settings.speechOn;
     self.allSettings.soundOn = settings.soundOn;
     self.allSettings.leftSliderValue = settings.leftSliderValue;
+    self.allSettings.rightSliderValue = settings.rightSliderValue;
     self.allSettings.leftLanguageCode = settings.leftLanguageCode;
+    self.allSettings.rightLanguageCode = settings.rightLanguageCode;
+    
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:settings.leftLanguageCode forKey:@"leftLanguageCode"];
     [defaults setValue:settings.leftLanguageName forKey:@"leftLanguageName"];
     [defaults setBool:settings.vibrateOn forKey:@"vibrateOn"];
+    [defaults setBool:settings.vibrateOn forKey:@"vibrateTenOn"];
+    [defaults setBool:settings.vibrateOn forKey:@"speechOn"];
+    [defaults setBool:settings.vibrateOn forKey:@"soundOn"];
+    [defaults setFloat:settings.leftSliderValue forKey:@"leftPitch"];
+    [defaults setFloat:settings.rightSliderValue forKey:@"rightPitch"];
     [defaults synchronize];
         
 }

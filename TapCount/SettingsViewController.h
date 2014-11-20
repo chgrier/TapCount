@@ -39,8 +39,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *languageNameLeft;
 @property (weak, nonatomic) IBOutlet UILabel *languageNameRight;
 
-@property (weak, nonatomic) IBOutlet UISlider *rightPitch;
-- (IBAction)rightPitchSlider:(id)sender;
+@property (weak, nonatomic) IBOutlet UISlider *rightPitchSlider;
+- (IBAction)rightPitchChange:(id)sender;
 
 
 

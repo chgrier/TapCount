@@ -36,10 +36,14 @@
     NSString *leftLanguageCode = [defaults objectForKey:@"leftLanguageCode"];
     NSString *leftLanguageName = [defaults objectForKey:@"leftLanguageName"];
     
+    NSString *rightLanguageCode = [defaults objectForKey:@"rightLanguageCode"];
+    NSString *rightLanguageName = [defaults objectForKey:@"rightLanguageName"];
+    
     float leftPitch = [defaults floatForKey:@"leftPitch"];
     float rightPitch = [defaults floatForKey:@"rightPitch"];
     
     self.settings = [[Settings alloc]init];
+    self.language = [[Language alloc]init];
     
     // -- Speech settings --
     if ([defaults boolForKey:@"speechOn"] != 1 && [defaults boolForKey:@"speechOn"] != 0) {
@@ -71,7 +75,7 @@
         self.settings.vibrateTenOn = YES;
         [_vibrateTenSwitchToggle setOn:YES];
     } else {
-        self.settings.vibrateTenOn = vibrateOn;
+        self.settings.vibrateTenOn = vibrateTenOn;
         if (vibrateOn == YES) {
             [_vibrateTenSwitchToggle setOn:YES];
         } else {
@@ -83,7 +87,7 @@
     if ([defaults boolForKey:@"soundOn"] != 1 && [defaults boolForKey:@"soundOn"] != 0) {
         self.settings.soundOn = YES;
     } else {
-        self.settings.soundOn = speechOn;
+        self.settings.soundOn = soundsOn;
         if (speechOn == YES) {
             [_soundsSwitchToggle setOn:YES];
         } else {
@@ -91,32 +95,45 @@
         }
     }
 
+    // -- Left pitch settings --
     
+    if ([defaults floatForKey:@"leftPitch"] < 0.5 || [defaults floatForKey:@"leftPitch"] > 1.5) {
+        self.settings.leftSliderValue = 1.0;
+    } else {
+        self.settings.leftSliderValue = leftPitch;
+    }
     
-    self.settings.speechOn = YES;
-    self.settings.soundOn = YES;
-    self.settings.leftSliderValue = 1.0;
-    self.settings.leftLanguageCode = [defaults objectForKey:@"leftLanguageCode"];
+    // -- Right pitch settings --
     
-    self.language = [[Language alloc]init];
-    self.language.leftLanguageCode = [defaults objectForKey:@"leftLanguageCode"];
+    if ([defaults floatForKey:@"rightPitch"] < 0.5 || [defaults floatForKey:@"rightPitch"] > 1.5) {
+        self.settings.rightSliderValue = 1.0;
+    } else {
+        self.settings.rightSliderValue = rightPitch;
+    }
     
-    self.languageNameRight.text = @"English (United States)";
-    
+    // -- left Language Code --
     if (leftLanguageCode == nil) {
         self.languageNameLeft.text = @"English (United States)";
     } else {
         self.languageNameLeft.text = leftLanguageName;
-        NSLog(@"*** Language after view loads (): %@",leftLanguageName);
+            }
+    NSLog(@"*** Language after view loads (): %@",leftLanguageName);
+
+    // -- right Language Code --
+    if (rightLanguageCode == nil) {
+        self.languageNameRight.text = @"English (United States)";
+    } else {
+        self.languageNameRight.text = rightLanguageName;
+        
     }
+    NSLog(@"*** Language after view loads (): %@",rightLanguageName);
     
-    
-    
+    // delegate
     SelectLanguageTableTableViewController *languageViewController = [[SelectLanguageTableTableViewController alloc]init];
     languageViewController.delegate = self;
     
-   }
 
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -151,15 +168,24 @@
     self.language = language;
     
     self.languageNameLeft.text = self.language.leftLanguageName;
+    self.settings.leftLanguageCode = self.language.leftLanguageCode;
+    
+    self.languageNameRight.text = self.language.rightLanguageName;
+    self.settings.rightLanguageCode = self.language.rightLanguageCode;
     
     NSLog(@"**Language code passed: %@", self.language.leftLanguageCode);
+    NSLog(@"**Language code passed: %@", self.language.rightLanguageCode);
     
-    self.settings.leftLanguageCode = self.language.leftLanguageCode;
+    
     [self.delegate setSettings:self didSelectSettings:self.settings];
     
+    // set defaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:language.leftLanguageCode forKey:@"leftLanguageCode"];
     [defaults setValue:language.leftLanguageName forKey:@"leftLanguageName"];
+    [defaults setValue:language.rightLanguageCode forKey:@"rightLanguageCode"];
+    [defaults setValue:language.rightLanguageName forKey:@"rightLanguageName"];
+    
     [defaults synchronize];
 
 
@@ -172,21 +198,42 @@
 
 -(IBAction)vibrateSwitch:(id)sender
 {
-    
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         if ([_vibrateSwitchToggle isOn]) {
         
         self.settings.vibrateOn = YES;
         NSLog(@"Vibrate on");
         
         [self.delegate setSettings:self didSelectSettings:self.settings];
-        
+            [defaults setBool:self.settings.vibrateOn forKey:@"vibrateOn"];
         } else {
             
             self.settings.vibrateOn = NO;
             NSLog(@"Vibrate off");
        [self.delegate setSettings:self didSelectSettings:self.settings];
-        
+            [defaults setBool:self.settings.vibrateOn forKey:@"vibrateOn"];
+
             
+    }
+}
+
+-(IBAction)vibrateTenSwitch:(id)sender
+{
+    
+    if ([_vibrateTenSwitchToggle isOn]) {
+        
+        self.settings.vibrateTenOn = YES;
+        NSLog(@"Vibrate on");
+        
+        [self.delegate setSettings:self didSelectSettings:self.settings];
+        
+    } else {
+        
+        self.settings.vibrateTenOn = NO;
+        NSLog(@"Vibrate off");
+        [self.delegate setSettings:self didSelectSettings:self.settings];
+        
+        
     }
 }
 
@@ -195,6 +242,7 @@
     if ([_speechSwitchToggle isOn]) {
         self.settings.speechOn = YES;
         [_soundsSwitchToggle setOn:YES];
+        
         
         [self.delegate setSettings:self didSelectSettings:self.settings];
         
@@ -252,8 +300,17 @@
 */
 
 
-- (IBAction)rightPitchSlider:(id)sender {
+- (IBAction)rightPitchChange:(id)sender {
+    float min = 0.5;
+    float max = 1.5;
     
+    self.rightPitchSlider.minimumValue = min;
+    self.rightPitchSlider.maximumValue = max;
+    
+    
+    self.settings.RightSliderValue = self.rightPitchSlider.value;
+    
+    [self.delegate setSettings:self didSelectSettings:self.settings];
     
 }
 - (IBAction)leftSliderChange:(id)sender {

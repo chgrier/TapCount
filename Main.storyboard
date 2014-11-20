@@ -724,7 +724,7 @@
                                                         <constraint firstAttribute="width" constant="100" id="e2c-9j-tvI"/>
                                                     </constraints>
                                                     <connections>
-                                                        <action selector="rightPitchSlider:" destination="RJ1-4N-9SK" eventType="valueChanged" id="EpY-mJ-H3h"/>
+                                                        <action selector="rightPitchChange:" destination="RJ1-4N-9SK" eventType="valueChanged" id="l6P-uU-s6p"/>
                                                     </connections>
                                                 </slider>
                                             </subviews>
@@ -783,7 +783,8 @@
                         <outlet property="languageNameLeft" destination="5B5-jk-Tg7" id="wlt-RI-vhG"/>
                         <outlet property="languageNameRight" destination="9SE-3X-Kfm" id="6kv-dx-hSs"/>
                         <outlet property="leftPitchSlider" destination="NRy-p4-On7" id="o8z-N4-g3C"/>
-                        <outlet property="rightPitch" destination="iJm-IJ-bgR" id="ymi-4j-vFM"/>
+                        <outlet property="rightPitchSlider" destination="iJm-IJ-bgR" id="pQc-gK-St1"/>
+                        <outlet property="soundsSwitchToggle" destination="e02-P8-L4x" id="a2v-Mh-dZk"/>
                         <outlet property="speechSwitchToggle" destination="azM-Na-LRd" id="h65-ec-54u"/>
                         <outlet property="vibrateSwitchToggle" destination="G3f-kt-x4u" id="p6d-HN-mP7"/>
                         <outlet property="vibrateTenSwitchToggle" destination="5sV-h1-e8k" id="b38-aX-g5c"/>
