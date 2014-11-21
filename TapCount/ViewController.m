@@ -51,6 +51,7 @@
                                      nil];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:initialDefaults];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 
 }
 

@@ -20,112 +20,90 @@
 
 @implementation SettingsViewController
 
++ (void) initialize
+{
+    // NSDictionary *defaults = [NSDictionary dictionaryWithObject:@"en-US" forKey:@"leftLanguageCode"];
+    //[[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
+    
+    NSDictionary *initialDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     @"en-US", @"leftLanguageCode",
+                                     @"en-GB", @"rightLanguageCode",
+                                     @"English (United States)", @"leftLanguageName",
+                                     @"English (United Kingdom)", @"rightLanguageName",
+                                     [NSNumber numberWithBool:YES] , @"speechOn",
+                                     [NSNumber numberWithBool:NO], @"vibrateOn",
+                                     [NSNumber numberWithBool:YES], @"vibrateTenOn",
+                                     [NSNumber numberWithBool:YES], @"soundOn",
+                                     [NSNumber numberWithFloat:1.0], @"leftPitch",
+                                     [NSNumber numberWithFloat:1.0], @"rightPitch",
+                                     nil];
+    
+    [[NSUserDefaults standardUserDefaults] registerDefaults:initialDefaults];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
    
     // load defaults for settings
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    
-    BOOL speechOn = [defaults boolForKey:@"speechOn"];
-    BOOL vibrateOn = [defaults boolForKey:@"vibrateOn"];
-    BOOL vibrateTenOn = [defaults boolForKey:@"vibrateTenOn"];
-    BOOL soundsOn = [defaults boolForKey:@"soundsOn"];
-    
-    NSString *leftLanguageCode = [defaults objectForKey:@"leftLanguageCode"];
-    NSString *leftLanguageName = [defaults objectForKey:@"leftLanguageName"];
-    
-    NSString *rightLanguageCode = [defaults objectForKey:@"rightLanguageCode"];
-    NSString *rightLanguageName = [defaults objectForKey:@"rightLanguageName"];
-    
-    float leftPitch = [defaults floatForKey:@"leftPitch"];
-    float rightPitch = [defaults floatForKey:@"rightPitch"];
-    
-    self.settings = [[Settings alloc]init];
-    self.language = [[Language alloc]init];
-    
     // -- Speech settings --
-    if ([defaults boolForKey:@"speechOn"] != 1 && [defaults boolForKey:@"speechOn"] != 0) {
-        self.settings.speechOn = YES;
-    } else {
-        self.settings.speechOn = speechOn;
-        if (speechOn == YES) {
+    self.language = [[Language alloc]init];
+    self.settings = [[Settings alloc]init];
+    
+    self.settings.speechOn = [defaults boolForKey:@"speechOn"];
+        if (self.settings.speechOn == YES) {
             [_speechSwitchToggle setOn:YES];
         } else {
             [_speechSwitchToggle setOn:NO];
         }
-    }
+    
     
     // -- Vibrate settings --
-    if ([defaults boolForKey:@"vibrateOn"] != 1 && [defaults boolForKey:@"vibrateOn"] !=0) {
-        self.settings.vibrateOn = YES;
-        [_vibrateSwitchToggle setOn:YES];
-    } else {
-         self.settings.vibrateOn = vibrateOn;
-        if (vibrateOn == YES) {
+    self.settings.vibrateOn = [defaults boolForKey:@"vibrateOn"];
+        if (self.settings.vibrateOn == YES) {
             [_vibrateSwitchToggle setOn:YES];
         } else {
             [_vibrateSwitchToggle setOn:NO];
         }
-    }
+    
     
     // -- Vibrate on Ten settings --
-    if ([defaults boolForKey:@"vibrateTenOn"] != 1 && [defaults boolForKey:@"vibrateTenOn"] !=0) {
-        self.settings.vibrateTenOn = YES;
-        [_vibrateTenSwitchToggle setOn:YES];
-    } else {
-        self.settings.vibrateTenOn = vibrateTenOn;
-        if (vibrateOn == YES) {
+    self.settings.vibrateTenOn =[defaults boolForKey:@"vibrateTenOn"];
+        if (self.settings.vibrateTenOn == YES) {
             [_vibrateTenSwitchToggle setOn:YES];
         } else {
             [_vibrateTenSwitchToggle setOn:NO];
         }
-    }
+    
     
    // -- Sound settings --
-    if ([defaults boolForKey:@"soundOn"] != 1 && [defaults boolForKey:@"soundOn"] != 0) {
-        self.settings.soundOn = YES;
-    } else {
-        self.settings.soundOn = soundsOn;
-        if (speechOn == YES) {
+
+    self.settings.soundOn = [defaults boolForKey:@"soundOn"];
+        if (self.settings.soundOn == YES) {
             [_soundsSwitchToggle setOn:YES];
         } else {
             [_soundsSwitchToggle setOn:NO];
         }
-    }
-
-    // -- Left pitch settings --
     
-    if ([defaults floatForKey:@"leftPitch"] < 0.5 || [defaults floatForKey:@"leftPitch"] > 1.5) {
-        self.settings.leftSliderValue = 1.0;
-    } else {
-        self.settings.leftSliderValue = leftPitch;
-    }
+    // -- Left pitch settings --
+    self.settings.leftSliderValue = [defaults floatForKey:@"leftPitch"];
+    self.leftPitchSlider.value = self.settings.leftSliderValue;
     
     // -- Right pitch settings --
-    
-    if ([defaults floatForKey:@"rightPitch"] < 0.5 || [defaults floatForKey:@"rightPitch"] > 1.5) {
-        self.settings.rightSliderValue = 1.0;
-    } else {
-        self.settings.rightSliderValue = rightPitch;
-    }
+    self.settings.rightSliderValue = [defaults floatForKey:@"leftPitch"];
+    self.rightPitchSlider.value = self.settings.rightSliderValue;
     
     // -- left Language Code --
-    if (leftLanguageCode == nil) {
-        self.languageNameLeft.text = @"English (United States)";
-    } else {
-        self.languageNameLeft.text = leftLanguageName;
-            }
-    NSLog(@"*** Language after view loads (): %@",leftLanguageName);
-
+    self.languageNameLeft.text = [defaults objectForKey:@"leftLanguageName"];
+    self.settings.leftLanguageCode = [defaults objectForKey:@"leftLanguageCode"];
+    
     // -- right Language Code --
-    if (rightLanguageCode == nil) {
-        self.languageNameRight.text = @"English (United States)";
-    } else {
-        self.languageNameRight.text = rightLanguageName;
-        
-    }
-    NSLog(@"*** Language after view loads (): %@",rightLanguageName);
+    self.languageNameRight.text = [defaults objectForKey:@"rightLanguageName"];
+    self.settings.leftLanguageCode = [defaults objectForKey:@"rightLanguageCode"];
     
     // delegate
     SelectLanguageTableTableViewController *languageViewController = [[SelectLanguageTableTableViewController alloc]init];
@@ -144,24 +122,9 @@
 
 #pragma mark - Select Language Delegate
 
-/*
--(void) setSettings:(SettingsViewController *)controller didSelectSettings:(Settings *)settings {
-    
-    // set selected code passed from settings controls to code object
-    self.allSettings = [[Settings alloc]init];
-    
-    self.allSettings.vibrateOn = settings.vibrateOn;
-    self.allSettings.speechOn = settings.speechOn;
-    self.allSettings.soundOn = settings.soundOn;
-    self.allSettings.leftSliderValue = settings.leftSliderValue;
-    
-}
-*/
 
 -(void) setLanguage:(SelectLanguageTableTableViewController *)controller didSelectLanguage:(Language *)language {
     
-    //self.languageSettings = [[Settings alloc]init];
-    //self.languageSettings.leftLanguageCode = language.leftLanguageCode;
     
     self.language = [[Language alloc]init];
     self.language = language;
@@ -180,11 +143,10 @@
     
     // set defaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setValue:language.leftLanguageCode forKey:@"leftLanguageCode"];
-    [defaults setValue:language.leftLanguageName forKey:@"leftLanguageName"];
-    [defaults setValue:language.rightLanguageCode forKey:@"rightLanguageCode"];
-    [defaults setValue:language.rightLanguageName forKey:@"rightLanguageName"];
-    
+    [defaults setValue:self.language.leftLanguageCode forKey:@"leftLanguageCode"];
+    [defaults setValue:self.language.leftLanguageName forKey:@"leftLanguageName"];
+    [defaults setValue:self.language.rightLanguageCode forKey:@"rightLanguageCode"];
+    [defaults setValue:self.language.rightLanguageName forKey:@"rightLanguageName"];
     [defaults synchronize];
 
 
