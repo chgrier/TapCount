@@ -23,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-    
     // load defaults for settings
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     

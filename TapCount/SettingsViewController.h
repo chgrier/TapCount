@@ -36,13 +36,11 @@
 @property (weak, nonatomic) IBOutlet UISlider *leftPitchSlider;
 - (IBAction)leftSliderChange:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UILabel *languageNameLeft;
-@property (weak, nonatomic) IBOutlet UILabel *languageNameRight;
-
 @property (weak, nonatomic) IBOutlet UISlider *rightPitchSlider;
 - (IBAction)rightPitchChange:(id)sender;
 
-
+@property (weak, nonatomic) IBOutlet UILabel *languageNameLeft;
+@property (weak, nonatomic) IBOutlet UILabel *languageNameRight;
 
 @property (nonatomic, weak) id<SettingsViewControllerDelegate> delegate;
 

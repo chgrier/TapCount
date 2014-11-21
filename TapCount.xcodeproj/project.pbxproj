@@ -24,6 +24,9 @@
 		BE2E2C221A01902300E7F6FC /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2E2C211A01902300E7F6FC /* Settings.m */; };
 		BE2E2C251A01AD4100E7F6FC /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2E2C241A01AD4100E7F6FC /* SettingsViewController.m */; };
 		BE38973219D38C7D00E1D84E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE38973119D38C7D00E1D84E /* MessageUI.framework */; };
+		BE4FBE8E1A1FD4330032D0B2 /* scissors.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE4FBE8D1A1FD1B60032D0B2 /* scissors.caf */; };
+		BE4FBE901A1FDB040032D0B2 /* network.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE4FBE8F1A1FDB040032D0B2 /* network.caf */; };
+		BE4FBE921A1FDB120032D0B2 /* professional.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE4FBE911A1FDB120032D0B2 /* professional.caf */; };
 		BE50F5AB19C2BD44003AF7C9 /* Sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE50F5AA19C2BD44003AF7C9 /* Sound.caf */; };
 		BE526DA119C2B19A0054564F /* pathGuy.png in Resources */ = {isa = PBXBuildFile; fileRef = BE526DA019C2B19A0054564F /* pathGuy.png */; };
 		BE70F19219C0B5F70053E36A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE70F19119C0B5F70053E36A /* Foundation.framework */; };
@@ -97,6 +100,9 @@
 		BE2E2C231A01AD4100E7F6FC /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		BE2E2C241A01AD4100E7F6FC /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		BE38973119D38C7D00E1D84E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		BE4FBE8D1A1FD1B60032D0B2 /* scissors.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = scissors.caf; sourceTree = "<group>"; };
+		BE4FBE8F1A1FDB040032D0B2 /* network.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = network.caf; sourceTree = "<group>"; };
+		BE4FBE911A1FDB120032D0B2 /* professional.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = professional.caf; sourceTree = "<group>"; };
 		BE50F5AA19C2BD44003AF7C9 /* Sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sound.caf; sourceTree = "<group>"; };
 		BE526DA019C2B19A0054564F /* pathGuy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pathGuy.png; sourceTree = "<group>"; };
 		BE70F18E19C0B5F70053E36A /* TapCount.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapCount.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,8 +250,11 @@
 		BE70F19819C0B5F70053E36A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BE855D941A15114500845DCC /* MailTabIcon_3x.png */,
+				BE4FBE911A1FDB120032D0B2 /* professional.caf */,
+				BE4FBE8F1A1FDB040032D0B2 /* network.caf */,
+				BE4FBE8D1A1FD1B60032D0B2 /* scissors.caf */,
 				BEE387841A0BF4AB005048FF /* crisp.caf */,
+				BE855D941A15114500845DCC /* MailTabIcon_3x.png */,
 				BE2E2C1E1A018E9500E7F6FC /* reportIcon.png */,
 				BE1D963419FABE160060E7EA /* addButton.png */,
 				BE1D963219F9688C0060E7EA /* smallRectangle.png */,
@@ -379,6 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE4FBE8E1A1FD4330032D0B2 /* scissors.caf in Resources */,
 				BE1D963519FABE160060E7EA /* addButton.png in Resources */,
 				BEDC13C219CC83DF009AC3C2 /* microscope-75-white.png in Resources */,
 				BE855D951A15114500845DCC /* MailTabIcon_3x.png in Resources */,
@@ -393,6 +403,7 @@
 				BEDC13BC19CC8318009AC3C2 /* microscope-50-white.png in Resources */,
 				BE1B5CC719CA02A00053A5D3 /* minusCircle.png in Resources */,
 				BEE387861A0BF4B9005048FF /* tap-crisp.aif in Resources */,
+				BE4FBE921A1FDB120032D0B2 /* professional.caf in Resources */,
 				BE1B5CCF19CA12470053A5D3 /* clearButton.png in Resources */,
 				BE70F19C19C0B5F70053E36A /* InfoPlist.strings in Resources */,
 				BE77F1F819D3A482002E8A90 /* emailIcon.png in Resources */,
@@ -407,6 +418,7 @@
 				BEDC13C019CC837A009AC3C2 /* microscope-75.png in Resources */,
 				BE1D963719FAF75F0060E7EA /* Default-568h@2x.png in Resources */,
 				BEAB0E7A19C360FC00AA7623 /* iconDraft.png in Resources */,
+				BE4FBE901A1FDB040032D0B2 /* network.caf in Resources */,
 				BE2E2C1F1A018E9500E7F6FC /* reportIcon.png in Resources */,
 				BE1B5CC919CA0B9D0053A5D3 /* saveButton.png in Resources */,
 				BEAB0E8019C3619600AA7623 /* icon_120.png in Resources */,

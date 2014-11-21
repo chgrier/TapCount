@@ -24,8 +24,10 @@
     
     
     SystemSoundID _soundID;
-    SystemSoundID _soundIDLeft;
-    SystemSoundID _soundIDRight;
+    SystemSoundID _soundIDIncrementLeft;
+    SystemSoundID _soundIDIncrementRight;
+    SystemSoundID _soundIDDecrementLeft;
+    SystemSoundID _soundIDDecrementRight;
     
     AVSpeechSynthesizer *_speechSynthesizer;
     AVSpeechSynthesizer *_speechSynthesizerTwo;
@@ -37,7 +39,16 @@
    // NSDictionary *defaults = [NSDictionary dictionaryWithObject:@"en-US" forKey:@"leftLanguageCode"];
     //[[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
     
-    NSDictionary *initialDefaults = [NSDictionary dictionaryWithObjectsAndKeys:@"en-US", @"leftLanguageCode", @"en-GB", @"rightLanguageCode", [NSNumber numberWithBool:YES] , @"speechOn", [NSNumber numberWithBool:NO], @"vibrateOn", [NSNumber numberWithBool:YES], @"vibrateTenOn", [NSNumber numberWithBool:YES], @"soundOn", nil];
+    NSDictionary *initialDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     @"en-US", @"leftLanguageCode",
+                                     @"en-GB", @"rightLanguageCode",
+                                     [NSNumber numberWithBool:YES] , @"speechOn",
+                                     [NSNumber numberWithBool:NO], @"vibrateOn",
+                                     [NSNumber numberWithBool:YES], @"vibrateTenOn",
+                                     [NSNumber numberWithBool:YES], @"soundOn",
+                                     [NSNumber numberWithFloat:1.0], @"leftPitch",
+                                     [NSNumber numberWithFloat:1.0], @"rightPitch",
+                                     nil];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:initialDefaults];
 
@@ -59,33 +70,38 @@
     NSLog(@"***Language Codes in ViewDidLoad: Left=%@, Right=%@", self.allSettings.leftLanguageCode, self.allSettings.rightLanguageCode);
     
     self.allSettings.speechOn = [defaults boolForKey:@"speechOn"];
-    NSLog(@"***SpeechOn setting in ViewDidLoad:%hhd", self.allSettings.speechOn);
+    NSLog(@"***SpeechOn setting in ViewDidLoad:%i", self.allSettings.speechOn);
     
     self.allSettings.vibrateOn = [defaults boolForKey:@"vibrateOn"];
-    NSLog(@"***VibrateOn setting in ViewDidLoad:%hhd", self.allSettings.vibrateOn);
+    NSLog(@"***VibrateOn setting in ViewDidLoad:%i", self.allSettings.vibrateOn);
     
     self.allSettings.vibrateTenOn = [defaults boolForKey:@"vibrateTenOn"];
-    NSLog(@"***VibrateTenOn setting in ViewDidLoad:%hhd", self.allSettings.vibrateOn);
+    NSLog(@"***VibrateTenOn setting in ViewDidLoad:%i", self.allSettings.vibrateOn);
     
     self.allSettings.soundOn = [defaults boolForKey:@"soundOn"];
-    NSLog(@"***SoundOn setting in ViewDidLoad:%hhd", self.allSettings.soundOn);
+    NSLog(@"***SoundOn setting in ViewDidLoad:%i", self.allSettings.soundOn);
+    
+    self.allSettings.leftSliderValue = [defaults floatForKey:@"leftPitch"];
+    NSLog(@"***Left Pitch setting in ViewDidLoad:%f", self.allSettings.leftSliderValue);
+    
+    self.allSettings.rightSliderValue = [defaults floatForKey:@"rightPitch"];
+    NSLog(@"***Right Pitch setting in ViewDidLoad:%f", self.allSettings.rightSliderValue);
+    
     
     _speechSynthesizer = [[AVSpeechSynthesizer alloc]init];
     _speechSynthesizerTwo = [[AVSpeechSynthesizer alloc]init];
     
-
-    
-  
-    
+    if (self.allSettings.speechOn == YES) {
     AVSpeechUtterance *utteranceTwo = [[AVSpeechUtterance alloc]initWithString:@"Ready"];
     // [_speechSynthesizer speakUtterance:utterance];
     [_speechSynthesizerTwo speakUtterance:utteranceTwo];
+    }
     
-    [self loadSoundEffect];
-    [self loadSoundEffectLeft];
-    
-    
-    
+    [self loadSoundEffectIncrementLeft];
+    [self loadSoundEffectIncrementRight];
+    [self loadSoundEffectDecrementLeft];
+    [self loadSoundEffectDecrementRight];
+
 }
 
 -(void) setSettings:(SettingsViewController *)controller didSelectSettings:(Settings *)settings {
@@ -143,23 +159,23 @@
    
     NSString *count = [NSString stringWithFormat:@"%ld",(long)total];
     
-    static AVSpeechUtterance *utterance;
-    utterance = [[AVSpeechUtterance alloc]initWithString:count];
+    if (self.allSettings.speechOn == YES) {
+        static AVSpeechUtterance *utterance;
+        utterance = [[AVSpeechUtterance alloc]initWithString:count];
     
-    // *** class method alternative ***
-    //[_speechSynthesizer speakUtterance:[AVSpeechUtterance speechUtteranceWithString:count]];
+        // *** class method alternative ***
+        //[_speechSynthesizer speakUtterance:[AVSpeechUtterance speechUtteranceWithString:count]];
     
-    utterance.rate = AVSpeechUtteranceMinimumSpeechRate + ((AVSpeechUtteranceMaximumSpeechRate - AVSpeechUtteranceMinimumSpeechRate) * 0.5f);
-    utterance.volume = 1.0f;
-    utterance.pitchMultiplier = self.allSettings.leftSliderValue;
-    NSLog(@"Pitch multiplier = %f", self.allSettings.leftSliderValue);
-    //utterance.postUtteranceDelay = 0.0;
-    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.leftLanguageCode];
+        utterance.rate = AVSpeechUtteranceMinimumSpeechRate + ((AVSpeechUtteranceMaximumSpeechRate - AVSpeechUtteranceMinimumSpeechRate) * 0.5f);
+        utterance.volume = 1.0f;
+        utterance.pitchMultiplier = self.allSettings.leftSliderValue;
+        //utterance.postUtteranceDelay = 0.0;
+        utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.leftLanguageCode];
     
-    [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
+        [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
     
-    [_speechSynthesizer speakUtterance:utterance];
-    
+        [_speechSynthesizer speakUtterance:utterance];
+    }
     
     if (self.allSettings.vibrateTenOn == YES) {
        
@@ -188,7 +204,7 @@
     }
     
     if (self.allSettings.speechOn == NO && self.allSettings.soundOn == YES) {
-        [self playSoundEffectLeft];
+        [self playSoundEffectIncrementLeft];
     }
     
 }
@@ -202,16 +218,20 @@
     
     NSString *count = [NSString stringWithFormat:@"%ld",(long)totalTwo];
     
-    static AVSpeechUtterance *utterance;
-    utterance = [[AVSpeechUtterance alloc]initWithString:count];
-    //utterance.voice = nil;
-    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.rightLanguageCode];
-    
-    
-    // *** class method alternative ***
-    //[_speechSynthesizer speakUtterance:[AVSpeechUtterance speechUtteranceWithString:count]];
-    
     if (self.allSettings.speechOn == YES) {
+        
+        static AVSpeechUtterance *utterance;
+        utterance = [[AVSpeechUtterance alloc]initWithString:count];
+        utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.rightLanguageCode];
+        utterance.volume = 1.0f;
+        utterance.pitchMultiplier = self.allSettings.rightSliderValue;
+        
+        [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
+        [_speechSynthesizer speakUtterance:utterance];
+        
+    }
+    
+    if (self.allSettings.vibrateTenOn == YES) {
         
         int a;
         a = totalTwo;
@@ -222,44 +242,24 @@
         if ( a % b == 0){
             AudioServicesPlayAlertSound (kSystemSoundID_Vibrate);
             
-            NSString *count = [NSString stringWithFormat:@"%ld",(long)totalTwo];
+            //NSString *count = [NSString stringWithFormat:@"%ld",(long)total];
             //NSString *count = [NSString stringWithFormat:@"Blasts"];
             
             
-            AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:count];
-
+            //AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:count];
             
-            [_speechSynthesizer speakUtterance:utterance];
-            
-        } else {
-            
-            // lower pitch for column two
-            utterance.rate = AVSpeechUtteranceMinimumSpeechRate + ((AVSpeechUtteranceMaximumSpeechRate - AVSpeechUtteranceMinimumSpeechRate) * 0.5f);
-            utterance.volume = 1.0f;
-            //utterance.pitchMultiplier = 0.6f;
-            //utterance.postUtteranceDelay = 0.0;
-            utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.rightLanguageCode];
-            
-            [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
-            
-            [_speechSynthesizer speakUtterance:utterance];
-            
-            
-            
-            
-            
-            
-            
+            //[_speechSynthesizer speakUtterance:utterance];
         }
     }
+    
     
     if (self.allSettings.vibrateOn == YES) {
         AudioServicesPlayAlertSound (kSystemSoundID_Vibrate);
     }
     
-    //if (self.allSettings.soundOn == YES) {
-    //}
-    
+    if (self.allSettings.speechOn == NO && self.allSettings.soundOn == YES) {
+        [self playSoundEffectIncrementRight];
+    }
     
 }
 
@@ -270,7 +270,7 @@
     
 
     if (self.allSettings.soundOn == YES) {
-        [self playSoundEffect];
+        [self playSoundEffectDecrementLeft];
     }
     
    
@@ -282,7 +282,7 @@
     [screenTwo setText:[NSString stringWithFormat:@"%ld", (long)totalTwo]];
    
     if (self.allSettings.soundOn == YES) {
-        [self playSoundEffect];
+        [self playSoundEffectDecrementRight];
     }
 
 }
@@ -374,7 +374,7 @@
 
 #pragma mark - Sounds Effects
 
-- (void)loadSoundEffect
+- (void)loadSoundEffectIncrementLeft
 {
    
     NSString *path = [[NSBundle mainBundle]pathForResource:@"crisp.caf" ofType:nil];
@@ -384,7 +384,7 @@
         NSLog(@"NSURL is nil");
         return;
     }
-    OSStatus error = AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &_soundID);
+    OSStatus error = AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &_soundIDIncrementLeft);
     
     if (error != kAudioServicesNoError) {
        // NSLog(@"Error code %ld loading sound at path: %@", error, path);
@@ -393,17 +393,17 @@
     }
 }
 
-- (void)loadSoundEffectLeft
+- (void)loadSoundEffectIncrementRight
 {
     
-    NSString *path = [[NSBundle mainBundle]pathForResource:@"Sound.caf" ofType:nil];
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"professional.caf" ofType:nil];
     
     NSURL *fileURL = [NSURL fileURLWithPath:path isDirectory:NO];
     if (fileURL == nil) {
         NSLog(@"NSURL is nil");
         return;
     }
-    OSStatus error = AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &_soundIDLeft);
+    OSStatus error = AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &_soundIDIncrementRight);
     
     if (error != kAudioServicesNoError) {
         // NSLog(@"Error code %ld loading sound at path: %@", error, path);
@@ -412,20 +412,72 @@
     }
 }
 
+- (void)loadSoundEffectDecrementLeft
+{
+    
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"scissors.caf" ofType:nil];
+    
+    NSURL *fileURL = [NSURL fileURLWithPath:path isDirectory:NO];
+    if (fileURL == nil) {
+        NSLog(@"NSURL is nil");
+        return;
+    }
+    OSStatus error = AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &_soundIDDecrementLeft);
+    
+    if (error != kAudioServicesNoError) {
+        // NSLog(@"Error code %ld loading sound at path: %@", error, path);
+        
+        return;
+    }
+}
+
+- (void)loadSoundEffectDecrementRight
+{
+    
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"network.caf" ofType:nil];
+    
+    NSURL *fileURL = [NSURL fileURLWithPath:path isDirectory:NO];
+    if (fileURL == nil) {
+        NSLog(@"NSURL is nil");
+        return;
+    }
+    OSStatus error = AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &_soundIDDecrementRight);
+    
+    if (error != kAudioServicesNoError) {
+        // NSLog(@"Error code %ld loading sound at path: %@", error, path);
+        
+        return;
+    }
+}
+
+
 - (void) unloadSoundEffect
 {
     AudioServicesDisposeSystemSoundID(_soundID);
     _soundID = 0;
+    
 }
 
-- (void)playSoundEffect
+- (void)playSoundEffectIncrementLeft
 {
-    AudioServicesPlaySystemSound(_soundID);
+    AudioServicesPlaySystemSound(_soundIDIncrementLeft);
 }
 
-- (void)playSoundEffectLeft
+- (void)playSoundEffectIncrementRight
 {
-    AudioServicesPlaySystemSound(_soundIDLeft);
+    AudioServicesPlaySystemSound(_soundIDIncrementRight);
+
+}
+
+
+- (void)playSoundEffectDecrementLeft
+{
+    AudioServicesPlaySystemSound(_soundIDDecrementLeft);
+}
+
+- (void)playSoundEffectDecrementRight
+{
+    AudioServicesPlaySystemSound(_soundIDDecrementRight);
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -459,27 +511,6 @@
     }
     
 }
-
-
-#pragma mark Delegate Callback Method
-/*
--(void)currencyPicker:(CurrencyPickerViewController *)controller didPickCurrency:(Currency *)currencyCode{
-    
-    // set selected code passed from picker to code object
-    self.code = currencyCode;
-    
-    
-    // set field names for 'from currency'
-    self.fromCurrencyCodeField.text = self.code.fromCodeName;
-    self.fromCurrencyCodeFieldTwo.text = self.code.fromCodeName;
-    self.fromCurrencyFullNameField.text = self.code.fromFullName;
-*/
-
-
-
-
-
-
 
 
 @end
