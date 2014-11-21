@@ -31,9 +31,16 @@
     AVSpeechSynthesizer *_speechSynthesizerTwo;
     
 }
-- (void)viewWillAppear:(BOOL)animated
+
++ (void) initialize
 {
-   
+   // NSDictionary *defaults = [NSDictionary dictionaryWithObject:@"en-US" forKey:@"leftLanguageCode"];
+    //[[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
+    
+    NSDictionary *initialDefaults = [NSDictionary dictionaryWithObjectsAndKeys:@"en-US", @"leftLanguageCode", @"en-GB", @"rightLanguageCode", [NSNumber numberWithBool:YES] , @"speechOn", [NSNumber numberWithBool:NO], @"vibrateOn", [NSNumber numberWithBool:YES], @"vibrateTenOn", [NSNumber numberWithBool:YES], @"soundOn", nil];
+    
+    [[NSUserDefaults standardUserDefaults] registerDefaults:initialDefaults];
+
 }
 
 - (void)viewDidLoad
@@ -43,25 +50,26 @@
     SettingsViewController *svc = [self.tabBarController.viewControllers objectAtIndex:2];
     svc.delegate = self;
     
-       
     self.allSettings = [[Settings alloc]init];
     
-    self.allSettings.speechOn = YES;
-    self.allSettings.soundOn = YES;
-    self.allSettings.leftSliderValue = 1.0;
-    
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.allSettings.leftLanguageCode = [defaults objectForKey:@"leftLanguageCode"];
-    BOOL vibrateOn = [defaults boolForKey:@"vibrateOn"];
     
-    if ([defaults boolForKey:@"vibrateOn"] != 1 && [defaults boolForKey:@"vibrateOn"] !=0) {
-        self.allSettings.vibrateOn = YES;
-    } else {
-        self.allSettings.vibrateOn = vibrateOn;
-    }
-
-   
+    self.allSettings.leftLanguageCode = [defaults objectForKey:@"leftLanguageCode"];
+    self.allSettings.rightLanguageCode = [defaults objectForKey:@"rightLanguageCode"];
+    NSLog(@"***Language Codes in ViewDidLoad: Left=%@, Right=%@", self.allSettings.leftLanguageCode, self.allSettings.rightLanguageCode);
+    
+    self.allSettings.speechOn = [defaults boolForKey:@"speechOn"];
+    NSLog(@"***SpeechOn setting in ViewDidLoad:%hhd", self.allSettings.speechOn);
+    
+    self.allSettings.vibrateOn = [defaults boolForKey:@"vibrateOn"];
+    NSLog(@"***VibrateOn setting in ViewDidLoad:%hhd", self.allSettings.vibrateOn);
+    
+    self.allSettings.vibrateTenOn = [defaults boolForKey:@"vibrateTenOn"];
+    NSLog(@"***VibrateTenOn setting in ViewDidLoad:%hhd", self.allSettings.vibrateOn);
+    
+    self.allSettings.soundOn = [defaults boolForKey:@"soundOn"];
+    NSLog(@"***SoundOn setting in ViewDidLoad:%hhd", self.allSettings.soundOn);
+    
     _speechSynthesizer = [[AVSpeechSynthesizer alloc]init];
     _speechSynthesizerTwo = [[AVSpeechSynthesizer alloc]init];
     
@@ -137,36 +145,12 @@
     
     static AVSpeechUtterance *utterance;
     utterance = [[AVSpeechUtterance alloc]initWithString:count];
-    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.leftLanguageCode];
     
     // *** class method alternative ***
     //[_speechSynthesizer speakUtterance:[AVSpeechUtterance speechUtteranceWithString:count]];
     
-    if (self.allSettings.speechOn == YES) {
-       
-        int a;
-        a = total;
-        int b;
-        b = 10;
-        
-        
-        if ( a % b == 0){
-            AudioServicesPlayAlertSound (kSystemSoundID_Vibrate);
-            
-            NSString *count = [NSString stringWithFormat:@"%ld",(long)total];
-            //NSString *count = [NSString stringWithFormat:@"Blasts"];
-            
-            
-            AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:count];
-            
-            [_speechSynthesizer speakUtterance:utterance];
-        } else {
-
-            
-            
     utterance.rate = AVSpeechUtteranceMinimumSpeechRate + ((AVSpeechUtteranceMaximumSpeechRate - AVSpeechUtteranceMinimumSpeechRate) * 0.5f);
     utterance.volume = 1.0f;
-    //utterance.pitchMultiplier = 1.2f;
     utterance.pitchMultiplier = self.allSettings.leftSliderValue;
     NSLog(@"Pitch multiplier = %f", self.allSettings.leftSliderValue);
     //utterance.postUtteranceDelay = 0.0;
@@ -176,8 +160,28 @@
     
     [_speechSynthesizer speakUtterance:utterance];
     
+    
+    if (self.allSettings.vibrateTenOn == YES) {
+       
+        int a;
+        a = total;
+        int b;
+        b = 10;
+        
+     
+        if ( a % b == 0){
+            AudioServicesPlayAlertSound (kSystemSoundID_Vibrate);
+            
+            //NSString *count = [NSString stringWithFormat:@"%ld",(long)total];
+            //NSString *count = [NSString stringWithFormat:@"Blasts"];
+            
+            
+            //AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:count];
+            
+            //[_speechSynthesizer speakUtterance:utterance];
+        }
     }
-    }
+    
     
     if (self.allSettings.vibrateOn == YES) {
         AudioServicesPlayAlertSound (kSystemSoundID_Vibrate);
@@ -187,10 +191,6 @@
         [self playSoundEffectLeft];
     }
     
-    //if (self.allSettings.soundOn == YES) {
-     //      }
-    
-   
 }
 
 -(IBAction)incrementTwo:(id)sender
@@ -205,7 +205,7 @@
     static AVSpeechUtterance *utterance;
     utterance = [[AVSpeechUtterance alloc]initWithString:count];
     //utterance.voice = nil;
-    //utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.rightLanguageCode];
+    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.rightLanguageCode];
     
     
     // *** class method alternative ***
@@ -238,7 +238,7 @@
             utterance.volume = 1.0f;
             //utterance.pitchMultiplier = 0.6f;
             //utterance.postUtteranceDelay = 0.0;
-            //utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.rightLanguageCode];
+            utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.allSettings.rightLanguageCode];
             
             [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
             
