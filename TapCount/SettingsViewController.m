@@ -20,6 +20,11 @@
 
 @implementation SettingsViewController
 
+{
+    float _leftSliderValue;
+}
+
+/*
 + (void) initialize
 {
     // NSDictionary *defaults = [NSDictionary dictionaryWithObject:@"en-US" forKey:@"leftLanguageCode"];
@@ -43,6 +48,7 @@
 
     
 }
+ */
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,7 +61,7 @@
     self.settings = [[Settings alloc]init];
     
     self.settings.speechOn = [defaults boolForKey:@"speechOn"];
-        if (self.settings.speechOn == YES) {
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"speechOn"] == YES) {
             [_speechSwitchToggle setOn:YES];
         } else {
             [_speechSwitchToggle setOn:NO];
@@ -64,7 +70,7 @@
     
     // -- Vibrate settings --
     self.settings.vibrateOn = [defaults boolForKey:@"vibrateOn"];
-        if (self.settings.vibrateOn == YES) {
+        if ([defaults boolForKey:@"vibrateOn"] == YES) {
             [_vibrateSwitchToggle setOn:YES];
         } else {
             [_vibrateSwitchToggle setOn:NO];
@@ -73,7 +79,7 @@
     
     // -- Vibrate on Ten settings --
     self.settings.vibrateTenOn =[defaults boolForKey:@"vibrateTenOn"];
-        if (self.settings.vibrateTenOn == YES) {
+        if ([defaults boolForKey:@"vibrateTenOn"] == YES) {
             [_vibrateTenSwitchToggle setOn:YES];
         } else {
             [_vibrateTenSwitchToggle setOn:NO];
@@ -83,7 +89,7 @@
    // -- Sound settings --
 
     self.settings.soundOn = [defaults boolForKey:@"soundOn"];
-        if (self.settings.soundOn == YES) {
+        if ([defaults boolForKey:@"soundOn"] == YES) {
             [_soundsSwitchToggle setOn:YES];
         } else {
             [_soundsSwitchToggle setOn:NO];
@@ -91,17 +97,19 @@
     
     // -- Left pitch settings --
     self.settings.leftSliderValue = [defaults floatForKey:@"leftPitch"];
-    self.leftPitchSlider.value = self.settings.leftSliderValue;
-    
+    self.leftPitchSlider.value = [defaults floatForKey:@"leftPitch"];
+    NSLog(@"Left slider value: %f", self.leftPitchSlider.value);
+
     // -- Right pitch settings --
-    self.settings.rightSliderValue = [defaults floatForKey:@"leftPitch"];
-    self.rightPitchSlider.value = self.settings.rightSliderValue;
+    self.settings.rightSliderValue = [defaults floatForKey:@"rightPitch"];
+    self.rightPitchSlider.value = [defaults floatForKey:@"rightPitch"];
+    NSLog(@"Right slider value: %f", self.rightPitchSlider.value);
     
-    // -- left Language Code --
+    // -- left Language Name and Code --
     self.languageNameLeft.text = [defaults objectForKey:@"leftLanguageName"];
     self.settings.leftLanguageCode = [defaults objectForKey:@"leftLanguageCode"];
     
-    // -- right Language Code --
+    // -- right Language Name and Code --
     self.languageNameRight.text = [defaults objectForKey:@"rightLanguageName"];
     self.settings.leftLanguageCode = [defaults objectForKey:@"rightLanguageCode"];
     
@@ -147,35 +155,96 @@
     [defaults setValue:self.language.leftLanguageName forKey:@"leftLanguageName"];
     [defaults setValue:self.language.rightLanguageCode forKey:@"rightLanguageCode"];
     [defaults setValue:self.language.rightLanguageName forKey:@"rightLanguageName"];
+    
     [defaults synchronize];
 
 
     
     
 }
- 
- 
+ /*
+  - (IBAction)shareSettingsSwitched:(UISwitch *)sender {
+  NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
+  if (sender.tag == 0) {
+  if (sender.on == 0) {
+  [standardDefaults setObject:@"Off" forKey:@"facebookKey"];
+  } else if (sender.on == 1) {
+  [standardDefaults setObject:@"On" forKey:@"facebookKey"];
+  }
+  } else if (sender.tag == 1) {
+  if (sender.on == 0) {
+  [standardDefaults setObject:@"Off" forKey:@"twitterKey"];
+  } else if (sender.on == 1) {
+  [standardDefaults setObject:@"On" forKey:@"twitterKey"];
+  }
+  } else if (sender.tag == 2) {
+  if (sender.on == 0) {
+  [standardDefaults setObject:@"Off" forKey:@"instagramKey"];
+  } else if (sender.on == 1) {
+  [standardDefaults setObject:@"On" forKey:@"instagramKey"];
+  }
+  }
+  [standardDefaults synchronize];
+  }
+  
+  
+  
+  NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
+  if ([[standardDefaults stringForKey:@"facebookKey"] isEqualToString:@"On"]) {
+  self.facebookSwitch.on = YES;
+  } else {
+  self.facebookSwitch.on = NO;
+  }
+  if ([[standardDefaults stringForKey:@"twitterKey"] isEqualToString:@"On"]) {
+  self.twitterSwitch.on = YES;
+  } else {
+  self.twitterSwitch.on = NO;
+  }
+  if ([[standardDefaults stringForKey:@"instagramKey"] isEqualToString:@"On"]) {
+  self.instagramSwitch.on = YES;
+  } else {
+  self.instagramSwitch.on = NO;
+  }
+  if ([[standardDefaults stringForKey:@"distanceSettingKey"] isEqualToString:@"Miles"]) {
+  self.distancesSwitch.selectedSegmentIndex = 1;
+  } else {
+  self.distancesSwitch.selectedSegmentIndex = 0;
+  }
+  if ([[standardDefaults stringForKey:@"temperatureSettingKey"] isEqualToString:@"C"]) {
+  self.temperatureSwitch.selectedSegmentIndex = 1;
+  } else {
+  self.temperatureSwitch.selectedSegmentIndex = 0;
+  }
+  
+  
+  
+  
+  
+  */
+
 // UISWITCH CONTROLS
 
 -(IBAction)vibrateSwitch:(id)sender
 {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        if ([_vibrateSwitchToggle isOn]) {
+    
+    if ([_vibrateSwitchToggle isOn]) {
         
         self.settings.vibrateOn = YES;
-        NSLog(@"Vibrate on");
-        
         [self.delegate setSettings:self didSelectSettings:self.settings];
-            [defaults setBool:self.settings.vibrateOn forKey:@"vibrateOn"];
-        } else {
-            
-            self.settings.vibrateOn = NO;
-            NSLog(@"Vibrate off");
-       [self.delegate setSettings:self didSelectSettings:self.settings];
-            [defaults setBool:self.settings.vibrateOn forKey:@"vibrateOn"];
+        [defaults setBool:YES forKey:@"vibrateOn"];
+        [defaults synchronize];
+       
+    } else if (![_vibrateSwitchToggle isOn]) {
+        
+        self.settings.vibrateOn = NO;
+        [self.delegate setSettings:self didSelectSettings:self.settings];
+        [defaults setBool:NO forKey:@"vibrateOn"];
+        [defaults synchronize];
 
-            
     }
+            
+    
 }
 
 -(IBAction)vibrateTenSwitch:(id)sender
@@ -184,17 +253,19 @@
     if ([_vibrateTenSwitchToggle isOn]) {
         
         self.settings.vibrateTenOn = YES;
-        NSLog(@"Vibrate on");
-        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setBool:YES forKey:@"vibrateTenOn"];
         [self.delegate setSettings:self didSelectSettings:self.settings];
+        [defaults synchronize];
         
-    } else {
+    } else if (![_vibrateTenSwitchToggle isOn]) {
         
         self.settings.vibrateTenOn = NO;
         NSLog(@"Vibrate off");
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"vibrateTenOn"];
         [self.delegate setSettings:self didSelectSettings:self.settings];
         
-        
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 
@@ -202,19 +273,17 @@
     
     if ([_speechSwitchToggle isOn]) {
         self.settings.speechOn = YES;
-        [_soundsSwitchToggle setOn:YES];
-        
-        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"speechOn"];
         [self.delegate setSettings:self didSelectSettings:self.settings];
         
-    } else {
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    } else if (![_speechSwitchToggle isOn]) {
         self.settings.speechOn = NO;
         [self.delegate setSettings:self didSelectSettings:self.settings];
-        if (![_vibrateSwitchToggle isOn])
-        {
-            [_soundsSwitchToggle setOn:NO];
-            
-        }
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"speechOn"];
+        
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 
@@ -222,28 +291,20 @@
 - (IBAction)soundsSwitch:(UISwitch *)sender
 {
     if (sender.on){
-        //self.settings.vibrateOn = YES;
-        //self.settings.speechOn = YES;
+ 
         self.settings.soundOn = YES;
-        
-        //[self.delegate currencyPicker:self didPickCurrency:currency];
-        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"soundOn"];
         [self.delegate setSettings:self didSelectSettings:self.settings];
         
-        //[_speechSwitchToggle setOn:YES];
-       // [_vibrateSwitchToggle setOn:YES];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         
     } else {
         
-       //self.settings.vibrateOn = NO;
         self.settings.soundOn = NO;
-        //self.settings.speechOn = NO;
-        
-        //[_speechSwitchToggle setOn:NO];
-        //[_vibrateSwitchToggle setOn:NO];
-        
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"soundOn"];
         [self.delegate setSettings:self didSelectSettings:self.settings];
         
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
 }
@@ -268,9 +329,14 @@
     self.rightPitchSlider.minimumValue = min;
     self.rightPitchSlider.maximumValue = max;
     
+    //float rightSliderInitValue = [[NSUserDefaults standardUserDefaults] floatForKey:@"rightPitch"];
+    //self.rightPitchSlider.value = rightSliderInitValue;
     
-    self.settings.RightSliderValue = self.rightPitchSlider.value;
+    NSLog(@"Right slider value: %f", self.rightPitchSlider.value);
+    self.settings.rightSliderValue = self.rightPitchSlider.value;
     
+    [[NSUserDefaults standardUserDefaults] setFloat:self.rightPitchSlider.value forKey:@"rightPitch"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [self.delegate setSettings:self didSelectSettings:self.settings];
     
 }
@@ -282,8 +348,7 @@
     self.leftPitchSlider.minimumValue = min;
     self.leftPitchSlider.maximumValue = max;
     NSLog(@"%f", self.leftPitchSlider.value);
-    
-    self.settings.LeftSliderValue = self.leftPitchSlider.value;
+    self.settings.leftSliderValue = self.leftPitchSlider.value;
     
     [self.delegate setSettings:self didSelectSettings:self.settings];
 }

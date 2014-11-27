@@ -27,6 +27,7 @@
 		BE4FBE8E1A1FD4330032D0B2 /* scissors.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE4FBE8D1A1FD1B60032D0B2 /* scissors.caf */; };
 		BE4FBE901A1FDB040032D0B2 /* network.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE4FBE8F1A1FDB040032D0B2 /* network.caf */; };
 		BE4FBE921A1FDB120032D0B2 /* professional.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE4FBE911A1FDB120032D0B2 /* professional.caf */; };
+		BE4FBE941A226B820032D0B2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE4FBE931A226B820032D0B2 /* StoreKit.framework */; };
 		BE50F5AB19C2BD44003AF7C9 /* Sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE50F5AA19C2BD44003AF7C9 /* Sound.caf */; };
 		BE526DA119C2B19A0054564F /* pathGuy.png in Resources */ = {isa = PBXBuildFile; fileRef = BE526DA019C2B19A0054564F /* pathGuy.png */; };
 		BE70F19219C0B5F70053E36A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE70F19119C0B5F70053E36A /* Foundation.framework */; };
@@ -103,6 +104,7 @@
 		BE4FBE8D1A1FD1B60032D0B2 /* scissors.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = scissors.caf; sourceTree = "<group>"; };
 		BE4FBE8F1A1FDB040032D0B2 /* network.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = network.caf; sourceTree = "<group>"; };
 		BE4FBE911A1FDB120032D0B2 /* professional.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = professional.caf; sourceTree = "<group>"; };
+		BE4FBE931A226B820032D0B2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		BE50F5AA19C2BD44003AF7C9 /* Sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sound.caf; sourceTree = "<group>"; };
 		BE526DA019C2B19A0054564F /* pathGuy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pathGuy.png; sourceTree = "<group>"; };
 		BE70F18E19C0B5F70053E36A /* TapCount.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapCount.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE38973219D38C7D00E1D84E /* MessageUI.framework in Frameworks */,
+				BE4FBE941A226B820032D0B2 /* StoreKit.framework in Frameworks */,
 				BEDC13C619CC8D29009AC3C2 /* CoreData.framework in Frameworks */,
 				BE22DCDB19C0C00400EE6264 /* AudioToolbox.framework in Frameworks */,
 				BE70F19419C0B5F70053E36A /* CoreGraphics.framework in Frameworks */,
@@ -205,6 +208,7 @@
 		BE70F19019C0B5F70053E36A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE4FBE931A226B820032D0B2 /* StoreKit.framework */,
 				BE38973119D38C7D00E1D84E /* MessageUI.framework */,
 				BEDC13C519CC8D29009AC3C2 /* CoreData.framework */,
 				BE22DCDA19C0C00400EE6264 /* AudioToolbox.framework */,
@@ -358,6 +362,11 @@
 				TargetAttributes = {
 					BE70F18D19C0B5F70053E36A = {
 						DevelopmentTeam = L2866N5XVV;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					BE70F1AE19C0B5F70053E36A = {
 						TestTargetID = BE70F18D19C0B5F70053E36A;

@@ -21,7 +21,7 @@
    
     
     //Settings *_speechVibrate;
-    
+    int _initTotal;
     
     SystemSoundID _soundID;
     SystemSoundID _soundIDIncrementLeft;
@@ -42,6 +42,8 @@
     NSDictionary *initialDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
                                      @"en-US", @"leftLanguageCode",
                                      @"en-GB", @"rightLanguageCode",
+                                     @"English (United States)", @"leftLanguageName",
+                                     @"English (United Kingdom)", @"rightLanguageName",
                                      [NSNumber numberWithBool:YES] , @"speechOn",
                                      [NSNumber numberWithBool:NO], @"vibrateOn",
                                      [NSNumber numberWithBool:YES], @"vibrateTenOn",
@@ -88,6 +90,12 @@
     self.allSettings.rightSliderValue = [defaults floatForKey:@"rightPitch"];
     NSLog(@"***Right Pitch setting in ViewDidLoad:%f", self.allSettings.rightSliderValue);
     
+    total = [defaults integerForKey:@"initTotal"];
+    screen.text = [NSString stringWithFormat:@"%ld", (long)[defaults integerForKey:@"initTotal"]];
+    
+    totalTwo = [defaults integerForKey:@"initTotalTwo"];
+    screenTwo.text = [NSString stringWithFormat:@"%ld", (long)[defaults integerForKey:@"initTotalTwo"]];
+        
     
     _speechSynthesizer = [[AVSpeechSynthesizer alloc]init];
     _speechSynthesizerTwo = [[AVSpeechSynthesizer alloc]init];
@@ -119,7 +127,7 @@
     self.allSettings.leftLanguageCode = settings.leftLanguageCode;
     self.allSettings.rightLanguageCode = settings.rightLanguageCode;
     
-    
+    /* -- do not use: Set defaults at sender; otherwise will reset all defaults to null value if not used -- 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:settings.leftLanguageCode forKey:@"leftLanguageCode"];
     [defaults setValue:settings.leftLanguageName forKey:@"leftLanguageName"];
@@ -130,7 +138,9 @@
     [defaults setFloat:settings.leftSliderValue forKey:@"leftPitch"];
     [defaults setFloat:settings.rightSliderValue forKey:@"rightPitch"];
     [defaults synchronize];
-        
+    */
+    
+    
 }
 
 
@@ -152,10 +162,12 @@
 
 -(IBAction)increment:(id)sender
 {
-   
+    
     total++;
     [screen setText:[NSString stringWithFormat:@"%ld", (long)total]];
     
+    [[NSUserDefaults standardUserDefaults] setInteger:total forKey:@"initTotal"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [self updateTextWithAnimation];
    
     NSString *count = [NSString stringWithFormat:@"%ld",(long)total];
@@ -214,6 +226,9 @@
 {
     totalTwo++;
     [screenTwo setText:[NSString stringWithFormat:@"%ld", (long)totalTwo]];
+    
+    [[NSUserDefaults standardUserDefaults] setInteger:totalTwo forKey:@"initTotal"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self updateTextWithAnimation];
     
@@ -329,6 +344,11 @@
     totalTwo = 0;
     [screen setText:[NSString stringWithFormat:@"%ld", (long)total]];
     [screenTwo setText:[NSString stringWithFormat:@"%ld", (long)totalTwo]];
+    
+    [[NSUserDefaults standardUserDefaults] setInteger:total forKey:@"initTotal"];
+    [[NSUserDefaults standardUserDefaults] setInteger:totalTwo forKey:@"initTotal"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     
     if (self.allSettings.speechOn == YES) {
         [_speechSynthesizer speakUtterance:[AVSpeechUtterance speechUtteranceWithString:@"Okay"]];
