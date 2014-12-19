@@ -42,6 +42,8 @@
     NSDictionary *initialDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
                                      @"en-US", @"leftLanguageCode",
                                      @"en-GB", @"rightLanguageCode",
+                                     @"English (United States)", @"leftLanguageName",
+                                     @"English (United Kingdom)", @"rightLanguageName",
                                      [NSNumber numberWithBool:YES] , @"speechOn",
                                      [NSNumber numberWithBool:NO], @"vibrateOn",
                                      [NSNumber numberWithBool:YES], @"vibrateTenOn",
@@ -118,7 +120,7 @@
     self.allSettings.leftLanguageCode = settings.leftLanguageCode;
     self.allSettings.rightLanguageCode = settings.rightLanguageCode;
     
-    
+    /*
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:settings.leftLanguageCode forKey:@"leftLanguageCode"];
     [defaults setValue:settings.leftLanguageName forKey:@"leftLanguageName"];
@@ -129,7 +131,7 @@
     [defaults setFloat:settings.leftSliderValue forKey:@"leftPitch"];
     [defaults setFloat:settings.rightSliderValue forKey:@"rightPitch"];
     [defaults synchronize];
-        
+      */  
 }
 
 
