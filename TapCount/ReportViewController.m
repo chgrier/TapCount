@@ -110,6 +110,8 @@
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
     
     return [sectionInfo numberOfObjects];
+    
+    
 }
 
 
@@ -121,9 +123,11 @@
     
     Report *report = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
+    
     // Configure the cell...
     UILabel *reportNameLabel = (UILabel *)[cell viewWithTag:100 ];
     
+   
     if ([report.reportName length] > 0) {
         reportNameLabel.text = report.reportName;
 
