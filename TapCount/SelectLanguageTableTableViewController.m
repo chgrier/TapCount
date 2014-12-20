@@ -85,7 +85,6 @@
     NSString *languageName = self.languageDictionary[languageCode];
     //return languageName;
 
-    
     UILabel *languageNameLabel = (UILabel *) [cell viewWithTag:1000];
     languageNameLabel.text = languageName;
     

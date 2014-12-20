@@ -769,6 +769,11 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="B6D-bT-bAI" kind="popoverPresentation" identifier="SelectRightLanguage" popoverAnchorView="g8G-jI-4X1" id="I1k-jU-zhT">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -882,4 +887,7 @@
         <image name="rectangle.png" width="150" height="150"/>
         <image name="saveButton.png" width="260" height="72"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="I1k-jU-zhT"/>
+    </inferredMetricsTieBreakers>
 </document>
