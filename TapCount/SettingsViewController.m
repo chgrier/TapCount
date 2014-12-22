@@ -186,13 +186,14 @@
     [defaults setValue:language.rightLanguageName forKey:@"rightLanguageName"];
     
     [defaults synchronize];
-
-
-    
     
 }
  
- 
+
+
+
+
+
 // UISWITCH CONTROLS
 
 -(IBAction)vibrateSwitch:(id)sender

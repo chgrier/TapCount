@@ -114,8 +114,6 @@
     
     //[self.delegate baseCurrencyPicker:self didPickBaseCurrency:baseCurrency];
     
-    
-    
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     
 
