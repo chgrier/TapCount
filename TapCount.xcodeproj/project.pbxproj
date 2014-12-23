@@ -214,6 +214,15 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		BE60566A1A49DBF600178D70 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BE02705C19F81F4000C37793 /* Main.storyboard */,
+				BEDC13FC19CC903D009AC3C2 /* DataModel.xcdatamodeld */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		BE70F18519C0B5F70053E36A = {
 			isa = PBXGroup;
 			children = (
@@ -251,10 +260,9 @@
 		BE70F19719C0B5F70053E36A /* TapCount */ = {
 			isa = PBXGroup;
 			children = (
-				BE6056681A49497600178D70 /* Objects */,
-				BE02705C19F81F4000C37793 /* Main.storyboard */,
 				BE6056691A49499E00178D70 /* ViewControllers */,
-				BEDC13FC19CC903D009AC3C2 /* DataModel.xcdatamodeld */,
+				BE6056681A49497600178D70 /* Objects */,
+				BE60566A1A49DBF600178D70 /* Resources */,
 				BE70F1A019C0B5F70053E36A /* AppDelegate.h */,
 				BE70F1A119C0B5F70053E36A /* AppDelegate.m */,
 				BE70F1A919C0B5F70053E36A /* Images.xcassets */,
