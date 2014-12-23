@@ -182,6 +182,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE6056681A49497600178D70 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				BEDC13FF19CC9531009AC3C2 /* Report.h */,
+				BEDC140019CC9531009AC3C2 /* Report.m */,
+				BE855D911A141B0800845DCC /* Language.h */,
+				BE855D921A141B0800845DCC /* Language.m */,
+				BE2E2C201A01902300E7F6FC /* Settings.h */,
+				BE2E2C211A01902300E7F6FC /* Settings.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		BE6056691A49499E00178D70 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BE9B58AC1A119095006D1C01 /* SelectLanguageTableTableViewController.h */,
+				BE9B58AD1A119095006D1C01 /* SelectLanguageTableTableViewController.m */,
+				BEDC140219CCBAAC009AC3C2 /* ReportViewController.h */,
+				BEDC140319CCBAAC009AC3C2 /* ReportViewController.m */,
+				BEDC13B619CBA0E0009AC3C2 /* HudView.h */,
+				BEDC13B719CBA0E0009AC3C2 /* HudView.m */,
+				BE08A56C19C4A1FB00162606 /* ReportDetailViewController.h */,
+				BE08A56D19C4A1FB00162606 /* ReportDetailViewController.m */,
+				BE70F1A619C0B5F70053E36A /* ViewController.h */,
+				BE70F1A719C0B5F70053E36A /* ViewController.m */,
+				BE2E2C231A01AD4100E7F6FC /* SettingsViewController.h */,
+				BE2E2C241A01AD4100E7F6FC /* SettingsViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		BE70F18519C0B5F70053E36A = {
 			isa = PBXGroup;
 			children = (
@@ -219,28 +251,12 @@
 		BE70F19719C0B5F70053E36A /* TapCount */ = {
 			isa = PBXGroup;
 			children = (
-				BEDC13FF19CC9531009AC3C2 /* Report.h */,
-				BEDC140019CC9531009AC3C2 /* Report.m */,
+				BE6056681A49497600178D70 /* Objects */,
 				BE02705C19F81F4000C37793 /* Main.storyboard */,
-				BE9B58AC1A119095006D1C01 /* SelectLanguageTableTableViewController.h */,
-				BE9B58AD1A119095006D1C01 /* SelectLanguageTableTableViewController.m */,
+				BE6056691A49499E00178D70 /* ViewControllers */,
 				BEDC13FC19CC903D009AC3C2 /* DataModel.xcdatamodeld */,
 				BE70F1A019C0B5F70053E36A /* AppDelegate.h */,
 				BE70F1A119C0B5F70053E36A /* AppDelegate.m */,
-				BEDC140219CCBAAC009AC3C2 /* ReportViewController.h */,
-				BEDC140319CCBAAC009AC3C2 /* ReportViewController.m */,
-				BEDC13B619CBA0E0009AC3C2 /* HudView.h */,
-				BEDC13B719CBA0E0009AC3C2 /* HudView.m */,
-				BE08A56C19C4A1FB00162606 /* ReportDetailViewController.h */,
-				BE08A56D19C4A1FB00162606 /* ReportDetailViewController.m */,
-				BE70F1A619C0B5F70053E36A /* ViewController.h */,
-				BE70F1A719C0B5F70053E36A /* ViewController.m */,
-				BE2E2C231A01AD4100E7F6FC /* SettingsViewController.h */,
-				BE2E2C241A01AD4100E7F6FC /* SettingsViewController.m */,
-				BE855D911A141B0800845DCC /* Language.h */,
-				BE855D921A141B0800845DCC /* Language.m */,
-				BE2E2C201A01902300E7F6FC /* Settings.h */,
-				BE2E2C211A01902300E7F6FC /* Settings.m */,
 				BE70F1A919C0B5F70053E36A /* Images.xcassets */,
 				BE70F19819C0B5F70053E36A /* Supporting Files */,
 			);
