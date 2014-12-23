@@ -190,7 +190,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRd-TL-f2A">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRd-TL-f2A">
                                 <rect key="frame" x="23" y="469" width="260" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="0V0-au-j8V"/>
@@ -216,8 +216,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ggm-c2-GuG">
-                                <rect key="frame" x="397" y="419" width="100" height="88"/>
-                                <state key="normal" image="minusCircle.png">
+                                <rect key="frame" x="397" y="407.5" width="100" height="100"/>
+                                <state key="normal" image="MinusButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -250,14 +250,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aj4-if-fez">
-                                <rect key="frame" x="384" y="274" width="125" height="125"/>
+                                <rect key="frame" x="384" y="262.5" width="125" height="125"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="GoJ-cK-8iZ"/>
                                     <constraint firstAttribute="height" constant="125" id="Zhb-KK-zPp"/>
                                     <constraint firstAttribute="width" constant="125" id="c3Q-Wb-RSI"/>
                                     <constraint firstAttribute="height" constant="125" id="cri-1c-aKy"/>
                                 </constraints>
-                                <state key="normal" image="addButton.png">
+                                <state key="normal" image="AddButtonLarge">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -277,14 +277,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZH-1b-kOs">
-                                <rect key="frame" x="90" y="274" width="125" height="125"/>
+                                <rect key="frame" x="90" y="262.5" width="125" height="125"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="ZbX-54-hQa"/>
                                     <constraint firstAttribute="width" constant="125" id="l5c-HL-i6Y"/>
                                     <constraint firstAttribute="height" constant="125" id="pUF-cA-jIc"/>
                                     <constraint firstAttribute="height" constant="125" id="sVp-sb-eG9"/>
                                 </constraints>
-                                <state key="normal" image="addButton.png">
+                                <state key="normal" image="AddButtonLarge">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -349,9 +349,9 @@
                                     <action selector="sayTotal:" destination="S7T-SN-O3j" eventType="touchUpInside" id="eQb-d6-9GX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0O1-rC-mZ0">
-                                <rect key="frame" x="103" y="419" width="100" height="96"/>
-                                <state key="normal" image="minusCircle.png">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0O1-rC-mZ0">
+                                <rect key="frame" x="103" y="407.5" width="100" height="100"/>
+                                <state key="normal" image="MinusButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -794,6 +794,30 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="About" id="JHd-J0-PrJ">
+                                <cells>
+                                    <tableViewCell tag="101" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="pEp-NW-p8I" detailTextLabel="jk5-6r-faK" style="IBUITableViewCellStyleValue1" id="YMA-Ju-zqr">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YMA-Ju-zqr" id="rfj-1j-ak3">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="About this app" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pEp-NW-p8I">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" tag="1002" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" id="jk5-6r-faK">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="RJ1-4N-9SK" id="e1E-Rp-1aj"/>
@@ -895,12 +919,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AddButtonLarge" width="150" height="150"/>
         <image name="MailIcon" width="50" height="50"/>
         <image name="MicroscopeIcon" width="50" height="50"/>
+        <image name="MinusButton" width="100" height="100"/>
         <image name="SettingsIcon" width="50" height="50"/>
-        <image name="addButton.png" width="150" height="150"/>
         <image name="clearButton.png" width="260" height="72"/>
-        <image name="minusCircle.png" width="100" height="88"/>
         <image name="rectangle.png" width="150" height="150"/>
         <image name="saveButton.png" width="260" height="72"/>
     </resources>
