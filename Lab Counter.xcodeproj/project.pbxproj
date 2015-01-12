@@ -105,22 +105,22 @@
 		BE4FBE911A1FDB120032D0B2 /* professional.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = professional.caf; sourceTree = "<group>"; };
 		BE50F5AA19C2BD44003AF7C9 /* Sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sound.caf; sourceTree = "<group>"; };
 		BE526DA019C2B19A0054564F /* pathGuy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pathGuy.png; sourceTree = "<group>"; };
-		BE70F18E19C0B5F70053E36A /* TapCount.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapCount.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE70F18E19C0B5F70053E36A /* Lab Counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lab Counter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE70F19119C0B5F70053E36A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE70F19319C0B5F70053E36A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		BE70F19519C0B5F70053E36A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		BE70F19919C0B5F70053E36A /* TapCount-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TapCount-Info.plist"; sourceTree = "<group>"; };
+		BE70F19919C0B5F70053E36A /* Lab Counter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Lab Counter-Info.plist"; sourceTree = "<group>"; };
 		BE70F19B19C0B5F70053E36A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE70F19D19C0B5F70053E36A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BE70F19F19C0B5F70053E36A /* TapCount-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TapCount-Prefix.pch"; sourceTree = "<group>"; };
+		BE70F19F19C0B5F70053E36A /* Lab Counter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lab Counter-Prefix.pch"; sourceTree = "<group>"; };
 		BE70F1A019C0B5F70053E36A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BE70F1A119C0B5F70053E36A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BE70F1A619C0B5F70053E36A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		BE70F1A719C0B5F70053E36A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BE70F1A919C0B5F70053E36A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		BE70F1AF19C0B5F70053E36A /* TapCountTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TapCountTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE70F1AF19C0B5F70053E36A /* Lab CounterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lab CounterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE70F1B019C0B5F70053E36A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		BE70F1B819C0B5F70053E36A /* TapCountTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TapCountTests-Info.plist"; sourceTree = "<group>"; };
+		BE70F1B819C0B5F70053E36A /* Lab CounterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Lab CounterTests-Info.plist"; sourceTree = "<group>"; };
 		BE70F1BA19C0B5F70053E36A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE70F1BC19C0B5F70053E36A /* TapCountTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TapCountTests.m; sourceTree = "<group>"; };
 		BE77F1F719D3A482002E8A90 /* emailIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emailIcon.png; sourceTree = "<group>"; };
@@ -237,8 +237,8 @@
 		BE70F18F19C0B5F70053E36A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE70F18E19C0B5F70053E36A /* TapCount.app */,
-				BE70F1AF19C0B5F70053E36A /* TapCountTests.xctest */,
+				BE70F18E19C0B5F70053E36A /* Lab Counter.app */,
+				BE70F1AF19C0B5F70053E36A /* Lab CounterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -307,10 +307,10 @@
 				BE1B5CC619CA02A00053A5D3 /* minusCircle.png */,
 				BE526DA019C2B19A0054564F /* pathGuy.png */,
 				BEFE4D8219C2A64D009CBB29 /* heartCell.jpg */,
-				BE70F19919C0B5F70053E36A /* TapCount-Info.plist */,
+				BE70F19919C0B5F70053E36A /* Lab Counter-Info.plist */,
 				BE70F19A19C0B5F70053E36A /* InfoPlist.strings */,
 				BE70F19D19C0B5F70053E36A /* main.m */,
-				BE70F19F19C0B5F70053E36A /* TapCount-Prefix.pch */,
+				BE70F19F19C0B5F70053E36A /* Lab Counter-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -327,7 +327,7 @@
 		BE70F1B719C0B5F70053E36A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BE70F1B819C0B5F70053E36A /* TapCountTests-Info.plist */,
+				BE70F1B819C0B5F70053E36A /* Lab CounterTests-Info.plist */,
 				BE70F1B919C0B5F70053E36A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -336,9 +336,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BE70F18D19C0B5F70053E36A /* TapCount */ = {
+		BE70F18D19C0B5F70053E36A /* Lab Counter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE70F1C019C0B5F70053E36A /* Build configuration list for PBXNativeTarget "TapCount" */;
+			buildConfigurationList = BE70F1C019C0B5F70053E36A /* Build configuration list for PBXNativeTarget "Lab Counter" */;
 			buildPhases = (
 				BE70F18A19C0B5F70053E36A /* Sources */,
 				BE70F18B19C0B5F70053E36A /* Frameworks */,
@@ -348,14 +348,14 @@
 			);
 			dependencies = (
 			);
-			name = TapCount;
+			name = "Lab Counter";
 			productName = TapCount;
-			productReference = BE70F18E19C0B5F70053E36A /* TapCount.app */;
+			productReference = BE70F18E19C0B5F70053E36A /* Lab Counter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BE70F1AE19C0B5F70053E36A /* TapCountTests */ = {
+		BE70F1AE19C0B5F70053E36A /* Lab CounterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE70F1C319C0B5F70053E36A /* Build configuration list for PBXNativeTarget "TapCountTests" */;
+			buildConfigurationList = BE70F1C319C0B5F70053E36A /* Build configuration list for PBXNativeTarget "Lab CounterTests" */;
 			buildPhases = (
 				BE70F1AB19C0B5F70053E36A /* Sources */,
 				BE70F1AC19C0B5F70053E36A /* Frameworks */,
@@ -366,9 +366,9 @@
 			dependencies = (
 				BE70F1B519C0B5F70053E36A /* PBXTargetDependency */,
 			);
-			name = TapCountTests;
+			name = "Lab CounterTests";
 			productName = TapCountTests;
-			productReference = BE70F1AF19C0B5F70053E36A /* TapCountTests.xctest */;
+			productReference = BE70F1AF19C0B5F70053E36A /* Lab CounterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -388,7 +388,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BE70F18919C0B5F70053E36A /* Build configuration list for PBXProject "TapCount" */;
+			buildConfigurationList = BE70F18919C0B5F70053E36A /* Build configuration list for PBXProject "Lab Counter" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -401,8 +401,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BE70F18D19C0B5F70053E36A /* TapCount */,
-				BE70F1AE19C0B5F70053E36A /* TapCountTests */,
+				BE70F18D19C0B5F70053E36A /* Lab Counter */,
+				BE70F1AE19C0B5F70053E36A /* Lab CounterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -495,7 +495,7 @@
 /* Begin PBXTargetDependency section */
 		BE70F1B519C0B5F70053E36A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BE70F18D19C0B5F70053E36A /* TapCount */;
+			target = BE70F18D19C0B5F70053E36A /* Lab Counter */;
 			targetProxy = BE70F1B419C0B5F70053E36A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -597,9 +597,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TapCount/TapCount-Prefix.pch";
-				INFOPLIST_FILE = "TapCount/TapCount-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "TapCount/Lab Counter-Prefix.pch";
+				INFOPLIST_FILE = "TapCount/Lab Counter-Info.plist";
+				PRODUCT_NAME = "Lab Counter";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -613,9 +613,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TapCount/TapCount-Prefix.pch";
-				INFOPLIST_FILE = "TapCount/TapCount-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "TapCount/Lab Counter-Prefix.pch";
+				INFOPLIST_FILE = "TapCount/Lab Counter-Info.plist";
+				PRODUCT_NAME = "Lab Counter";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -637,8 +637,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "TapCountTests/TapCountTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "TapCountTests/Lab CounterTests-Info.plist";
+				PRODUCT_NAME = "Lab CounterTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -655,8 +655,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TapCount/TapCount-Prefix.pch";
-				INFOPLIST_FILE = "TapCountTests/TapCountTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "TapCountTests/Lab CounterTests-Info.plist";
+				PRODUCT_NAME = "Lab CounterTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -665,7 +665,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BE70F18919C0B5F70053E36A /* Build configuration list for PBXProject "TapCount" */ = {
+		BE70F18919C0B5F70053E36A /* Build configuration list for PBXProject "Lab Counter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE70F1BE19C0B5F70053E36A /* Debug */,
@@ -674,7 +674,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BE70F1C019C0B5F70053E36A /* Build configuration list for PBXNativeTarget "TapCount" */ = {
+		BE70F1C019C0B5F70053E36A /* Build configuration list for PBXNativeTarget "Lab Counter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE70F1C119C0B5F70053E36A /* Debug */,
@@ -683,7 +683,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BE70F1C319C0B5F70053E36A /* Build configuration list for PBXNativeTarget "TapCountTests" */ = {
+		BE70F1C319C0B5F70053E36A /* Build configuration list for PBXNativeTarget "Lab CounterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE70F1C419C0B5F70053E36A /* Debug */,

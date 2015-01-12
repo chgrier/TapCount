@@ -38,7 +38,49 @@
 {
    // NSDictionary *defaults = [NSDictionary dictionaryWithObject:@"en-US" forKey:@"leftLanguageCode"];
     //[[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
+
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"speechOn"] == nil) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"speechOn"];
+    }
     
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"vibrateOn"] == nil) {
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"vibrateOn"];
+    }
+    
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"vibrateTenOn"] == nil) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"vibrateTenOn"];
+    }
+    
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"soundOn"] == nil) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"soundOn"];
+    }
+
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"leftLanguageCode"] == nil) {
+        [[NSUserDefaults standardUserDefaults] setValue:@"en-US" forKey:@"leftLanguageCode"];
+    }
+    
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"leftLanguageName"] == nil) {
+        [[NSUserDefaults standardUserDefaults] setValue:@"English (United States)" forKey:@"leftLanguageName"];
+    }
+    
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"rightLanguageCode"] == nil) {
+        [[NSUserDefaults standardUserDefaults] setValue:@"en-GB" forKey:@"rightLanguageCode"];
+    }
+    
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"leftLanguageName"] == nil) {
+        [[NSUserDefaults standardUserDefaults] setValue:@"English (United Kingdom)" forKey:@"leftLanguageName"];
+    }
+
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"leftPitch"] == nil) {
+        [[NSUserDefaults standardUserDefaults] setFloat:1.0 forKey:@"leftPitch"];
+    }
+
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"rightPitch"] == nil) {
+        [[NSUserDefaults standardUserDefaults] setFloat:1.0 forKey:@"rightPitch"];
+    }
+
+
+    /* -- initial defaults will always initialize --
     NSDictionary *initialDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
                                      @"en-US", @"leftLanguageCode",
                                      @"en-GB", @"rightLanguageCode",
@@ -50,15 +92,17 @@
                                      [NSNumber numberWithBool:YES], @"soundOn",
                                      [NSNumber numberWithFloat:1.0], @"leftPitch",
                                      [NSNumber numberWithFloat:1.0], @"rightPitch",
-                                     nil];
+     
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:initialDefaults];
-
+}
+*/
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     
     SettingsViewController *svc = [self.tabBarController.viewControllers objectAtIndex:2];
     svc.delegate = self;
@@ -120,18 +164,8 @@
     self.allSettings.leftLanguageCode = settings.leftLanguageCode;
     self.allSettings.rightLanguageCode = settings.rightLanguageCode;
     
-    /*
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setValue:settings.leftLanguageCode forKey:@"leftLanguageCode"];
-    [defaults setValue:settings.leftLanguageName forKey:@"leftLanguageName"];
-    [defaults setBool:settings.vibrateOn forKey:@"vibrateOn"];
-    [defaults setBool:settings.vibrateOn forKey:@"vibrateTenOn"];
-    [defaults setBool:settings.vibrateOn forKey:@"speechOn"];
-    [defaults setBool:settings.vibrateOn forKey:@"soundOn"];
-    [defaults setFloat:settings.leftSliderValue forKey:@"leftPitch"];
-    [defaults setFloat:settings.rightSliderValue forKey:@"rightPitch"];
-    [defaults synchronize];
-      */  
+    
+        
 }
 
 

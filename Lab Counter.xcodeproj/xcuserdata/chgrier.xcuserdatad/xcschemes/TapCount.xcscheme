@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BE70F18D19C0B5F70053E36A"
-               BuildableName = "TapCount.app"
-               BlueprintName = "TapCount"
-               ReferencedContainer = "container:TapCount.xcodeproj">
+               BuildableName = "Lab Counter.app"
+               BlueprintName = "Lab Counter"
+               ReferencedContainer = "container:Lab Counter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BE70F1AE19C0B5F70053E36A"
-               BuildableName = "TapCountTests.xctest"
-               BlueprintName = "TapCountTests"
-               ReferencedContainer = "container:TapCount.xcodeproj">
+               BuildableName = "Lab CounterTests.xctest"
+               BlueprintName = "Lab CounterTests"
+               ReferencedContainer = "container:Lab Counter.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE70F18D19C0B5F70053E36A"
-            BuildableName = "TapCount.app"
-            BlueprintName = "TapCount"
-            ReferencedContainer = "container:TapCount.xcodeproj">
+            BuildableName = "Lab Counter.app"
+            BlueprintName = "Lab Counter"
+            ReferencedContainer = "container:Lab Counter.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE70F18D19C0B5F70053E36A"
-            BuildableName = "TapCount.app"
-            BlueprintName = "TapCount"
-            ReferencedContainer = "container:TapCount.xcodeproj">
+            BuildableName = "Lab Counter.app"
+            BlueprintName = "Lab Counter"
+            ReferencedContainer = "container:Lab Counter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE70F18D19C0B5F70053E36A"
-            BuildableName = "TapCount.app"
-            BlueprintName = "TapCount"
-            ReferencedContainer = "container:TapCount.xcodeproj">
+            BuildableName = "Lab Counter.app"
+            BlueprintName = "Lab Counter"
+            ReferencedContainer = "container:Lab Counter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

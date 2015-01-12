@@ -103,10 +103,10 @@
     languageCodeName.leftLanguageCode = languageCode;
     languageCodeName.leftLanguageName = languageName;
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setValue:languageCodeName.leftLanguageCode forKey:@"leftLanguageCode"];
-    [defaults setValue:languageCodeName.leftLanguageName forKey:@"leftLanguageName"];
-    [defaults synchronize];
+    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+   // [defaults setValue:languageCodeName.leftLanguageCode forKey:@"leftLanguageCode"];
+   // [defaults setValue:languageCodeName.leftLanguageName forKey:@"leftLanguageName"];
+   // [defaults synchronize];
     
     [self.delegate setLanguage:self didSelectLanguage:languageCodeName];
     

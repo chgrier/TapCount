@@ -22,141 +22,81 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    
     // load defaults for settings
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    
-    BOOL speechOn = [defaults boolForKey:@"speechOn"];
-    BOOL vibrateOn = [defaults boolForKey:@"vibrateOn"];
-    BOOL vibrateTenOn = [defaults boolForKey:@"vibrateTenOn"];
-    BOOL soundsOn = [defaults boolForKey:@"soundsOn"];
-    
-    NSString *leftLanguageCode = [defaults objectForKey:@"leftLanguageCode"];
-    NSString *leftLanguageName = [defaults objectForKey:@"leftLanguageName"];
-    
-    NSString *rightLanguageCode = [defaults objectForKey:@"rightLanguageCode"];
-    NSString *rightLanguageName = [defaults objectForKey:@"rightLanguageName"];
-    
-    float leftPitch = [defaults floatForKey:@"leftPitch"];
-    float rightPitch = [defaults floatForKey:@"rightPitch"];
-    
-    self.settings = [[Settings alloc]init];
-    self.language = [[Language alloc]init];
-    
     // -- Speech settings --
-    if ([defaults boolForKey:@"speechOn"] != 1 && [defaults boolForKey:@"speechOn"] != 0) {
-        self.settings.speechOn = YES;
+    self.language = [[Language alloc]init];
+    self.settings = [[Settings alloc]init];
+    
+    self.settings.speechOn = [defaults boolForKey:@"speechOn"];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"speechOn"] == YES) {
+        [_speechSwitchToggle setOn:YES];
     } else {
-        self.settings.speechOn = speechOn;
-        if (speechOn == YES) {
-            [_speechSwitchToggle setOn:YES];
-        } else {
-            [_speechSwitchToggle setOn:NO];
-        }
+        [_speechSwitchToggle setOn:NO];
     }
+    
     
     // -- Vibrate settings --
-    if ([defaults boolForKey:@"vibrateOn"] != 1 && [defaults boolForKey:@"vibrateOn"] !=0) {
-        self.settings.vibrateOn = YES;
+    self.settings.vibrateOn = [defaults boolForKey:@"vibrateOn"];
+    if ([defaults boolForKey:@"vibrateOn"] == YES) {
         [_vibrateSwitchToggle setOn:YES];
     } else {
-         self.settings.vibrateOn = vibrateOn;
-        if (vibrateOn == YES) {
-            [_vibrateSwitchToggle setOn:YES];
-        } else {
-            [_vibrateSwitchToggle setOn:NO];
-        }
+        [_vibrateSwitchToggle setOn:NO];
     }
+    
     
     // -- Vibrate on Ten settings --
-    if ([defaults boolForKey:@"vibrateTenOn"] != 1 && [defaults boolForKey:@"vibrateTenOn"] !=0) {
-        self.settings.vibrateTenOn = YES;
+    self.settings.vibrateTenOn =[defaults boolForKey:@"vibrateTenOn"];
+    if ([defaults boolForKey:@"vibrateTenOn"] == YES) {
         [_vibrateTenSwitchToggle setOn:YES];
     } else {
-        self.settings.vibrateTenOn = vibrateTenOn;
-        if (vibrateOn == YES) {
-            [_vibrateTenSwitchToggle setOn:YES];
-        } else {
-            [_vibrateTenSwitchToggle setOn:NO];
-        }
+        [_vibrateTenSwitchToggle setOn:NO];
     }
     
-   // -- Sound settings --
-    if ([defaults boolForKey:@"soundOn"] != 1 && [defaults boolForKey:@"soundOn"] != 0) {
-        self.settings.soundOn = YES;
+    
+    // -- Sound settings --
+    
+    self.settings.soundOn = [defaults boolForKey:@"soundOn"];
+    if ([defaults boolForKey:@"soundOn"] == YES) {
+        [_soundsSwitchToggle setOn:YES];
     } else {
-        self.settings.soundOn = soundsOn;
-        if (speechOn == YES) {
-            [_soundsSwitchToggle setOn:YES];
-        } else {
-            [_soundsSwitchToggle setOn:NO];
-        }
+        [_soundsSwitchToggle setOn:NO];
     }
-
+    
     // -- Left pitch settings --
-    
-    if ([defaults floatForKey:@"leftPitch"] < 0.5 || [defaults floatForKey:@"leftPitch"] > 1.5) {
-        self.settings.leftSliderValue = 1.0;
-    } else {
-        self.settings.leftSliderValue = leftPitch;
-    }
+    self.settings.leftSliderValue = [defaults floatForKey:@"leftPitch"];
+    self.leftPitchSlider.value = [defaults floatForKey:@"leftPitch"];
+    NSLog(@"Left slider value: %f", self.leftPitchSlider.value);
     
     // -- Right pitch settings --
+    self.settings.rightSliderValue = [defaults floatForKey:@"rightPitch"];
+    self.rightPitchSlider.value = [defaults floatForKey:@"rightPitch"];
+    NSLog(@"Right slider value: %f", self.rightPitchSlider.value);
     
-    if ([defaults floatForKey:@"rightPitch"] < 0.5 || [defaults floatForKey:@"rightPitch"] > 1.5) {
-        self.settings.rightSliderValue = 1.0;
-    } else {
-        self.settings.rightSliderValue = rightPitch;
-    }
+    // -- left Language Name and Code --
+    self.languageNameLeft.text = [defaults objectForKey:@"leftLanguageName"];
+    self.settings.leftLanguageCode = [defaults objectForKey:@"leftLanguageCode"];
     
-    // -- left Language Code --
-    if (leftLanguageCode == nil) {
-        self.languageNameLeft.text = @"English (United States)";
-    } else {
-        self.languageNameLeft.text = leftLanguageName;
-            }
-    NSLog(@"*** Language after view loads (): %@",leftLanguageName);
-
-    // -- right Language Code --
-    if (rightLanguageCode == nil) {
-        self.languageNameRight.text = @"English (United States)";
-    } else {
-        self.languageNameRight.text = rightLanguageName;
-        
-    }
-    NSLog(@"*** Language after view loads (): %@",rightLanguageName);
+    // -- right Language Name and Code --
+    self.languageNameRight.text = [defaults objectForKey:@"rightLanguageName"];
+    self.settings.leftLanguageCode = [defaults objectForKey:@"rightLanguageCode"];
     
     // delegate
     SelectLanguageTableTableViewController *languageViewController = [[SelectLanguageTableTableViewController alloc]init];
     languageViewController.delegate = self;
     
-
+    [self.tableView reloadData];
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
--(void)viewWillDisappear:(BOOL)animated
-{
-     //[self.delegate setSettings:self didSelectSettings:self.settings];
-}
+
 
 #pragma mark - Select Language Delegate
-
-/*
--(void) setSettings:(SettingsViewController *)controller didSelectSettings:(Settings *)settings {
-    
-    // set selected code passed from settings controls to code object
-    self.allSettings = [[Settings alloc]init];
-    
-    self.allSettings.vibrateOn = settings.vibrateOn;
-    self.allSettings.speechOn = settings.speechOn;
-    self.allSettings.soundOn = settings.soundOn;
-    self.allSettings.leftSliderValue = settings.leftSliderValue;
-    
-}
-*/
 
 -(void) setLanguage:(SelectLanguageTableTableViewController *)controller didSelectLanguage:(Language *)language {
     
@@ -169,13 +109,10 @@
     self.languageNameLeft.text = self.language.leftLanguageName;
     self.settings.leftLanguageCode = self.language.leftLanguageCode;
     
-    self.languageNameRight.text = self.language.rightLanguageName;
-    self.settings.rightLanguageCode = self.language.rightLanguageCode;
+    
     
     NSLog(@"**Language code passed: %@", self.language.leftLanguageCode);
-    NSLog(@"**Language code passed: %@", self.language.rightLanguageCode);
-    
-    
+   
     [self.delegate setSettings:self didSelectSettings:self.settings];
     
     // set defaults
@@ -186,6 +123,9 @@
     [defaults setValue:language.rightLanguageName forKey:@"rightLanguageName"];
     
     [defaults synchronize];
+    
+
+
     
 }
  
@@ -205,12 +145,13 @@
         NSLog(@"Vibrate on");
         
         [self.delegate setSettings:self didSelectSettings:self.settings];
-            [defaults setBool:self.settings.vibrateOn forKey:@"vibrateOn"];
+        [defaults setBool:self.settings.vibrateOn forKey:@"vibrateOn"];
+        
         } else {
             
             self.settings.vibrateOn = NO;
             NSLog(@"Vibrate off");
-       [self.delegate setSettings:self didSelectSettings:self.settings];
+            [self.delegate setSettings:self didSelectSettings:self.settings];
             [defaults setBool:self.settings.vibrateOn forKey:@"vibrateOn"];
 
             
@@ -220,20 +161,22 @@
 -(IBAction)vibrateTenSwitch:(id)sender
 {
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([_vibrateTenSwitchToggle isOn]) {
         
         self.settings.vibrateTenOn = YES;
         NSLog(@"Vibrate on");
         
         [self.delegate setSettings:self didSelectSettings:self.settings];
+        [defaults setBool:self.settings.vibrateTenOn forKey:@"vibrateTenOn"];
+
         
     } else {
         
         self.settings.vibrateTenOn = NO;
         NSLog(@"Vibrate off");
         [self.delegate setSettings:self didSelectSettings:self.settings];
-        
-        
+        [defaults setBool:self.settings.vibrateTenOn forKey:@"vibrateTenOn"];
     }
 }
 
@@ -241,64 +184,37 @@
     
     if ([_speechSwitchToggle isOn]) {
         self.settings.speechOn = YES;
-        [_soundsSwitchToggle setOn:YES];
         
-        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"speechOn"];
         [self.delegate setSettings:self didSelectSettings:self.settings];
+        
         
     } else {
         self.settings.speechOn = NO;
+         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"speechOn"];
         [self.delegate setSettings:self didSelectSettings:self.settings];
-        if (![_vibrateSwitchToggle isOn])
-        {
-            [_soundsSwitchToggle setOn:NO];
-            
+        
         }
-    }
 }
 
 // cast sender as UISwitch (rather than generic id) to create condition
 - (IBAction)soundsSwitch:(UISwitch *)sender
 {
     if (sender.on){
-        //self.settings.vibrateOn = YES;
-        //self.settings.speechOn = YES;
         self.settings.soundOn = YES;
-        
-        //[self.delegate currencyPicker:self didPickCurrency:currency];
-        
+    
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"soundOn"];
         [self.delegate setSettings:self didSelectSettings:self.settings];
         
-        //[_speechSwitchToggle setOn:YES];
-       // [_vibrateSwitchToggle setOn:YES];
-        
     } else {
-        
-       //self.settings.vibrateOn = NO;
         self.settings.soundOn = NO;
-        //self.settings.speechOn = NO;
-        
-        //[_speechSwitchToggle setOn:NO];
-        //[_vibrateSwitchToggle setOn:NO];
-        
+
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"soundOn"];
         [self.delegate setSettings:self didSelectSettings:self.settings];
         
     }
     
 }
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 
 - (IBAction)rightPitchChange:(id)sender {
     float min = 0.5;
@@ -307,7 +223,7 @@
     self.rightPitchSlider.minimumValue = min;
     self.rightPitchSlider.maximumValue = max;
     
-    
+    [[NSUserDefaults standardUserDefaults] setFloat:self.rightPitchSlider.value forKey:@"rightPitch"];
     self.settings.RightSliderValue = self.rightPitchSlider.value;
     
     [self.delegate setSettings:self didSelectSettings:self.settings];
@@ -324,6 +240,7 @@
     
     self.settings.LeftSliderValue = self.leftPitchSlider.value;
     
+    [[NSUserDefaults standardUserDefaults] setFloat:self.leftPitchSlider.value forKey:@"leftPitch"];
     [self.delegate setSettings:self didSelectSettings:self.settings];
 }
 
@@ -331,12 +248,12 @@
     if ([segue.identifier isEqualToString:@"SelectLanguage"]) {
         
         UINavigationController *navigationController = segue.destinationViewController;
-        // 2
         SelectLanguageTableTableViewController *controller = (SelectLanguageTableTableViewController *) navigationController.topViewController;
-        // 3
         controller.delegate = self;
-}
+    }
 }
 
 
 @end
+
+
