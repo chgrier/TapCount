@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Settings.h"
 #import "SelectLanguageTableTableViewController.h"
+#import "SelectRightLanguageViewController.h"
 
 @class SettingsViewController;
 
@@ -18,7 +19,7 @@
 
 @end
 
-@interface SettingsViewController : UITableViewController <SelectLanguageViewControllerDelegate>
+@interface SettingsViewController : UITableViewController <SelectLanguageViewControllerDelegate, SelectRightLanguageViewControllerDelegate>
 
 
 - (IBAction)vibrateSwitch:(id)sender;
@@ -44,10 +45,11 @@
 
 @property (nonatomic, weak) id<SettingsViewControllerDelegate> delegate;
 
+
 @property Settings *settings;
 @property Language *language;
 
-//@property Settings *languageSettings;
+
 
 
 @end

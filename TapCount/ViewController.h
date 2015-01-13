@@ -15,6 +15,7 @@
 #import "Settings.h"
 #import "SettingsViewController.h"
 #import "SelectLanguageTableTableViewController.h"
+#import "SelectRightLanguageViewController.h"
 
 NSInteger total;
 NSInteger totalTwo;

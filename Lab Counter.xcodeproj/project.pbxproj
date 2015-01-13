@@ -46,6 +46,9 @@
 		BE78AB6B19C75F7000BD9E0D /* decrementTwo.wav in Resources */ = {isa = PBXBuildFile; fileRef = BE78AB6A19C75F7000BD9E0D /* decrementTwo.wav */; };
 		BE855D931A141B0800845DCC /* Language.m in Sources */ = {isa = PBXBuildFile; fileRef = BE855D921A141B0800845DCC /* Language.m */; };
 		BE855D951A15114500845DCC /* MailTabIcon_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE855D941A15114500845DCC /* MailTabIcon_3x.png */; };
+		BE9324981A6483E90046ECAB /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9324971A6483E90046ECAB /* AboutViewController.m */; };
+		BE93249C1A6488C10046ECAB /* AboutLabCounter.html in Resources */ = {isa = PBXBuildFile; fileRef = BE93249B1A6488C10046ECAB /* AboutLabCounter.html */; };
+		BE93249F1A64955D0046ECAB /* SelectRightLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE93249E1A64955D0046ECAB /* SelectRightLanguageViewController.m */; };
 		BE9B58AE1A119095006D1C01 /* SelectLanguageTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9B58AD1A119095006D1C01 /* SelectLanguageTableTableViewController.m */; };
 		BEAB0E7419C359BB00AA7623 /* cell.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB0E7319C359BB00AA7623 /* cell.png */; };
 		BEAB0E7A19C360FC00AA7623 /* iconDraft.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB0E7919C360FC00AA7623 /* iconDraft.png */; };
@@ -128,6 +131,11 @@
 		BE855D911A141B0800845DCC /* Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Language.h; sourceTree = "<group>"; };
 		BE855D921A141B0800845DCC /* Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Language.m; sourceTree = "<group>"; };
 		BE855D941A15114500845DCC /* MailTabIcon_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MailTabIcon_3x.png; sourceTree = "<group>"; };
+		BE9324961A6483E90046ECAB /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		BE9324971A6483E90046ECAB /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		BE93249B1A6488C10046ECAB /* AboutLabCounter.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AboutLabCounter.html; sourceTree = "<group>"; };
+		BE93249D1A64955D0046ECAB /* SelectRightLanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectRightLanguageViewController.h; sourceTree = "<group>"; };
+		BE93249E1A64955D0046ECAB /* SelectRightLanguageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectRightLanguageViewController.m; sourceTree = "<group>"; };
 		BE9B58AC1A119095006D1C01 /* SelectLanguageTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectLanguageTableTableViewController.h; sourceTree = "<group>"; };
 		BE9B58AD1A119095006D1C01 /* SelectLanguageTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectLanguageTableTableViewController.m; sourceTree = "<group>"; };
 		BEAB0E7319C359BB00AA7623 /* cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell.png; sourceTree = "<group>"; };
@@ -200,6 +208,8 @@
 			children = (
 				BE9B58AC1A119095006D1C01 /* SelectLanguageTableTableViewController.h */,
 				BE9B58AD1A119095006D1C01 /* SelectLanguageTableTableViewController.m */,
+				BE93249D1A64955D0046ECAB /* SelectRightLanguageViewController.h */,
+				BE93249E1A64955D0046ECAB /* SelectRightLanguageViewController.m */,
 				BEDC140219CCBAAC009AC3C2 /* ReportViewController.h */,
 				BEDC140319CCBAAC009AC3C2 /* ReportViewController.m */,
 				BEDC13B619CBA0E0009AC3C2 /* HudView.h */,
@@ -210,6 +220,8 @@
 				BE70F1A719C0B5F70053E36A /* ViewController.m */,
 				BE2E2C231A01AD4100E7F6FC /* SettingsViewController.h */,
 				BE2E2C241A01AD4100E7F6FC /* SettingsViewController.m */,
+				BE9324961A6483E90046ECAB /* AboutViewController.h */,
+				BE9324971A6483E90046ECAB /* AboutViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -274,6 +286,7 @@
 		BE70F19819C0B5F70053E36A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BE93249B1A6488C10046ECAB /* AboutLabCounter.html */,
 				BE4FBE911A1FDB120032D0B2 /* professional.caf */,
 				BE4FBE8F1A1FDB040032D0B2 /* network.caf */,
 				BE4FBE8D1A1FD1B60032D0B2 /* scissors.caf */,
@@ -427,6 +440,7 @@
 				BEDC13BC19CC8318009AC3C2 /* microscope-50-white.png in Resources */,
 				BE1B5CC719CA02A00053A5D3 /* minusCircle.png in Resources */,
 				BEE387861A0BF4B9005048FF /* tap-crisp.aif in Resources */,
+				BE93249C1A6488C10046ECAB /* AboutLabCounter.html in Resources */,
 				BE4FBE921A1FDB120032D0B2 /* professional.caf in Resources */,
 				BE1B5CCF19CA12470053A5D3 /* clearButton.png in Resources */,
 				BE70F19C19C0B5F70053E36A /* InfoPlist.strings in Resources */,
@@ -478,6 +492,8 @@
 				BE2E2C251A01AD4100E7F6FC /* SettingsViewController.m in Sources */,
 				BE855D931A141B0800845DCC /* Language.m in Sources */,
 				BE70F19E19C0B5F70053E36A /* main.m in Sources */,
+				BE93249F1A64955D0046ECAB /* SelectRightLanguageViewController.m in Sources */,
+				BE9324981A6483E90046ECAB /* AboutViewController.m in Sources */,
 				BEDC13B819CBA0E0009AC3C2 /* HudView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

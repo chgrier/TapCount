@@ -148,9 +148,6 @@
 }
 
 
-
-
-
 // UITextViewDelegate
 
 #pragma mark UITextViewDelegate
@@ -175,19 +172,6 @@
     return YES;
 }
 
-/*
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"SaveToTable"]) {
-        UINavigationController *navigationController = segue.destinationViewController;
-        
-        ReportViewController *controller = (ReportViewController *) navigationController.topViewController;
-        
-        controller.managedObjectContext = self.managedObjectContext;
-        
-    }
-}
-*/
 
 
 

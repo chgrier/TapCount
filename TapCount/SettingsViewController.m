@@ -10,6 +10,7 @@
 #import "Settings.h"
 #import "Language.h"
 #import "SelectLanguageTableTableViewController.h"
+#import "SelectRightLanguageViewController.h"
 
 @interface SettingsViewController ()
 {
@@ -81,11 +82,14 @@
     
     // -- right Language Name and Code --
     self.languageNameRight.text = [defaults objectForKey:@"rightLanguageName"];
-    self.settings.leftLanguageCode = [defaults objectForKey:@"rightLanguageCode"];
+    self.settings.rightLanguageCode = [defaults objectForKey:@"rightLanguageCode"];
     
-    // delegate
+    // delegates
     SelectLanguageTableTableViewController *languageViewController = [[SelectLanguageTableTableViewController alloc]init];
     languageViewController.delegate = self;
+    
+    SelectRightLanguageViewController *rightLanguageViewController = [[SelectRightLanguageViewController alloc]init];
+    rightLanguageViewController.delegate = self;
     
     [self.tableView reloadData];
     
@@ -99,17 +103,13 @@
 #pragma mark - Select Language Delegate
 
 -(void) setLanguage:(SelectLanguageTableTableViewController *)controller didSelectLanguage:(Language *)language {
-    
-    //self.languageSettings = [[Settings alloc]init];
-    //self.languageSettings.leftLanguageCode = language.leftLanguageCode;
+
     
     self.language = [[Language alloc]init];
     self.language = language;
     
     self.languageNameLeft.text = self.language.leftLanguageName;
     self.settings.leftLanguageCode = self.language.leftLanguageCode;
-    
-    
     
     NSLog(@"**Language code passed: %@", self.language.leftLanguageCode);
    
@@ -119,20 +119,35 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:language.leftLanguageCode forKey:@"leftLanguageCode"];
     [defaults setValue:language.leftLanguageName forKey:@"leftLanguageName"];
+
+    
+    [defaults synchronize];
+    
+}
+ 
+
+#pragma mark - Select Right Language Delegate
+
+-(void) setRightLanguage:(SelectRightLanguageViewController *)controller didSelectLanguage:(Language *)language {
+    
+    self.language = [[Language alloc]init];
+    self.language = language;
+    
+    self.languageNameRight.text = self.language.rightLanguageName;
+    self.settings.rightLanguageCode = self.language.rightLanguageCode;
+    
+    NSLog(@"**Language code passed: %@", self.language.rightLanguageCode);
+    
+    [self.delegate setSettings:self didSelectSettings:self.settings];
+    
+    // set defaults
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:language.rightLanguageCode forKey:@"rightLanguageCode"];
     [defaults setValue:language.rightLanguageName forKey:@"rightLanguageName"];
     
     [defaults synchronize];
     
-
-
-    
 }
- 
-
-
-
-
 
 // UISWITCH CONTROLS
 
@@ -251,6 +266,16 @@
         SelectLanguageTableTableViewController *controller = (SelectLanguageTableTableViewController *) navigationController.topViewController;
         controller.delegate = self;
     }
+    
+    if ([segue.identifier isEqualToString:@"SelectRightLanguage"]) {
+        
+        UINavigationController *navigationController = segue.destinationViewController;
+        SelectRightLanguageViewController *controller = (SelectRightLanguageViewController *) navigationController.topViewController;
+        controller.delegate = self;
+    }
+
+    
+    
 }
 
 

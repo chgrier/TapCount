@@ -67,8 +67,8 @@
         [[NSUserDefaults standardUserDefaults] setValue:@"en-GB" forKey:@"rightLanguageCode"];
     }
     
-    if([[NSUserDefaults standardUserDefaults] objectForKey:@"leftLanguageName"] == nil) {
-        [[NSUserDefaults standardUserDefaults] setValue:@"English (United Kingdom)" forKey:@"leftLanguageName"];
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"rightLanguageName"] == nil) {
+        [[NSUserDefaults standardUserDefaults] setValue:@"English (United Kingdom)" forKey:@"rightLanguageName"];
     }
 
     if([[NSUserDefaults standardUserDefaults] objectForKey:@"leftPitch"] == nil) {
@@ -223,14 +223,7 @@
      
         if ( a % b == 0){
             AudioServicesPlayAlertSound (kSystemSoundID_Vibrate);
-            
-            //NSString *count = [NSString stringWithFormat:@"%ld",(long)total];
-            //NSString *count = [NSString stringWithFormat:@"Blasts"];
-            
-            
-            //AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:count];
-            
-            //[_speechSynthesizer speakUtterance:utterance];
+  
         }
     }
     
@@ -278,13 +271,6 @@
         if ( a % b == 0){
             AudioServicesPlayAlertSound (kSystemSoundID_Vibrate);
             
-            //NSString *count = [NSString stringWithFormat:@"%ld",(long)total];
-            //NSString *count = [NSString stringWithFormat:@"Blasts"];
-            
-            
-            //AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc]initWithString:count];
-            
-            //[_speechSynthesizer speakUtterance:utterance];
         }
     }
     
