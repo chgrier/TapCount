@@ -190,27 +190,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="i4a-Ix-Tsu">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1024" id="Gfo-pD-TiQ"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1500" id="S8N-yc-pzu"/>
-                                    <constraint firstAttribute="width" constant="1600" id="cTj-qI-QM5"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Gfo-pD-TiQ"/>
-                                        <exclude reference="S8N-yc-pzu"/>
-                                        <exclude reference="cTj-qI-QM5"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cellsBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="1lh-Fn-gRT">
+                                <rect key="frame" x="180" y="287" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="800" height="751"/>
-                                    <mask key="constraints">
-                                        <include reference="Gfo-pD-TiQ"/>
-                                        <include reference="S8N-yc-pzu"/>
-                                        <include reference="cTj-qI-QM5"/>
-                                    </mask>
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRd-TL-f2A">
@@ -882,12 +865,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ohz-ES-qBW">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohz-ES-qBW">
                                 <rect key="frame" x="163" y="98" width="300" height="361"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="163" y="98" width="300" height="561"/>
-                                </variation>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="3xb-Y8-Ekp"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="ES9-wv-s5m" id="JvA-b9-wVy"/>
                                 </connections>
@@ -905,10 +888,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ibf-DP-yun" firstAttribute="centerX" secondItem="ohz-ES-qBW" secondAttribute="centerX" id="1KB-UQ-YLP"/>
-                            <constraint firstAttribute="centerY" secondItem="ohz-ES-qBW" secondAttribute="centerY" constant="21.5" id="4l7-PU-Npz"/>
                             <constraint firstItem="Ibf-DP-yun" firstAttribute="top" secondItem="ohz-ES-qBW" secondAttribute="bottom" constant="15" id="8nG-vb-Obg"/>
-                            <constraint firstAttribute="centerX" secondItem="ohz-ES-qBW" secondAttribute="centerX" constant="-13" id="Iq9-HW-tYX"/>
-                            <constraint firstItem="ohz-ES-qBW" firstAttribute="top" secondItem="HeK-RS-PMo" secondAttribute="bottom" constant="34" id="dIB-uP-JKD"/>
+                            <constraint firstItem="ohz-ES-qBW" firstAttribute="leading" secondItem="5lP-Ah-5sv" secondAttribute="leading" constant="163" id="XRg-Vk-6Jy"/>
+                            <constraint firstItem="pKI-ee-1t8" firstAttribute="top" secondItem="Ibf-DP-yun" secondAttribute="bottom" constant="96" id="eaM-Ee-bxF"/>
+                            <constraint firstItem="ohz-ES-qBW" firstAttribute="top" secondItem="HeK-RS-PMo" secondAttribute="bottom" constant="34" id="iD5-L8-j1l"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ku2-0D-3Z4">
@@ -1083,11 +1066,11 @@
     </scenes>
     <resources>
         <image name="AddButtonLarge" width="150" height="150"/>
-        <image name="Background" width="600" height="473"/>
         <image name="MailIcon" width="50" height="50"/>
         <image name="MicroscopeIcon" width="50" height="50"/>
         <image name="MinusButton" width="100" height="100"/>
         <image name="SettingsIcon" width="50" height="50"/>
+        <image name="cellsBackground.png" width="600" height="473"/>
         <image name="clearButton.png" width="260" height="72"/>
         <image name="rectangle.png" width="150" height="150"/>
         <image name="saveButton.png" width="260" height="72"/>
