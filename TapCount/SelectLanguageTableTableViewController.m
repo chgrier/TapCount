@@ -49,9 +49,11 @@
         NSArray *languages = [voices valueForKey:@"language"];
         
         NSLocale *currentLocale = [NSLocale autoupdatingCurrentLocale];
+       // NSLocale *currentLocale = [NSLocale currentLocale];
         NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
         for (NSString *code in languages)
         {
+            //dictionary[code] = [currentLocale displayNameForKey:NSLocaleIdentifier value:code];
             dictionary[code] = [currentLocale displayNameForKey:NSLocaleIdentifier value:code];
         }
         _languageDictionary = dictionary;
@@ -108,8 +110,6 @@
     [self.delegate setLanguage:self didSelectLanguage:languageCodeName];
     
     NSLog(@"Language selected: %@ and %@ = %@", languageCode, languageCodeName.leftLanguageCode, languageName);
-    
-  
     
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     
