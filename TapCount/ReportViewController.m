@@ -162,37 +162,40 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([MFMailComposeViewController canSendMail]) {
+    NSLog(@"Mail working");
     MFMailComposeViewController *controller = [[MFMailComposeViewController alloc]init];
-    
-    controller.modalPresentationStyle = UIModalPresentationPopover;
+    //controller.modalPresentationStyle = UIModalPresentationPopover;
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     //UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     //Report *report = _reports[indexPath.row];
      Report *report = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    
+
     controller.mailComposeDelegate = self;
     
         if (controller != nil) {
-            //[controller setSubject:@"Email test from PathCounter"];
-            //[controller setToRecipients:@[@"chgrier@mac.com"]];
             
             if ([report.reportName length] > 0) {
                 [controller setSubject:report.reportName];
                 
             } else {
-                [controller setSubject:@"Untitled Report"];            }
+                [controller setSubject:@"Untitled Report"];
+            }
             
             NSString *date = [self formatDate:report.date] ;
             NSString *reportBody = [NSString stringWithFormat:@"%@  \n %@  \n Date: %@ \n \n Sent using Lab Counter for iOS", report.blastCount, report.otherCount, date];
             [controller setMessageBody:reportBody isHTML:NO];
-           
-            
+                
             [self presentViewController:controller animated:YES completion:nil];
-            
-            
+
         }
+    } else {
+        UIAlertView *anAlert = [[UIAlertView alloc] initWithTitle:@"error" message:@"No mail account setup on device" delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
+        [anAlert addButtonWithTitle:@"Cancel"];
+        [anAlert show];
+        NSLog(@"######Can't send mail");
+    }
     }
 
 

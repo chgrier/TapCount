@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -438,17 +439,17 @@
                                 <exclude reference="SAD-7Z-AXw"/>
                                 <exclude reference="do7-zc-7qT"/>
                                 <exclude reference="xbp-q1-MCn"/>
-                                <exclude reference="3O1-bE-Z1H"/>
                                 <exclude reference="coS-Xg-aWR"/>
                                 <exclude reference="eOo-xe-5cQ"/>
+                                <exclude reference="3O1-bE-Z1H"/>
+                                <exclude reference="Rp1-fQ-qZI"/>
+                                <exclude reference="mmZ-Fb-JiI"/>
+                                <exclude reference="Epu-vQ-biY"/>
+                                <exclude reference="yOa-oU-lKL"/>
                                 <exclude reference="B6E-sb-Bbd"/>
                                 <exclude reference="JHk-jE-6ft"/>
                                 <exclude reference="REd-ua-xPV"/>
-                                <exclude reference="Rp1-fQ-qZI"/>
-                                <exclude reference="mmZ-Fb-JiI"/>
                                 <exclude reference="c8U-ik-2U5"/>
-                                <exclude reference="Epu-vQ-biY"/>
-                                <exclude reference="yOa-oU-lKL"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -461,9 +462,9 @@
                                 <include reference="YWV-g4-A27"/>
                                 <include reference="Rp1-fQ-qZI"/>
                                 <include reference="mmZ-Fb-JiI"/>
-                                <include reference="c8U-ik-2U5"/>
                                 <include reference="Epu-vQ-biY"/>
                                 <include reference="yOa-oU-lKL"/>
+                                <include reference="c8U-ik-2U5"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
@@ -475,8 +476,8 @@
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
                                 <include reference="qn9-qp-AmY"/>
-                                <include reference="vxM-qu-NyL"/>
                                 <include reference="Aqu-Ad-VSV"/>
+                                <include reference="vxM-qu-NyL"/>
                                 <include reference="g5f-rb-JHD"/>
                             </mask>
                         </variation>
