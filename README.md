@@ -6,8 +6,12 @@
 Talking Lab Counter speaks your totals so you can focus on your lab counts. No need to look up to see if you've added to the correct column--the app says the total in a distinct voice or pitch to differentiate each counter.
 
 ######Features: 
-- AVFoundation framework and the AVSpeechSynthesizer class allows for different voices/languages and sounds to provide feedback to the user.
+- AVFoundation framework using AVSpeechSynthesizer allows for different voices/languages and sounds to provide feedback to the user.
 - Delegation pattern to pass information from the settings controllers to the main view controller.
 - NSUserDefaults stores voice settings.
 - CoreData stores lab reports.
-- Adaptive Layout allows the app to work on all iPhone sizes and the iPad.
+- Adaptive Layout - works on all iPhone sizes and the iPad.
+- Heads Up Display UIView provides confirmation when report it saved.
+
+######Screen Shots:
+ftp://charlesg@charlesgrier.com/public_html/screen_shots/TalkingCounter_MainScreen.png
