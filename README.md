@@ -15,6 +15,6 @@ Talking Lab Counter speaks your totals so you can focus on your lab counts. No n
 
 ######Screen Shots:
 <img src="http://charlesgrier.com/screen_shots/TalkingCounter_MainScreen.png" height="400" width="225"> &nbsp;&nbsp;
-<img src="http://charlesgrier.com/screen_shots/TalkingCounter_SettingsScreen.png" height="400" width="225"> <br>
+<img src="http://charlesgrier.com/screen_shots/TalkingCounter_SettingsScreen.png" height="400" width="225"> <br> <br> <br>
 <img src="http://charlesgrier.com/screen_shots/TalkingCounter_HUDScreen.png" height="400" width="225"> &nbsp;&nbsp;
 <img src="http://charlesgrier.com/screen_shots/TalkingCounter_EmailScreen.png" height="400" width="225">
