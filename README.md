@@ -1,6 +1,6 @@
 # Talking Lab Counter
 
-###A talking counter with a choice of voices and sounds.
+###A counter app for iOS that uses voice synthesis to differentiate counts.
 
 ######Description: 
 Talking Lab Counter speaks your totals so you can focus on your lab counts. No need to look up to see if you've added to the correct column--the app says the total in a distinct voice or pitch to differentiate each counter.
@@ -14,4 +14,7 @@ Talking Lab Counter speaks your totals so you can focus on your lab counts. No n
 - Heads Up Display UIView provides confirmation when report it saved.
 
 ######Screen Shots:
-ftp://charlesg@charlesgrier.com/public_html/screen_shots/TalkingCounter_MainScreen.png
+<img src="http://charlesgrier.com/screen_shots/TalkingCounter_MainScreen.png" height="400" width="225">
+<img src="http://charlesgrier.com/screen_shots/TalkingCounter_SettingsScreen.png" height="400" width="225">
+<img src="http://charlesgrier.com/screen_shots/TalkingCounter_HUDScreen.png" height="400" width="225">
+<img src="http://charlesgrier.com/screen_shots/TalkingCounter_EmailScreen.png" height="400" width="225">
